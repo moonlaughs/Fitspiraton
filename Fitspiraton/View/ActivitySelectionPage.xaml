@@ -9,7 +9,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush Stretch="Fill" ImageSource="Assets/own images/bg.jpg"/>
+            <ImageBrush Stretch="Fill" ImageSource="../Assets/own images/bg.jpg"/>
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50*"/>
