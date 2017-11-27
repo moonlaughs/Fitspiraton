@@ -7,7 +7,32 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="../Assets/own images/../own images/bg.jpg"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="373*"/>
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="125*"/>
+            <RowDefinition Height="150*"/>
+            <RowDefinition Height="683*"/>
+            <RowDefinition Height="125*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
+            <TextBlock HorizontalAlignment="Right" Margin="0,0,0,0" TextWrapping="Wrap" Text="Welcome," VerticalAlignment="Bottom" FontSize="40" Foreground="White"/>
+            <TextBlock Margin="15,0,0,0" TextWrapping="Wrap" Text="Jon Snow" FontSize="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="White"/>
+        </StackPanel>
 
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock HorizontalAlignment="Right" Margin="0,0,0,0" TextWrapping="Wrap" Text="Calendar" VerticalAlignment="Bottom" FontSize="80" Foreground="White"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Stretch">
+            <CalendarView HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Height="Auto" Background="LightBlue" CalendarItemBackground="Lime" OutOfScopeBackground="Gray"/>
+        </StackPanel>
     </Grid>
 </Page>
