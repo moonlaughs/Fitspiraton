@@ -106,6 +106,9 @@
     <Compile Include="View\ActivitySelectionPage.xaml.cs">
       <DependentUpon>ActivitySelectionPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AttendantsListPage.xaml.cs">
+      <DependentUpon>AttendantsListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ManagerUsersPage.xaml.cs">
       <DependentUpon>ManagerUsersPage.xaml</DependentUpon>
     </Compile>
@@ -147,6 +150,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\ActivitySelectionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AttendantsListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
