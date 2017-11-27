@@ -109,11 +109,17 @@
     <Compile Include="View\AttendantsListPage.xaml.cs">
       <DependentUpon>AttendantsListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\CalendarPage.xaml.cs">
+      <DependentUpon>CalendarPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ManagerUsersPage.xaml.cs">
       <DependentUpon>ManagerUsersPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ManagerViewPage.xaml.cs">
       <DependentUpon>ManagerViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SampleActivityPage.xaml.cs">
+      <DependentUpon>SampleActivityPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -158,11 +164,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\CalendarPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ManagerUsersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ManagerViewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SampleActivityPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
