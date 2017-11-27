@@ -103,6 +103,9 @@
     <Compile Include="ViewModel\NotifyPropertyClass.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\UsersVM.cs" />
+    <Compile Include="View\ActivitySelectionPage.xaml.cs">
+      <DependentUpon>ActivitySelectionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ManagerUsersPage.xaml.cs">
       <DependentUpon>ManagerUsersPage.xaml</DependentUpon>
     </Compile>
@@ -142,6 +145,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ActivitySelectionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ManagerUsersPage.xaml">
       <SubType>Designer</SubType>
