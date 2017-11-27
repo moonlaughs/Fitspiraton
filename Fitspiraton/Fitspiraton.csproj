@@ -125,6 +125,7 @@
   <ItemGroup>
     <Content Include="Assets\FitspirationDesign\Fitness 6.jpg" />
     <Content Include="Assets\FitspirationDesign\LogoFitspiration.jpg" />
+    <Content Include="Assets\own images\bg.jpg" />
     <Content Include="Assets\UP\arya.jpg" />
     <Content Include="Assets\UP\bran.jpg" />
     <Content Include="Assets\UP\daenerys.jpg" />
@@ -171,9 +172,7 @@
       <Version>6.0.1</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\own images\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
