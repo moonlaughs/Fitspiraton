@@ -32,7 +32,7 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Stretch">
-            <CalendarView HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Height="Auto" Background="LightBlue" CalendarItemBackground="Lime" OutOfScopeBackground="Gray"/>
+            <CalendarView HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Height="678" Background="LightBlue" CalendarItemBackground="Lime" OutOfScopeBackground="Gray"/>
         </StackPanel>
     </Grid>
 </Page>
