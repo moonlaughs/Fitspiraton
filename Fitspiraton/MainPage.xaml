@@ -9,5 +9,21 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Image Source="Assets/FitspirationDesign/Fitness 6.jpg" Stretch="UniformToFill"  HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        <StackPanel Grid.Column="1" >
+            <Image Source="Assets/FitspirationDesign/LogoFitspiration.jpg" Height="170" Width="200" Margin="0,100,0,0" HorizontalAlignment="Center"  />
+            <TextBlock Text="Fitspiration" HorizontalAlignment="Center" Width="200" FontFamily="Leelawadee" FontSize="40"
+                       Margin="50, 0, 50, 50" FontStretch="UltraExpanded"/>
+            <TextBox  Name="userNameBox"  HorizontalAlignment="Center" PlaceholderText="username" 
+                       Margin="0,0,0,50" TextWrapping="Wrap"  VerticalAlignment="Top" Width="180" BorderBrush="#660F0F0F" />
+            <PasswordBox Name="passwordBox"  HorizontalAlignment="Center" PlaceholderText="password" Margin="70,0,70,50" VerticalAlignment="Top" Width="180"/>
+            <Button Content="Log In" FontFamily="Barlow Semi Condensed Thin" HorizontalAlignment="Center" Margin="70,0,70,50" VerticalAlignment="Top" Width="180" BorderBrush="#7FF013B3" Background="#B2EC1616" Foreground="#FFF7F5F5" BorderThickness="3" Click="Button_Click"/>
+            <TextBlock  VerticalAlignment="Bottom" Text="Powered by: Mistery Inc." Margin="0,300,0,0" HorizontalAlignment="Center" Width="200" FontFamily="Calibri Light" FontSize="18"/>
+
+        </StackPanel>
     </Grid>
 </Page>
