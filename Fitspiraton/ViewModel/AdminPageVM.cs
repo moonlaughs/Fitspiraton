@@ -25,11 +25,13 @@ namespace Fitspiraton.ViewModel
 
         public AdminPageVM()
         {
-            Users = new ObservableCollection<User>
-            {
-                new User("Jon", "stark01", "youknownothing", "../Assets/UP/jon.jpg"),
-                new User("Arya", "stark02", "needle", "../Assets/UP/arya.jpg")
-            };
+            
+
+            //Users = new ObservableCollection<User>
+            //{
+            //    new User("Jon", "stark01", "youknownothing", "../Assets/UP/jon.jpg"),
+            //    new User("Arya", "stark02", "needle", "../Assets/UP/arya.jpg")
+            //};
             DeleteItemCommand = new RelayCommand(DoDeleteItem);
             AddItemCommand = new RelayCommand(DoAddItem);
             UpdateItemCommand = new RelayCommand(DoUpdateItem);

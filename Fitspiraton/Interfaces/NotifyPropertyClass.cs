@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 
 namespace Fitspiraton.ViewModel
 {
-    class NotifyPropertyClass : INotifyPropertyChanged
+    public class NotifyPropertyClass : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

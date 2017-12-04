@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fitspiraton.Model
 {
-    class Member : User
+    public class Member : User
     {
         private int _bmiResult;
 
