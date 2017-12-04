@@ -50,7 +50,7 @@ namespace Fitspiraton.ViewModel
                         await msg.ShowAsync();
                         break;
                     }
-                    else if (LoginStatus != false) 
+                    else if (LoginStatus == false) 
                     {
                         MessageDialog msg = new MessageDialog("Sorry wrong input.");
                         await msg.ShowAsync();
