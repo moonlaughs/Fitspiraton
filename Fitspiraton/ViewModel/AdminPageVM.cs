@@ -1,30 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using Fitspiraton.Model;
 
 namespace Fitspiraton.ViewModel
 {
-    class UsersVM : NotifyPropertyClass
+    class AdminPageVM : NotifyPropertyClass
     {
-        private Users _selectedItem;
+        private User _selectedItem;
 
-
-        public ObservableCollection<Users> Users { get; set; }
-
-
-        public Users AddNewUser { get; set; }
-
+        public ObservableCollection<User> Users { get; set; }
+        public User AddNewUser { get; set; }
         public RelayCommand AddItemCommand { get; set; }
         public RelayCommand DeleteItemCommand { get; set; }
         public RelayCommand UpdateItemCommand { get; set; }
 
-
-
-        public Users SelectedItem
+        public User SelectedItem
         {
             get => _selectedItem;
             set
@@ -34,20 +23,19 @@ namespace Fitspiraton.ViewModel
             }
         }
 
-
-        public UsersVM()
+        public AdminPageVM()
         {
-            Users = new ObservableCollection<Users>
+            Users = new ObservableCollection<User>
             {
-                new Users("Jon", "stark01", "youknownothing", "../Assets/UP/jon.jpg"),
-                new Users("Arya", "stark02", "needle", "../Assets/UP/arya.jpg")
+                new User("Jon", "stark01", "youknownothing", "../Assets/UP/jon.jpg"),
+                new User("Arya", "stark02", "needle", "../Assets/UP/arya.jpg")
             };
             DeleteItemCommand = new RelayCommand(DoDeleteItem);
             AddItemCommand = new RelayCommand(DoAddItem);
             UpdateItemCommand = new RelayCommand(DoUpdateItem);
 
-            AddNewUser = new Users();
-            SelectedItem = new Users();
+            AddNewUser = new User();
+            SelectedItem = new User();
         }
 
         // Delete/Add 
@@ -62,9 +50,9 @@ namespace Fitspiraton.ViewModel
 
         public void DoUpdateItem()
         {
-            Users = new ObservableCollection<Users>
+            Users = new ObservableCollection<User>
             {
-                new Users(SelectedItem.id, SelectedItem.name , SelectedItem.password, SelectedItem.photo)
+                new User(SelectedItem.Id, SelectedItem.Name , SelectedItem.Password, SelectedItem.Photo)
             };
         }
     }

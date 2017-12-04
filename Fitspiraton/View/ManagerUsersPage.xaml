@@ -11,7 +11,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <Grid.DataContext>
-            <ViewModel:UsersVM/>
+            <ViewModel:AdminPageVM/>
         </Grid.DataContext>
 
         <Grid.RowDefinitions>
