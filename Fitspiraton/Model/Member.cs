@@ -6,13 +6,20 @@ using System.Threading.Tasks;
 
 namespace Fitspiraton.Model
 {
-    class Member : User
+    public class Member : User
     {
         private int _bmiResult;
 
         public Member(string name, string id, string password, string photo , int bmiResult) : base(name, id, password, photo)
         {
             BmiResult = bmiResult;
+        }
+
+        public Member(string name, string id, string password)
+        {
+            Name = name;
+            Id = id;
+            Password = password;
         }
 
         public Member()
