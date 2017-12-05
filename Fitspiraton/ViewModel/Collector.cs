@@ -19,7 +19,8 @@ namespace Fitspiraton.ViewModel
             {
                 new Member("Jon", "stark01", "youknownothing",  "../Assets/UP/jon.jpg"),
                 new Member("Arya", "stark02", "needle", "../Assets/UP/arya.jpg"),
-                new Member("Patrik<3", "pat", "xxx", "../Assets/UP/jon.jpg")
+                new Member("Patrik<3", "pat", "xxx", "../Assets/UP/sansa.jpg"),
+                new Member("Iza", "moon", "ooo", "../Assets/UP/arya.jpg")
             };
         }
     }

@@ -23,27 +23,43 @@
             <ViewModel:UserMenuVm/>
         </Grid.DataContext>
 
-        <StackPanel Grid.Column="0" Background="#FF817D7D">
+        <StackPanel Grid.Column="0" Background="#FF252932">
             <Grid Height="1080">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30*"/>
                     <RowDefinition Height="100*"/>
                     <RowDefinition Height="257*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Fitspiration" FontSize="48" Margin="50,0,0,0" HorizontalAlignment="Left" Grid.Row="0" FontFamily="Book Antiqua"/>
+                <TextBlock Text="Fitspiration" FontSize="48" Margin="50,0,0,0" HorizontalAlignment="Left" Grid.Row="0" FontFamily="Book Antiqua" Foreground="White"/>
                 <Ellipse Grid.Row="1" Height="200" Width="200" Margin="0,0,200,0">
                     <Ellipse.Fill>
                         <ImageBrush Stretch="UniformToFill" ImageSource="{Binding Image, Mode=TwoWay}"/>
                     </Ellipse.Fill>
                 </Ellipse>
-                <TextBlock Grid.Row="1" Text="{Binding Name, Mode=TwoWay}" HorizontalAlignment="Right" Margin="0,0,100,0" Height="50" FontSize="32" FontFamily="Book Antiqua"/>
-                <TextBlock Grid.Row="1" Text="{Binding Id, Mode=TwoWay}" HorizontalAlignment="Right" Margin="0,100,100,0" Height="50" FontSize="24" FontFamily="Book Antiqua"/>
+                <TextBlock Grid.Row="1" Text="{Binding Name, Mode=TwoWay}" HorizontalAlignment="Right" Margin="0,0,100,0" Height="50" FontSize="32" FontFamily="Book Antiqua" Foreground="White"/>
+                <TextBlock Grid.Row="1" Text="{Binding Id, Mode=TwoWay}" HorizontalAlignment="Right" Margin="0,100,100,0" Height="50" FontSize="24" FontFamily="Book Antiqua" Foreground="#FF50D2E5"/>
                 <StackPanel Orientation="Vertical"
                             Grid.Row="2">
-                    <Button Content="Profile" Height="100" Width="480" Click="ProfileBtn_OnClicked" FontSize="32" FontFamily="Book Antiqua"/>
-                    <Button Content="Recent Bookings" Height="100" Width="480" FontSize="32" FontFamily="Book Antiqua" Click="RcentBtn_OnClicked"/>
-                    <Button Content="Book" Height="100" Width="480" FontFamily="Book Antiqua" FontSize="32" Click="Button_Click"/>
-                    <Button Content="Log out" Height="100" Width="480" FontFamily="Book Antiqua" FontSize="32" Click="BackBtn_OnClicked"/>
+                    <Button x:Name="ProfileBtn" Click="ProfileBtn_OnClicked" Margin="0,0,0, 5" Height="100" Width="480" Content="Profile" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32" FontFamily="Book Antiqua" Foreground="White">
+                        <Button.Background>
+                            <SolidColorBrush Color="Aqua" Opacity="0.8"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="RecentBookingBtn" Content="Recent Bookings" Margin="0,0,0, 5" Height="100" Width="480" FontSize="32" FontFamily="Book Antiqua" Click="RcentBtn_OnClicked" Foreground="White">
+                        <Button.Background>
+                            <SolidColorBrush Color="Aqua" Opacity="0.8"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="BookBtn" Content="Book" Height="100" Width="480" Margin="0,0,0, 5" FontFamily="Book Antiqua" FontSize="32" Click="Button_Click" Foreground="White">
+                        <Button.Background>
+                            <SolidColorBrush Color="Aqua" Opacity="0.8"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="BackBtn" Content="Log out" Height="100" Width="480" Margin="0,0,0, 5" FontFamily="Book Antiqua" FontSize="32" Click="BackBtn_OnClicked" Foreground="White">
+                        <Button.Background>
+                            <SolidColorBrush Color="Aqua" Opacity="0.8"/>
+                        </Button.Background>
+                    </Button>
                 </StackPanel>
             </Grid>
         </StackPanel>
