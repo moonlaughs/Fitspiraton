@@ -96,7 +96,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\FrameNavigateClass.cs" />
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="Interfaces\SingletonMember.cs" />
+    <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Activity.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="ViewModel\AdminPageVM.cs" />
     <Compile Include="ViewModel\Collector.cs" />
     <Compile Include="ViewModel\LoginVm.cs" />
+    <Compile Include="ViewModel\UserMenuVm.cs" />
     <Compile Include="View\ActivitySelectionPage.xaml.cs">
       <DependentUpon>ActivitySelectionPage.xaml</DependentUpon>
     </Compile>
@@ -168,7 +170,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
+    <Page Include="View\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

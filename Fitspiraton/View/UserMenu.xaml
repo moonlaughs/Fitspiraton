@@ -1,9 +1,10 @@
 ﻿<Page
-    x:Class="Fitspiraton.View.UserMenu"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ViewModel="using:Fitspiraton.ViewModel"
+    x:Class="Fitspiraton.View.UserMenu"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -11,29 +12,33 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
+        
+        <Grid.DataContext>
+            <ViewModel:UserMenuVm/>
+        </Grid.DataContext>
+        
         <StackPanel Grid.Column="0" Background="#FF817D7D">
             <Grid Height="1080">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="19*"/>
+                    <RowDefinition Height="30*"/>
                     <RowDefinition Height="100*"/>
                     <RowDefinition Height="257*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Fitspiration" FontSize="32" Margin="50,0,0,0" HorizontalAlignment="Left" Grid.Row="0"/>
-                <Image Grid.Row="1" Margin="0,0,200,0"  Height="200" Width="200" Source="../Assets/Square150x150Logo.png" />
-                <TextBlock Grid.Row="1" Text="NAME" HorizontalAlignment="Right" Margin="0,0,100,0" Height="50" FontSize="32"/>
-                <TextBlock Grid.Row="1" Text="(loginid)" HorizontalAlignment="Right" Margin="0,100,100,0" Height="50" FontSize="24"/>
+                <TextBlock Text="Fitspiration" FontSize="48" Margin="50,0,0,0" HorizontalAlignment="Left" Grid.Row="0" FontFamily="Book Antiqua"/>
+                <Image Grid.Row="1" Margin="0,0,200,0"  Height="200" Width="200" Source="{Binding Image, Mode=TwoWay}" />
+                <TextBlock Grid.Row="1" Text="{Binding Name, Mode=TwoWay}" HorizontalAlignment="Right" Margin="0,0,100,0" Height="50" FontSize="32" FontFamily="Book Antiqua"/>
+                <TextBlock Grid.Row="1" Text="{Binding Id, Mode=TwoWay}" HorizontalAlignment="Right" Margin="0,100,100,0" Height="50" FontSize="24" FontFamily="Book Antiqua"/>
                 <StackPanel Orientation="Vertical"
                             Grid.Row="2">
-                    <Button Content="Profile" Height="100" Width="480" Click="ProfileBtn_OnClicked"/>
-                    <Button Content="Recent Bookings" Height="100" Width="480"/>
-                    <Button Content="Book" Height="100" Width="480"/>
+                    <Button Content="Profile" Height="100" Width="480" Click="ProfileBtn_OnClicked" FontSize="32" FontFamily="Book Antiqua"/>
+                    <Button Content="Recent Bookings" Height="100" Width="480" FontSize="32" FontFamily="Book Antiqua" Click="RcentBtn_OnClicked"/>
+                    <Button Content="Book" Height="100" Width="480" FontFamily="Book Antiqua" FontSize="32"/>
+                    <Button Content="←" Height="100" Width="480" FontFamily="Book Antiqua" FontSize="56" Click="BackBtn_OnClicked"/>
                 </StackPanel>
             </Grid>
         </StackPanel>
         <Frame Grid.Column="1"
                Width="1445"
-               x:Name="UserMenuFrame">
-
-        </Frame>
+               x:Name="UserMenuFrame"/>
     </Grid>
 </Page>

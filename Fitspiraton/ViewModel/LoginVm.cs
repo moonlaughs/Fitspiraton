@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 using Windows.UI.Popups;
 using Fitspiraton.Interfaces;
 using Fitspiraton.Model;
@@ -21,31 +23,33 @@ namespace Fitspiraton.ViewModel
             }
         }
 
-        public Collector col { get; set; }
+        public Collector Col { get; set; }
 
         public RelayCommand CheckCommand { get; set; }
         
         private readonly FrameNavigateClass _frame = new FrameNavigateClass();
+        private readonly SingletonMember _userSingleton;
 
         public async void Check()
         {
             LoginStatus = false;
-            if (col.Persons != null)
+            if (Col.Persons != null)
             {
-                foreach (var member in col.Persons)
+                foreach (var mem in Col.Persons)
                 {
-                    if ((member.Id == CurrentUser.Id) && (member.Password == CurrentUser.Password))
+                    if ((mem.Id == CurrentUser.Id) && (mem.Password == CurrentUser.Password))
                     {
+                        _userSingleton.SetPerson(mem);
                         LoginStatus = true;
-                        _frame.ActivateFrameNavigation(typeof(UserMenu),CurrentUser);                  //page needs to be change in the future
-                        MessageDialog msg = new MessageDialog($"Welcome {member.Name}!");
+                        _frame.ActivateFrameNavigation(typeof(UserMenu), mem);
+                        MessageDialog msg = new MessageDialog($"Welcome {mem.Name}!");
                         await msg.ShowAsync();
                         break;
                     }
                     else if (("game" == CurrentUser.Id) && ("ofthrones" == CurrentUser.Password))
                     {
                         LoginStatus = true;
-                        _frame.ActivateFrameNavigation(typeof(ManagerUsersPage),CurrentUser);                  //page needs to be change in the future
+                        _frame.ActivateFrameNavigation(typeof(ManagerViewPage), mem);
                         MessageDialog msg = new MessageDialog("Welcome George R.R. Martin");
                         await msg.ShowAsync();
                         break;
@@ -59,12 +63,12 @@ namespace Fitspiraton.ViewModel
                 }
             }
         }
-
+         
         public LoginVm()
         {
             CheckCommand = new RelayCommand(Check);
-            col = new Collector();
+            Col = new Collector();
+            _userSingleton = SingletonMember.GetInstance();
         }
-
     }
 }

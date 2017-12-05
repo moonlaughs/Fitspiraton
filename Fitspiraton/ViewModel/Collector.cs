@@ -8,11 +8,9 @@ namespace Fitspiraton.ViewModel
     {
         //instanceFields
         private ObservableCollection<Member> _persons;
-        private ObservableCollection<Activity> _activities;
 
         //Properties
         public ObservableCollection<Member> Persons { get => _persons; set => _persons = value; }
-        public ObservableCollection<Activity> Activities { get => _activities; set => _activities = value; }
 
         //Ctor
         public Collector()
@@ -22,12 +20,6 @@ namespace Fitspiraton.ViewModel
                 new Member("Jon", "stark01", "youknownothing"),
                 new Member("Arya", "stark02", "needle"),
                 new Member("Patrik<3", "pat", "xxx")
-
-            };
-
-            Activities = new ObservableCollection<Activity>()
-            {
-
             };
         }
     }

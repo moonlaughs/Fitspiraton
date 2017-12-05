@@ -15,21 +15,21 @@
         <Image Grid.Row="0" Source="../Assets/Wide310x150Logo.png"></Image>
         <Pivot x:Name="ProfilePivot"
                Grid.Row="1">
-            <PivotItem Header="Profile">
+            <PivotItem Header="Profile ♥">
                 <!--Pivot content goes here-->
                 <StackPanel>
                     <Image Source="../Assets/Square150x150Logo.scale-200.png" Height="200" Width="200"  />
-                    <TextBox Text="Content of pivot item 1." Width="200" HorizontalAlignment="Center"/>
+                    <TextBox PlaceholderText="Name" Width="200" HorizontalAlignment="Center"/>
                     <TextBox Text="Content of pivot item 1." Width="200" HorizontalAlignment="Center"/>
                     <TextBox Text="Content of pivot item 1." Width="200" HorizontalAlignment="Center"/>
                 </StackPanel>
             </PivotItem>
-            <PivotItem Header="BMI">
+            <PivotItem Header="BMI ♥">
                 <!--Pivot content goes here-->
                 <StackPanel>
                     <TextBox Text="Height"/>
                     <TextBox Text="Weight"/>
-                    <TextBox Text="Your BMI -.- (heart)"/>
+                    <TextBox Text="Your BMI -.- (heart) ♥"/>
                 </StackPanel>
             </PivotItem>
         </Pivot>

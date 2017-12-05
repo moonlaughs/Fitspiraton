@@ -18,9 +18,9 @@
                     <ColumnDefinition Width="5*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <Image Source="Assets/FitspirationDesign/Fitness 6.jpg" Stretch="UniformToFill"  HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                <Image Source="../Assets/FitspirationDesign/Fitness 6.jpg" Stretch="UniformToFill"  HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
                 <StackPanel Grid.Column="1" >
-                    <Image Source="Assets/FitspirationDesign/LogoFitspiration.jpg" Height="170" Width="200" Margin="0,100,0,0" HorizontalAlignment="Center"/>
+                    <Image Source="../Assets/FitspirationDesign/LogoFitspiration.jpg" Height="170" Width="200" Margin="0,100,0,0" HorizontalAlignment="Center"/>
                     <TextBlock Text="Fitspiration" HorizontalAlignment="Center" Width="200" FontFamily="Leelawadee" FontSize="40"
                                Margin="50, 0, 50, 50" FontStretch="UltraExpanded"/>
                     <TextBox Text="{Binding CurrentUser.Id, Mode=TwoWay}" HorizontalAlignment="Center" PlaceholderText="username" 

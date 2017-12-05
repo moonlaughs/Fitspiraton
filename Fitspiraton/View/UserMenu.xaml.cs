@@ -31,5 +31,15 @@ namespace Fitspiraton.View
         {
             UserMenuFrame.Navigate(typeof(ProfileView));
         }
+
+        private void RcentBtn_OnClicked(object sender, RoutedEventArgs e)
+        {
+            UserMenuFrame.Navigate(typeof(RecentBookingsView));
+        }
+
+        private void BackBtn_OnClicked(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
+        }
     }
 }
