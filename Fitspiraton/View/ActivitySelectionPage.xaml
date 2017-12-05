@@ -10,7 +10,10 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush Stretch="Fill" ImageSource="../Assets/own images/bg.jpg"/>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.465">
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="White" Offset="0.018"/>
+            </LinearGradientBrush>
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50*"/>
@@ -27,19 +30,15 @@
             <ViewModel:UserMenuVm/>
         </Grid.DataContext>
         <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
-            <TextBlock HorizontalAlignment="Right" Margin="0,0,0,0" TextWrapping="Wrap" Text="Welcome," VerticalAlignment="Bottom" FontSize="40" Foreground="White"/>
-            <TextBlock Margin="15,0,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" FontSize="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="White"/>
-        </StackPanel>
-
-        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBlock HorizontalAlignment="Right" Margin="0,0,0,0" TextWrapping="Wrap" Text="Activities" VerticalAlignment="Bottom" FontSize="80" Foreground="White"/>
+            <TextBlock HorizontalAlignment="Right" Margin="0,0,0,0" TextWrapping="Wrap" Text="Welcome," VerticalAlignment="Bottom" FontSize="40" Foreground="Black" FontFamily="Book Antiqua"/>
+            <TextBlock Margin="15,0,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" FontSize="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="Black" FontFamily="Book Antiqua"/>
         </StackPanel>
 
         <StackPanel Grid.Column="2" Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" PointerPressed="StackPanel_PointerPressed">
             <Image Source="../Assets/own images/backbutton.png" Height="70"/>
         </StackPanel>
 
-        <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Stretch">
+        <StackPanel Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Orientation="Vertical" HorizontalAlignment="Stretch">
             <ListView HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,100,0,0" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                 <ListView.ItemTemplate>
                     <DataTemplate>

@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Security.Cryptography.X509Certificates;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -24,6 +25,9 @@ namespace Fitspiraton.View
     /// </summary>
     public sealed partial class UserMenu : Page
     {
+        SolidColorBrush scb = new SolidColorBrush(Colors.Blue);
+        SolidColorBrush scb1 = new SolidColorBrush(Colors.Black);
+
         public UserMenu()
         {
             this.InitializeComponent();
