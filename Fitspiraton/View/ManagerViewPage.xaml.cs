@@ -26,7 +26,6 @@ namespace Fitspiraton.View
         {
             this.InitializeComponent();
             BackButton.Visibility = Visibility.Collapsed;
-            ManagerFrame.Navigate(typeof(ManagerUsersPage));
             TitleTextBlock.Text = "Welcome, Admin !";
             Users.IsSelected = true;
         }
@@ -56,7 +55,7 @@ namespace Fitspiraton.View
             else if (Calendar.IsSelected)
             {
                 BackButton.Visibility = Visibility.Visible;
-                ManagerFrame.Navigate(typeof(MainPage));
+                ManagerFrame.Navigate(typeof(ManagerCalendarPage));
                 TitleTextBlock.Text = "Edit the calendar with classes";
             }
         }
