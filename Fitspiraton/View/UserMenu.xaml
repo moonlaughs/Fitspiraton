@@ -32,8 +32,8 @@
                             Grid.Row="2">
                     <Button Content="Profile" Height="100" Width="480" Click="ProfileBtn_OnClicked" FontSize="32" FontFamily="Book Antiqua"/>
                     <Button Content="Recent Bookings" Height="100" Width="480" FontSize="32" FontFamily="Book Antiqua" Click="RcentBtn_OnClicked"/>
-                    <Button Content="Book" Height="100" Width="480" FontFamily="Book Antiqua" FontSize="32"/>
-                    <Button Content="←" Height="100" Width="480" FontFamily="Book Antiqua" FontSize="56" Click="BackBtn_OnClicked"/>
+                    <Button Content="Book" Height="100" Width="480" FontFamily="Book Antiqua" FontSize="32" Click="Button_Click"/>
+                    <Button Content="Log out" Height="100" Width="480" FontFamily="Book Antiqua" FontSize="32" Click="BackBtn_OnClicked"/>
                 </StackPanel>
             </Grid>
         </StackPanel>
