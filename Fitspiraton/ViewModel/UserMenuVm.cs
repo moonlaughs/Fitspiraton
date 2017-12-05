@@ -17,6 +17,8 @@ namespace Fitspiraton.ViewModel
         public string Id { get; set; }
 
         public string Image { get; set; }
+        
+        public string Password { get; set; }
 
         public UserMenuVm()
         {
@@ -24,6 +26,7 @@ namespace Fitspiraton.ViewModel
             Name = _singleton.GetName();
             Id = _singleton.GetID();
             Image = _singleton.GetPhoto();
+            Password = _singleton.GetPassword();
         }
     }
 }

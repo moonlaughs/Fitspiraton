@@ -51,7 +51,7 @@ namespace Fitspiraton.ViewModel
                     else if (("game" == CurrentUser.Id) && ("ofthrones" == CurrentUser.Password))
                     {
                         LoginStatus = true;
-                        _frame.ActivateFrameNavigation(typeof(ManagerViewPage), mem);
+                        _frame.ActivateFrameNavigation(typeof(CalendarPage), mem);
                         MessageDialog msg = new MessageDialog("Welcome George R.R. Martin");
                         await msg.ShowAsync();
                         break;

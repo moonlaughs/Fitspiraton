@@ -17,9 +17,9 @@ namespace Fitspiraton.ViewModel
         {
             Persons = new ObservableCollection<Member>()
             {
-                new Member("Jon", "stark01", "youknownothing"),
-                new Member("Arya", "stark02", "needle"),
-                new Member("Patrik<3", "pat", "xxx")
+                new Member("Jon", "stark01", "youknownothing",  "../Assets/UP/jon.jpg"),
+                new Member("Arya", "stark02", "needle", "../Assets/UP/arya.jpg"),
+                new Member("Patrik<3", "pat", "xxx", "../Assets/UP/jon.jpg")
             };
         }
     }

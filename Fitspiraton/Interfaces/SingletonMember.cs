@@ -47,5 +47,10 @@ namespace Fitspiraton.Interfaces
         {
             return _member.Photo;
         }
+
+        public string GetPassword()
+        {
+            return _member.Password;
+        }
     }
 }
