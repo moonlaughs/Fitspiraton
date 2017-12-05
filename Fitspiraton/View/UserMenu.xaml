@@ -27,7 +27,7 @@
                 <TextBlock Text="Fitspiration" FontSize="48" Margin="50,0,0,0" HorizontalAlignment="Left" Grid.Row="0" FontFamily="Book Antiqua"/>
                 <Image Grid.Row="1" Margin="0,0,200,0"  Height="200" Width="200" Source="{Binding Image, Mode=TwoWay}" />
                 <TextBlock Grid.Row="1" Text="{Binding Name, Mode=TwoWay}" HorizontalAlignment="Right" Margin="0,0,100,0" Height="50" FontSize="32" FontFamily="Book Antiqua"/>
-                <TextBlock Grid.Row="1" Text="{Binding Id, Mode=TwoWay}" HorizontalAlignment="Right" Margin="0,100,100,0" Height="50" FontSize="24" FontFamily="Book Antiqua"/>
+                <TextBlock Grid.Row="1" Text="{Binding Id, Mode=}" HorizontalAlignment="Right" Margin="0,100,100,0" Height="50" FontSize="24" FontFamily="Book Antiqua"/>
                 <StackPanel Orientation="Vertical"
                             Grid.Row="2">
                     <Button Content="Profile" Height="100" Width="480" Click="ProfileBtn_OnClicked" FontSize="32" FontFamily="Book Antiqua"/>

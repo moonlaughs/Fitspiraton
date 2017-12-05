@@ -16,18 +16,12 @@
                 </ImageBrush.RelativeTransform>
             </ImageBrush>
         </Grid.Background>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="58*"/>
-            <RowDefinition Height="77*"/>
-        </Grid.RowDefinitions>
 
         <Grid.DataContext>
             <ViewModel:UserMenuVm/>
         </Grid.DataContext>
 
-        <!--<Image Grid.Row="0" Source="../Assets/FitspirationDesign/Fitness 6.jpg"/>-->
-        <Pivot x:Name="ProfilePivot"
-               Grid.Row="1">
+        <Pivot x:Name="ProfilePivot" Margin="100, 100, 100, 100">
             <PivotItem Header="Profile ♥">
                 <!--Pivot content goes here-->
                 <StackPanel>
