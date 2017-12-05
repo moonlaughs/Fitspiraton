@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="Fitspiraton.View.UserMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Background="#FF817D7D">
+            <Grid Height="1080">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="19*"/>
+                    <RowDefinition Height="100*"/>
+                    <RowDefinition Height="257*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Fitspiration" FontSize="32" Margin="50,0,0,0" HorizontalAlignment="Left" Grid.Row="0"/>
+                <Image Grid.Row="1" Margin="0,0,200,0"  Height="200" Width="200" Source="../Assets/Square150x150Logo.png" />
+                <TextBlock Grid.Row="1" Text="NAME" HorizontalAlignment="Right" Margin="0,0,100,0" Height="50" FontSize="32"/>
+                <TextBlock Grid.Row="1" Text="(loginid)" HorizontalAlignment="Right" Margin="0,100,100,0" Height="50" FontSize="24"/>
+                <StackPanel Orientation="Vertical"
+                            Grid.Row="2">
+                    <Button Content="Profile" Height="100" Width="480" Click="ProfileBtn_OnClicked"/>
+                    <Button Content="Recent Bookings" Height="100" Width="480"/>
+                    <Button Content="Book" Height="100" Width="480"/>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+        <Frame Grid.Column="1"
+               Width="1445"
+               x:Name="UserMenuFrame">
+
+        </Frame>
+    </Grid>
+</Page>
