@@ -5,6 +5,7 @@ using Windows.UI.Popups;
 using Fitspiraton.Interfaces;
 using Fitspiraton.Model;
 using Fitspiraton.View;
+using System.Threading;
 
 namespace Fitspiraton.ViewModel
 {
@@ -26,7 +27,6 @@ namespace Fitspiraton.ViewModel
         public Collector Col { get; set; }
 
         public RelayCommand CheckCommand { get; set; }
-        
         private readonly FrameNavigateClass _frame = new FrameNavigateClass();
         private readonly SingletonMember _userSingleton;
 
@@ -35,8 +35,10 @@ namespace Fitspiraton.ViewModel
             LoginStatus = false;
             if (Col.Persons != null)
             {
-                foreach (var mem in Col.Persons)
+
+                foreach (Member mem in Col.Persons)
                 {
+                    
                     if ((mem.Id == CurrentUser.Id) && (mem.Password == CurrentUser.Password))
                     {
                         _userSingleton.SetPerson(mem);
@@ -54,16 +56,18 @@ namespace Fitspiraton.ViewModel
                         await msg.ShowAsync();
                         break;
                     }
-                    else if (LoginStatus == false) 
-                    {
-                        MessageDialog msg = new MessageDialog("Sorry wrong input.");
-                        await msg.ShowAsync();
-                        break;
-                    }
+
+                }
+                 if (LoginStatus == false)
+                {
+                    MessageDialog msg = new MessageDialog("Sorry wrong input.");
+                    await msg.ShowAsync();
+
                 }
             }
         }
-         
+
+
         public LoginVm()
         {
             CheckCommand = new RelayCommand(Check);
