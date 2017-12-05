@@ -26,6 +26,7 @@ namespace Fitspiraton.View
         {
             this.InitializeComponent();
             BackButton.Visibility = Visibility.Collapsed;
+            ManagerFrame.Navigate(typeof(ManagerUsersPage));
             TitleTextBlock.Text = "Welcome, Admin !";
             Users.IsSelected = true;
         }
