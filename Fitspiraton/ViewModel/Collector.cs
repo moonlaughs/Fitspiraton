@@ -16,40 +16,38 @@ namespace Fitspiraton.ViewModel
         private ObservableCollection<Member> _memberCollection;
         private ObservableCollection<Event> _eventCollection;
 
-      
+        public ObservableCollection<Member> MemberCollection
+        {
+            get => _memberCollection; 
+            set => _memberCollection = value;
+        }
+
+        public ObservableCollection<Event> EventCollection
+        {
+            get => _eventCollection;
+            set => _eventCollection = value;
+        }
+
         public Collector()
+        {
+            CreateCollection();
+        }
+
+        private void CreateCollection()
         {
             MemberCollection = new ObservableCollection<Member>
             {
                 new Member("Jon", "Stark1", "you know nothing", "../Assets/UP/jon.jpg", 20),
                 new Member("Arya", "Stark2", "needle", "../Assets/UP/arya.jpg", 18)
             };
-         }
 
-        internal ObservableCollection<Member> MemberCollection
-        {
-            get => _memberCollection;
-            set => _memberCollection = value;
-        }
-
-
-        public Collector(object eventCollection)
-        {
-            EventCollection = new ObservableCollection<Event>();
+            EventCollection = new ObservableCollection<Event>
             {
-                new Event(new DateTime(2017, 12, 8), "Salsa", "JuanCarlos", 20);
-                new Event(new DateTime(2017, 12, 9), "Hip Hop", "DX James", 15);
-                new Event(new DateTime(2017, 12, 10), "Aerobics", "Wilson", 20);
-                new Event(new DateTime(2017, 12, 11), "Zumba", "Ze Joao", 14);
-            }
-
+                new Event(new DateTime(2017, 12, 8), "Salsa", "JuanCarlos", 20),
+                new Event(new DateTime(2017, 12, 9), "Hip Hop", "DX James", 15),
+                new Event(new DateTime(2017, 12, 10), "Aerobics", "Wilson", 20),
+                new Event(new DateTime(2017, 12, 11), "Zumba", "Ze Joao", 14)
+            };
         }
-
-        internal ObservableCollection<Event> EventCollection
-        {
-            get => _eventCollection;
-            set => _eventCollection = value;
-        }
-
     }
 }

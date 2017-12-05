@@ -56,7 +56,7 @@ namespace Fitspiraton.View
             else if (Calendar.IsSelected)
             {
                 BackButton.Visibility = Visibility.Visible;
-                ManagerFrame.Navigate(typeof(MainPage));
+                ManagerFrame.Navigate(typeof(ManagerCalendarView));
                 TitleTextBlock.Text = "Edit the calendar with classes";
             }
         }
