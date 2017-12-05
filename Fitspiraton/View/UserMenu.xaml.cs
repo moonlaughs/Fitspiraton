@@ -44,5 +44,11 @@ namespace Fitspiraton.View
         {
             Frame.Navigate(typeof(MainPage));
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            LoginVm log = new LoginVm();
+            Frame.Navigate(typeof(ActivitySelectionPage),log.CurrentUser);
+        }
     }
 }

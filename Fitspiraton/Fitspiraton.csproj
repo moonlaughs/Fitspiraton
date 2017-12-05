@@ -150,6 +150,15 @@
     <Content Include="Assets\bg2.jpg" />
     <Content Include="Assets\FitspirationDesign\Fitness 6.jpg" />
     <Content Include="Assets\FitspirationDesign\LogoFitspiration.jpg" />
+    <Content Include="Assets\own images\activities\backgrounds\bg.jpg" />
+    <Content Include="Assets\own images\activities\backgrounds\fitnessbg.jpg" />
+    <Content Include="Assets\own images\activities\backgrounds\salsabg.jpg" />
+    <Content Include="Assets\own images\activities\backgrounds\yogabg.jpg" />
+    <Content Include="Assets\own images\activities\thumbnails\fitness_thumbnail.png" />
+    <Content Include="Assets\own images\activities\thumbnails\salsa_thumbnail.png" />
+    <Content Include="Assets\own images\activities\thumbnails\testActivity.png" />
+    <Content Include="Assets\own images\activities\thumbnails\yoga_thumbnail.png" />
+    <Content Include="Assets\own images\backbutton.png" />
     <Content Include="Assets\own images\bg.jpg" />
     <Content Include="Assets\UP\arya.jpg" />
     <Content Include="Assets\UP\bran.jpg" />
@@ -217,6 +226,7 @@
       <Version>6.0.1</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
