@@ -15,11 +15,12 @@ namespace Fitspiraton.Model
             BmiResult = bmiResult;
         }
 
-        public Member(string name, string id, string password)
+        public Member(string name, string id, string password, string photo)
         {
             Name = name;
             Id = id;
             Password = password;
+            Photo = photo;
         }
 
         public Member()
