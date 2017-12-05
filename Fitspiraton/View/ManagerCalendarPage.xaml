@@ -9,5 +9,44 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <DatePicker Grid.Row="1" Grid.Column="1"/>
+
+        <TextBlock Text="Name of the class:" Grid.Row="3" Grid.Column="1" FontSize="20" Margin="15,0,0,0"/>
+        <TextBox PlaceholderText="Enter the name of the class" Grid.Row="4" Grid.Column="1" FontSize="20"/>
+
+        <TextBlock Text="Name of the teacher:" Grid.Row="6" Grid.Column="1" FontSize="20" Margin="15,0,0,0"/>
+        <TextBox PlaceholderText="Enter the name of the teacher" Grid.Row="7" Grid.Column="1" FontSize="20"/>
+
+        <TextBlock Text="Maximum number of attendants:" Grid.Row="9" Grid.Column="1" FontSize="20" Margin="15,0,0,0"/>
+        <TextBox PlaceholderText="Enter the max number of attendants" Grid.Row="10" Grid.Column="1" FontSize="20"/>
+
+        <CalendarView Grid.Column="3" Grid.Row="1" Grid.RowSpan="12" HorizontalAlignment="Center" VerticalAlignment="Top" Height="631" Width="630"></CalendarView>
+
+
     </Grid>
 </Page>
