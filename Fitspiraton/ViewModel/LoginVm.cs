@@ -37,7 +37,7 @@ namespace Fitspiraton.ViewModel
                     if ((member.Id == CurrentUser.Id) && (member.Password == CurrentUser.Password))
                     {
                         LoginStatus = true;
-                        _frame.ActivateFrameNavigation(typeof(ManagerUsersPage));                  //page needs to be change in the future
+                        _frame.ActivateFrameNavigation(typeof(ManagerUsersPage),CurrentUser);                  //page needs to be change in the future
                         MessageDialog msg = new MessageDialog($"Welcome {member.Name}!");
                         await msg.ShowAsync();
                         break;
@@ -45,7 +45,7 @@ namespace Fitspiraton.ViewModel
                     else if (("game" == CurrentUser.Id) && ("ofthrones" == CurrentUser.Password))
                     {
                         LoginStatus = true;
-                        _frame.ActivateFrameNavigation(typeof(ManagerUsersPage));                  //page needs to be change in the future
+                        _frame.ActivateFrameNavigation(typeof(ManagerUsersPage),CurrentUser);                  //page needs to be change in the future
                         MessageDialog msg = new MessageDialog("Welcome George R.R. Martin");
                         await msg.ShowAsync();
                         break;
