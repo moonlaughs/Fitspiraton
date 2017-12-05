@@ -107,6 +107,7 @@
     <Compile Include="Interfaces\NotifyPropertyClass.cs" />
     <Compile Include="Interfaces\RelayCommand.cs" />
     <Compile Include="ViewModel\AdminPageVM.cs" />
+    <Compile Include="ViewModel\CollectionEventSingleton.cs" />
     <Compile Include="ViewModel\Collector.cs" />
     <Compile Include="View\ActivitySelectionPage.xaml.cs">
       <DependentUpon>ActivitySelectionPage.xaml</DependentUpon>

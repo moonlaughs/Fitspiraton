@@ -30,11 +30,6 @@ namespace Fitspiraton.ViewModel
 
         public Collector()
         {
-            CreateCollection();
-        }
-
-        private void CreateCollection()
-        {
             MemberCollection = new ObservableCollection<Member>
             {
                 new Member("Jon", "Stark1", "you know nothing", "../Assets/UP/jon.jpg", 20),

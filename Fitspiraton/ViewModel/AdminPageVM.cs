@@ -5,6 +5,9 @@ namespace Fitspiraton.ViewModel
 {
     class AdminPageVM : NotifyPropertyClass
     {
+        private CollectionEventSingleton _collectionEventSingleton;
+        private Collector CT = new Collector();
+
         private Member _selectedItem;
         private Event _selectedEvent;
         
@@ -54,10 +57,17 @@ namespace Fitspiraton.ViewModel
             AddItemCommand = new RelayCommand(DoAddItem);
             UpdateItemCommand = new RelayCommand(DoUpdateItem);
 
+            DeleteEventCommand = new RelayCommand(DoDeleteEvent);
+            AddEventCommand = new RelayCommand(DoAddEvent);
+            UpdateEventCommand = new RelayCommand(DoUpdateEvent);
+
             AddNewMember = new Member();
             AddNewEvent = new Event();
             SelectedItem = new Member(); 
             SelectedEvent = new Event();
+
+            _collectionEventSingleton = CollectionEventSingleton.GetInstance();
+            _collectionEventSingleton.SetEvent(Col.EventCollection);
         }
 
         // Delete/Add Event
@@ -81,18 +91,18 @@ namespace Fitspiraton.ViewModel
 
         public void DoDeleteEvent()
         {
-            Members.Remove(SelectedItem);
+            Events.Remove(SelectedEvent);
         }
         public void DoAddEvent()
         {
-            Members.Add(AddNewMember);
+            Events.Add(AddNewEvent);
         }
 
         public void DoUpdateEvent()
         {
-            Members = new ObservableCollection<Member>
+            Events = new ObservableCollection<Event>
             {
-                new Member(SelectedItem.Id, SelectedItem.Name , SelectedItem.Password, SelectedItem.Photo, SelectedItem.BmiResult)
+                new Event(SelectedEvent.Date, SelectedEvent.Type, SelectedEvent.NameOfTeacher, SelectedEvent.MaxNumOfMembers)
             };
         }
     }

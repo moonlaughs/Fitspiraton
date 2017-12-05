@@ -1,0 +1,44 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Fitspiraton.Model;
+
+namespace Fitspiraton.ViewModel
+{
+    class CollectionEventSingleton
+    {
+        private ObservableCollection<Event> _events;
+        public static CollectionEventSingleton Instance { get; set; }
+        //private Collector SingleCol = new Collector();
+
+        private CollectionEventSingleton()
+        {
+            _events = new ObservableCollection<Event>();
+        }
+
+        public static CollectionEventSingleton GetInstance()
+        {
+            if (Instance == null)
+            {
+                Instance = new CollectionEventSingleton();
+                //setEvent(SingleCol.EventCollection);
+            }
+            return Instance;
+
+        }
+
+        public void SetEvent(ObservableCollection<Event> events)
+        {
+            _events = events;
+        }
+
+        public ObservableCollection<Event> GetEvents()
+        {
+            return _events;
+        }
+
+    }
+}

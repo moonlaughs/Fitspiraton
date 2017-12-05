@@ -20,10 +20,10 @@ namespace Fitspiraton.Model
 
         public Event(DateTimeOffset date, string type, string nameOfTeacher, int maxNumOfMembers)
         {
-            Date = date;
-            Type = type;
-            NameOfTeacher = nameOfTeacher;
-            MaxNumOfMembers = maxNumOfMembers;
+            _date = date;
+            _type = type;
+            _nameOfTeacher = nameOfTeacher;
+            _maxNumOfMembers = maxNumOfMembers;
         }
 
         public Event()
