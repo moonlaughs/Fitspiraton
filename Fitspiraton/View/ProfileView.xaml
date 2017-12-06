@@ -37,10 +37,10 @@
                     <StackPanel.DataContext>
                         <ViewModel:BMIVm/>
                     </StackPanel.DataContext>
-                    <TextBox x:Name="HeightBox" PlaceholderText="Height in meters" Text="{Binding Height, Mode=TwoWay}" Margin="20" Width="300" HorizontalAlignment="Left"/>
-                    <TextBox x:Name="WeightBox" PlaceholderText="Weight in kilograms" Text="{Binding Weight, Mode=TwoWay}"  Margin="20" Width="300" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="HeightBox" PlaceholderText="Height in meters" Margin="20" Width="300" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="WeightBox" PlaceholderText="Weight in kilograms"  Margin="20" Width="300" HorizontalAlignment="Left"/>
                     <Button x:Name="countBtn" Content="Count" Margin="140, 0, 0, 0" HorizontalAlignment="Left" Click="countBtn_Click"/>
-                    <TextBlock x:Name="ResultBlock" Margin="140,10,0,0"/>
+                    <TextBlock x:Name="ResultBlock" Margin="80,10,0,0" FontFamily="Book Antiqua" FontSize="36" Foreground="Aqua"/>
                     <TextBlock Text="{Binding Description}" Margin="0, 20, 0,0" FontFamily="Book Antiqua" FontSize="24"/>
                     <TextBlock Text="{Binding Legend}"  Margin="0, 10, 0,0" FontFamily="Book Antiqua" FontSize="24"/>
                 </StackPanel>

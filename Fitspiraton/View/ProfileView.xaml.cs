@@ -31,14 +31,24 @@ namespace Fitspiraton.View
 
         private void countBtn_Click(object sender, RoutedEventArgs e)
         {
-            double weight = Convert.ToDouble(WeightBox.Text);
-            double height = Convert.ToDouble(HeightBox.Text);
 
-            double bmi = weight / (height * height);
 
-            var bmi2 = String.Format("{0:00}", bmi);
-            
-            ResultBlock.Text =$"Result: {bmi2}";
+            if ((WeightBox.Text !="0")&&(HeightBox.Text != "0"))
+            {
+                double weight = Convert.ToDouble(WeightBox.Text);
+                double height = Convert.ToDouble(HeightBox.Text);
+
+                double bmi = weight / (height * height);
+
+                var bmi2 = String.Format("{0:00}", bmi);
+
+                ResultBlock.Text = $"Result: {bmi2}";
+            }
+            else
+            {
+                ResultBlock.Text = "Wrong values";
+            }
+           
         }
     }
 }
