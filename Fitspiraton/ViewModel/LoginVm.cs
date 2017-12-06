@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.ObjectModel;
-using System.Linq;
 using Windows.UI.Popups;
 using Fitspiraton.Interfaces;
 using Fitspiraton.Model;
 using Fitspiraton.View;
-using System.Threading;
 
 namespace Fitspiraton.ViewModel
 {
