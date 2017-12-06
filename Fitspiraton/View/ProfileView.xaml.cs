@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Security.Cryptography.X509Certificates;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -22,9 +23,22 @@ namespace Fitspiraton.View
     /// </summary>
     public sealed partial class ProfileView : Page
     {
+
         public ProfileView()
         {
             this.InitializeComponent();
+        }
+
+        private void countBtn_Click(object sender, RoutedEventArgs e)
+        {
+            double weight = Convert.ToDouble(WeightBox.Text);
+            double height = Convert.ToDouble(HeightBox.Text);
+
+            double bmi = weight / (height * height);
+
+            var bmi2 = String.Format("{0:00}", bmi);
+            
+            ResultBlock.Text =$"Result: {bmi2}";
         }
     }
 }

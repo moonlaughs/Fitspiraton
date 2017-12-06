@@ -21,22 +21,28 @@
             <ViewModel:UserMenuVm/>
         </Grid.DataContext>
 
-        <Pivot x:Name="ProfilePivot" Margin="100, 100, 100, 100">
+        <Pivot x:Name="ProfilePivot" Margin="50, 50, 50, 50">
             <PivotItem Header="Profile ♥">
                 <!--Pivot content goes here-->
                 <StackPanel>
-                    <Image Source="{Binding Image, Mode=TwoWay}" Height="200" Width="200"  />
-                    <TextBox Text="{Binding Name, Mode=TwoWay}" Width="200" HorizontalAlignment="Center"/>
-                    <TextBox Text="{Binding Id, Mode=TwoWay}" Width="200" HorizontalAlignment="Center"/>
-                    <TextBox Text="{Binding Password, Mode=TwoWay}" Width="200" HorizontalAlignment="Center"/>
+                    <Image Source="{Binding Image, Mode=TwoWay}" Height="200" Width="200" HorizontalAlignment="Left" Margin="20" />
+                    <TextBox Text="{Binding Name, Mode=TwoWay}" Width="200" HorizontalAlignment="Left" Margin="20"/>
+                    <TextBox Text="{Binding Id, Mode=TwoWay}" Width="200" HorizontalAlignment="Left" Margin="20"/>
+                    <TextBox Text="{Binding Password, Mode=TwoWay}" Width="200" HorizontalAlignment="Left" Margin="20"/>
                 </StackPanel>
             </PivotItem>
             <PivotItem Header="BMI ♥">
                 <!--Pivot content goes here-->
                 <StackPanel>
-                    <TextBox PlaceholderText="Height"/>
-                    <TextBox PlaceholderText="Weight"/>
-                    <TextBlock Text="Your BMI -.- (heart) ♥"/>
+                    <StackPanel.DataContext>
+                        <ViewModel:BMIVm/>
+                    </StackPanel.DataContext>
+                    <TextBox x:Name="HeightBox" PlaceholderText="Height in meters" Text="{Binding Height, Mode=TwoWay}" Margin="20" Width="300" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="WeightBox" PlaceholderText="Weight in kilograms" Text="{Binding Weight, Mode=TwoWay}"  Margin="20" Width="300" HorizontalAlignment="Left"/>
+                    <Button x:Name="countBtn" Content="Count" Margin="140, 0, 0, 0" HorizontalAlignment="Left" Click="countBtn_Click"/>
+                    <TextBlock x:Name="ResultBlock" Margin="140,10,0,0"/>
+                    <TextBlock Text="{Binding Description}" Margin="0, 20, 0,0" FontFamily="Book Antiqua" FontSize="24"/>
+                    <TextBlock Text="{Binding Legend}"  Margin="0, 10, 0,0" FontFamily="Book Antiqua" FontSize="24"/>
                 </StackPanel>
             </PivotItem>
         </Pivot>

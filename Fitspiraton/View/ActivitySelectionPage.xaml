@@ -39,7 +39,7 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Orientation="Vertical" HorizontalAlignment="Stretch">
-            <ListView HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,100,0,0" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <ListView HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,200,0,0" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal"/>

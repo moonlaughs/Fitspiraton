@@ -96,7 +96,10 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\FrameNavigateClass.cs" />
+    <Compile Include="Interfaces\SingletonBMI.cs" />
     <Compile Include="Interfaces\SingletonMember.cs" />
+    <Compile Include="Model\BMI.cs" />
+    <Compile Include="ViewModel\BMIVm.cs" />
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -148,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\bg2.jpg" />
+    <Content Include="Assets\bg4.jpg" />
     <Content Include="Assets\FitspirationDesign\Fitness 6.jpg" />
     <Content Include="Assets\FitspirationDesign\LogoFitspiration.jpg" />
     <Content Include="Assets\own images\activities\backgrounds\bg.jpg" />

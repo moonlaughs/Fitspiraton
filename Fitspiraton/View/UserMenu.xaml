@@ -27,17 +27,17 @@
             <Grid Height="1080">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30*"/>
-                    <RowDefinition Height="100*"/>
+                    <RowDefinition Height="130*"/>
                     <RowDefinition Height="257*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Fitspiration" FontSize="48" Margin="50,0,0,0" HorizontalAlignment="Left" Grid.Row="0" FontFamily="Book Antiqua" Foreground="White"/>
-                <Ellipse Grid.Row="1" Height="200" Width="200" Margin="0,0,200,0">
+                <TextBlock Text="Fitspiration" FontSize="48" Margin="70,0,0,0" HorizontalAlignment="Left" Grid.Row="0" FontFamily="Book Antiqua" Foreground="White"/>
+                <Ellipse Grid.Row="1" Height="200" Width="200" Margin="0,0,0,150">
                     <Ellipse.Fill>
                         <ImageBrush Stretch="UniformToFill" ImageSource="{Binding Image, Mode=TwoWay}"/>
                     </Ellipse.Fill>
                 </Ellipse>
-                <TextBlock Grid.Row="1" Text="{Binding Name, Mode=TwoWay}" HorizontalAlignment="Right" Margin="0,0,100,0" Height="50" FontSize="32" FontFamily="Book Antiqua" Foreground="White"/>
-                <TextBlock Grid.Row="1" Text="{Binding Id, Mode=TwoWay}" HorizontalAlignment="Right" Margin="0,100,100,0" Height="50" FontSize="24" FontFamily="Book Antiqua" Foreground="#FF50D2E5"/>
+                <TextBlock Grid.Row="1" Text="{Binding Name, Mode=TwoWay}" HorizontalAlignment="Center" Margin="0,130,0,0" Height="50" FontSize="32" FontFamily="Book Antiqua" Foreground="White"/>
+                <TextBlock Grid.Row="1" Text="{Binding Id, Mode=TwoWay}" HorizontalAlignment="Center" Margin="0,230,0,0" Height="50" FontSize="24" FontFamily="Book Antiqua" Foreground="#FF50D2E5"/>
                 <StackPanel Orientation="Vertical"
                             Grid.Row="2">
                     <Button x:Name="ProfileBtn" Click="ProfileBtn_OnClicked" Margin="0,0,0, 5" Height="100" Width="480" Content="Profile" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32" FontFamily="Book Antiqua" Foreground="White">
