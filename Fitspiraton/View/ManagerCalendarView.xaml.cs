@@ -39,17 +39,15 @@ namespace Fitspiraton.View
 
         private void DatePicker_OnDateChanged(object sender, DatePickerValueChangedEventArgs e)
         {
-            DateTimeOffset AddedDate = ManagerDatePicker.Date;
-            Event AD = new Event(AddedDate);
-            _collectionEventSingleton.AddEventDate(AD);
-
+            DateTimeOffset addedDate = ManagerDatePicker.Date;
+            Event aD = new Event(addedDate);
+            _collectionEventSingleton.AddEventDate(aD);
         }
 
         private void CalendarView_OnCalendarViewDayItemChanging(CalendarView sender, CalendarViewDayItemChangingEventArgs args)
         {
             SolidColorBrush red = new SolidColorBrush(Windows.UI.Colors.Red);
 
-            _collectionEventSingleton = CollectionEventSingleton.GetInstance();
 
                     foreach (var eventDates in _collectionEventSingleton.GetEvents())
                     {
@@ -58,8 +56,6 @@ namespace Fitspiraton.View
                             args.Item.Background = red;
                         }
                     }
-                
-            
         }
     }
 }

@@ -21,8 +21,8 @@
         
         <StackPanel Orientation="Vertical">
 
-            <DatePicker x:Name="ManagerDatePicker" HorizontalAlignment="Left" Margin="115,170,0,0" DateChanged="DatePicker_OnDateChanged" VerticalAlignment="Top" Date="{Binding AddNewEvent.Date, Mode=TwoWay}" />
-                    <!--DateChanged="DatePicker_OnDateChanged"-->  
+            <DatePicker x:Name="ManagerDatePicker" HorizontalAlignment="Left" Margin="115,170,0,0" DateChanged="DatePicker_OnDateChanged" VerticalAlignment="Top"  />
+            <!--DateChanged="DatePicker_OnDateChanged"  Date="{Binding AddNewEvent.Date, Mode=TwoWay}"-->  
                     
 
         <TextBlock HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" Text="Name of the class" VerticalAlignment="Top"/>
@@ -32,6 +32,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" Text="Max number of members" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" Text="{Binding AddNewEvent.MaxNumOfMembers, Mode=TwoWay}" VerticalAlignment="Top" Width="250"/>
         <Button Content="AddClass" Margin="115,50,0,0" Grid.Column="0" Width="230" Command="{Binding AddEventCommand}" />
+            <Button Content="DeleteClass" Margin="115,50,0,0" Width="230" Command="{Binding DeleteEventCommand}" />
         </StackPanel>
         
         <CalendarView x:Name="ManagerEventCalendarView" CalendarViewDayItemChanging="CalendarView_OnCalendarViewDayItemChanging" 
