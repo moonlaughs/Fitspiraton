@@ -20,8 +20,10 @@
 
         
         <StackPanel Orientation="Vertical">
-            
-        <DatePicker Date="{Binding AddNewEvent.Date, Mode=TwoWay}" HorizontalAlignment="Left" Margin="115,170,0,0" VerticalAlignment="Top"/>
+
+            <DatePicker x:Name="ManagerDatePicker" HorizontalAlignment="Left" Margin="115,170,0,0" DateChanged="DatePicker_OnDateChanged" VerticalAlignment="Top" Date="{Binding AddNewEvent.Date, Mode=TwoWay}" />
+                    <!--DateChanged="DatePicker_OnDateChanged"-->  
+                    
 
         <TextBlock HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" Text="Name of the class" VerticalAlignment="Top"/>
         <TextBox  HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" Text="{Binding AddNewEvent.Type, Mode=TwoWay}" VerticalAlignment="Top" Width="250"/>
@@ -32,9 +34,12 @@
         <Button Content="AddClass" Margin="115,50,0,0" Grid.Column="0" Width="230" Command="{Binding AddEventCommand}" />
         </StackPanel>
         
-        <CalendarView x:Name="ManagerEventCalendarView" CalendarViewDayItemChanging="CalendarView_OnCalendarViewDayItemChanging" HorizontalAlignment="Left" Margin="51,50,0,0" VerticalAlignment="Top" Height="432" Width="439" Grid.Column="1"/>
+        <CalendarView x:Name="ManagerEventCalendarView" CalendarViewDayItemChanging="CalendarView_OnCalendarViewDayItemChanging" 
+                      
+                      HorizontalAlignment="Left" Margin="51,50,0,0" VerticalAlignment="Top" Height="432" Width="439" Grid.Column="1"/>
 
-        <ListView x:Name="EventsListView" Grid.Column="3" HorizontalAlignment="Center" Width="300" ItemsSource="{Binding Events}" SelectedItem="{Binding SelectedEvent, Mode=TwoWay}">
+        <ListView x:Name="EventsListView" Grid.Column="3" HorizontalAlignment="Center" Width="300" 
+                  ItemsSource="{Binding Events}" SelectedItem="{Binding SelectedEvent, Mode=TwoWay}">
             <ListView.Background>
                 <SolidColorBrush Color="Gainsboro" Opacity="0.75"/>
             </ListView.Background>

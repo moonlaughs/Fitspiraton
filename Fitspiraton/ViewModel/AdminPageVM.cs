@@ -65,9 +65,6 @@ namespace Fitspiraton.ViewModel
             AddNewEvent = new Event();
             SelectedItem = new Member(); 
             SelectedEvent = new Event();
-
-            _collectionEventSingleton = CollectionEventSingleton.GetInstance();
-            _collectionEventSingleton.SetEvent(Col.EventCollection);
         }
 
         // Delete/Add Event

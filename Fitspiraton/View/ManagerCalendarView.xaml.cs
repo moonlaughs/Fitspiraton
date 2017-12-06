@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -12,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Fitspiraton.Model;
 using Fitspiraton.ViewModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -29,24 +31,35 @@ namespace Fitspiraton.View
         public ManagerCalendarView()
         {
             this.InitializeComponent();
-            ManagerEventCalendarView.MinDate = new DateTime(2017, 11, 29);
+            ManagerEventCalendarView.MinDate = new DateTime(2017,11,28);
             ManagerEventCalendarView.MaxDate = DateTime.Now.AddMonths(1);
             _collectionEventSingleton = CollectionEventSingleton.GetInstance();
             _collectionEventSingleton.SetEvent(CalendarViewCollector.EventCollection);
         }
 
+        private void DatePicker_OnDateChanged(object sender, DatePickerValueChangedEventArgs e)
+        {
+            DateTimeOffset AddedDate = ManagerDatePicker.Date;
+            Event AD = new Event(AddedDate);
+            _collectionEventSingleton.AddEventDate(AD);
+
+        }
+
         private void CalendarView_OnCalendarViewDayItemChanging(CalendarView sender, CalendarViewDayItemChangingEventArgs args)
         {
             SolidColorBrush red = new SolidColorBrush(Windows.UI.Colors.Red);
+
             _collectionEventSingleton = CollectionEventSingleton.GetInstance();
 
-            foreach (var eventDates in _collectionEventSingleton.GetEvents())
-            {
-                if (args.Item.Date.Equals(eventDates.Date))
-                {
-                    args.Item.Background = red;
-                }
-            }
+                    foreach (var eventDates in _collectionEventSingleton.GetEvents())
+                    {
+                        if (args.Item.Date.Equals(eventDates.Date))
+                        {
+                            args.Item.Background = red;
+                        }
+                    }
+                
+            
         }
     }
 }

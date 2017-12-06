@@ -8,11 +8,15 @@ using Fitspiraton.Model;
 
 namespace Fitspiraton.ViewModel
 {
-    class CollectionEventSingleton
+    class CollectionEventSingleton:NotifyPropertyClass
     {
         private ObservableCollection<Event> _events;
-        public static CollectionEventSingleton Instance { get; set; }
-        
+
+        public static CollectionEventSingleton Instance
+        {
+            get; set;
+        }
+
 
         private CollectionEventSingleton()
         {
@@ -38,6 +42,11 @@ namespace Fitspiraton.ViewModel
         public ObservableCollection<Event> GetEvents()
         {
             return _events;
+        }
+
+        public void AddEventDate(Event addedEventDate)
+        {
+            this._events.Add(addedEventDate);
         }
 
     }
