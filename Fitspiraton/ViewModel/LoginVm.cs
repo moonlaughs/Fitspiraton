@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.ObjectModel;
-using System.Linq;
 using Windows.UI.Popups;
 using Fitspiraton.Interfaces;
 using Fitspiraton.Model;
 using Fitspiraton.View;
-using System.Threading;
 
 namespace Fitspiraton.ViewModel
 {
@@ -58,11 +55,10 @@ namespace Fitspiraton.ViewModel
                     }
 
                 }
-                 if (LoginStatus == false)
+                if (LoginStatus == false)
                 {
                     MessageDialog msg = new MessageDialog("Sorry wrong input.");
                     await msg.ShowAsync();
-
                 }
             }
         }
