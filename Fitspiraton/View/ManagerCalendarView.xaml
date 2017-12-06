@@ -32,7 +32,7 @@
         <Button Content="AddClass" Margin="115,50,0,0" Grid.Column="0" Width="230" Command="{Binding AddEventCommand}" />
         </StackPanel>
         
-        <CalendarView CalendarViewDayItemChanging="CalendarView_OnCalendarViewDayItemChanging" HorizontalAlignment="Left" Margin="51,50,0,0" VerticalAlignment="Top" Height="432" Width="439" Grid.Column="1"/>
+        <CalendarView x:Name="ManagerEventCalendarView" CalendarViewDayItemChanging="CalendarView_OnCalendarViewDayItemChanging" HorizontalAlignment="Left" Margin="51,50,0,0" VerticalAlignment="Top" Height="432" Width="439" Grid.Column="1"/>
 
         <ListView x:Name="EventsListView" Grid.Column="3" HorizontalAlignment="Center" Width="300" ItemsSource="{Binding Events}" SelectedItem="{Binding SelectedEvent, Mode=TwoWay}">
             <ListView.Background>

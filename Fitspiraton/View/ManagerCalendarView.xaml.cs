@@ -24,17 +24,22 @@ namespace Fitspiraton.View
     public sealed partial class ManagerCalendarView : Page
     {
         private CollectionEventSingleton _collectionEventSingleton;
+        private Collector CalendarViewCollector = new Collector();
 
         public ManagerCalendarView()
         {
             this.InitializeComponent();
-            
+            ManagerEventCalendarView.MinDate = new DateTime(2017, 11, 29);
+            ManagerEventCalendarView.MaxDate = DateTime.Now.AddMonths(1);
+            _collectionEventSingleton = CollectionEventSingleton.GetInstance();
+            _collectionEventSingleton.SetEvent(CalendarViewCollector.EventCollection);
         }
 
         private void CalendarView_OnCalendarViewDayItemChanging(CalendarView sender, CalendarViewDayItemChangingEventArgs args)
         {
             SolidColorBrush red = new SolidColorBrush(Windows.UI.Colors.Red);
-            _collectionEventSingleton = CollectionEventSingleton.GetInstance();    
+            _collectionEventSingleton = CollectionEventSingleton.GetInstance();
+
             foreach (var eventDates in _collectionEventSingleton.GetEvents())
             {
                 if (args.Item.Date.Equals(eventDates.Date))

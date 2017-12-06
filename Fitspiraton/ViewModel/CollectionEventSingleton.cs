@@ -12,7 +12,7 @@ namespace Fitspiraton.ViewModel
     {
         private ObservableCollection<Event> _events;
         public static CollectionEventSingleton Instance { get; set; }
-        //private Collector SingleCol = new Collector();
+        
 
         private CollectionEventSingleton()
         {
@@ -24,7 +24,7 @@ namespace Fitspiraton.ViewModel
             if (Instance == null)
             {
                 Instance = new CollectionEventSingleton();
-                //setEvent(SingleCol.EventCollection);
+              
             }
             return Instance;
 
