@@ -31,31 +31,32 @@ namespace Fitspiraton.View
         public ManagerCalendarView()
         {
             this.InitializeComponent();
-            ManagerEventCalendarView.MinDate = new DateTime(2017,11,28);
+            ManagerEventCalendarView.MinDate = new DateTime(2017,11,29);
             ManagerEventCalendarView.MaxDate = DateTime.Now.AddMonths(1);
             _collectionEventSingleton = CollectionEventSingleton.GetInstance();
             _collectionEventSingleton.SetEvent(CalendarViewCollector.EventCollection);
         }
+
+       private void CalendarView_OnCalendarViewDayItemChanging(CalendarView sender, CalendarViewDayItemChangingEventArgs args)
+       {
+            SolidColorBrush red = new SolidColorBrush(Windows.UI.Colors.Red);
+
+             foreach (var eventDates in _collectionEventSingleton.GetEvents())
+             {
+                 if (args.Item.Date.Equals(eventDates.Date))
+                 {
+                     args.Item.Background = red;
+                 }
+             }
+       }
 
         private void DatePicker_OnDateChanged(object sender, DatePickerValueChangedEventArgs e)
         {
             DateTimeOffset addedDate = ManagerDatePicker.Date;
             Event aD = new Event(addedDate);
             _collectionEventSingleton.AddEventDate(aD);
+
         }
 
-        private void CalendarView_OnCalendarViewDayItemChanging(CalendarView sender, CalendarViewDayItemChangingEventArgs args)
-        {
-            SolidColorBrush red = new SolidColorBrush(Windows.UI.Colors.Red);
-
-
-                    foreach (var eventDates in _collectionEventSingleton.GetEvents())
-                    {
-                        if (args.Item.Date.Equals(eventDates.Date))
-                        {
-                            args.Item.Background = red;
-                        }
-                    }
-        }
     }
 }
