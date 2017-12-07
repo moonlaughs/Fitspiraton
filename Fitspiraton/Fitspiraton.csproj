@@ -96,10 +96,14 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\ActivitySingleton.cs" />
+    <Compile Include="Interfaces\BookingHandler.cs" />
+    <Compile Include="Interfaces\EventListSingleton.cs" />
     <Compile Include="Interfaces\FrameNavigateClass.cs" />
     <Compile Include="Interfaces\SingletonMember.cs" />
+    <Compile Include="Model\Bookings.cs" />
     <Compile Include="ViewModel\ActivityViewVM.cs" />
     <Compile Include="ViewModel\SelectedActivityViewVM.cs" />
+    <Compile Include="ViewModel\UserBookingVM.cs" />
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -141,6 +145,9 @@
     </Compile>
     <Compile Include="View\SelectedActivityView.xaml.cs">
       <DependentUpon>SelectedActivityView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserBookingView.xaml.cs">
+      <DependentUpon>UserBookingView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserMenu.xaml.cs">
       <DependentUpon>UserMenu.xaml</DependentUpon>
@@ -224,6 +231,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SelectedActivityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserBookingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

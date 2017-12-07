@@ -14,9 +14,6 @@ namespace Fitspiraton.ViewModel
         public int MaxNumOfMembers { get; set; }
         public string NameOfTeacher { get; set; }
 
-
-
-
         public SelectedActivityViewVM()
         {
             _singelton = ActivitySingleton.GetInstance();
