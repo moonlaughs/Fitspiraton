@@ -33,17 +33,31 @@
             </PivotItem>
             <PivotItem Header="BMI ♥">
                 <!--Pivot content goes here-->
-                <StackPanel>
-                    <StackPanel.DataContext>
+                <Grid>
+                    <Grid.DataContext>
                         <ViewModel:BMIVm/>
-                    </StackPanel.DataContext>
-                    <TextBox x:Name="HeightBox" PlaceholderText="Height in meters" Margin="20" Width="300" HorizontalAlignment="Left"/>
-                    <TextBox x:Name="WeightBox" PlaceholderText="Weight in kilograms"  Margin="20" Width="300" HorizontalAlignment="Left"/>
-                    <Button x:Name="countBtn" Content="Count" Margin="140, 0, 0, 0" HorizontalAlignment="Left" Click="countBtn_Click"/>
-                    <TextBlock x:Name="ResultBlock" Margin="80,10,0,0" FontFamily="Book Antiqua" FontSize="36" Foreground="#FF50D2E5"/>
-                    <TextBlock Text="{Binding Description}" Margin="0, 20, 0,0" FontFamily="Book Antiqua" FontSize="24"/>
-                    <TextBlock Text="{Binding Legend}"  Margin="0, 10, 0,0" FontFamily="Book Antiqua" FontSize="24"/>
-                </StackPanel>
+                    </Grid.DataContext>
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                  
+                    <StackPanel Grid.Column="0">
+                        <TextBox x:Name="HeightBox" PlaceholderText="Height in meters" Margin="20" Width="300" HorizontalAlignment="Left"/>
+                        <TextBox x:Name="WeightBox" PlaceholderText="Weight in kilograms"  Margin="20" Width="300" HorizontalAlignment="Left"/>
+                        <Button x:Name="countBtn" Content="Count" Margin="140, 0, 0, 0" HorizontalAlignment="Left" Click="countBtn_Click"/>
+                        <TextBlock Text="{Binding Description}" Margin="0, 20, 0,0" FontFamily="Book Antiqua" FontSize="24"/>
+                        <TextBlock Text="BMI Categories:" Margin="0, 10, 0,0" FontFamily="Book Antiqua" FontSize="24"/>
+                        <TextBlock Text="Underweight less or equal to 18.5" Margin="0, 10, 0,0" FontFamily="Book Antiqua" FontSize="24" Foreground="Yellow"/>
+                        <TextBlock Text="Normal weight = 18.5–24.9" Margin="0, 10, 0,0" FontFamily="Book Antiqua" FontSize="24" Foreground="Green"/>
+                        <TextBlock Text="Overweight = 25–29.9" Margin="0, 10, 0,0" FontFamily="Book Antiqua" FontSize="24" Foreground="Orange"/>
+                        <TextBlock Text="Obesity = BMI of 30 or greater" Margin="0, 10, 0,0" FontFamily="Book Antiqua" FontSize="24" Foreground="Red"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <TextBlock x:Name="ResultBlock" Margin="0,10,0,0" FontFamily="Book Antiqua" FontSize="24"/>
+                    </StackPanel>
+                </Grid>
             </PivotItem>
         </Pivot>
     </Grid>

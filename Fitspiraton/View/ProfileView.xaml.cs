@@ -6,10 +6,12 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Security.Cryptography.X509Certificates;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Documents;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
@@ -23,7 +25,6 @@ namespace Fitspiraton.View
     /// </summary>
     public sealed partial class ProfileView : Page
     {
-
         public ProfileView()
         {
             this.InitializeComponent();
@@ -31,24 +32,64 @@ namespace Fitspiraton.View
 
         private void countBtn_Click(object sender, RoutedEventArgs e)
         {
-
-
-            if ((WeightBox.Text !="0")&&(HeightBox.Text != "0"))
+            try
             {
-                double weight = Convert.ToDouble(WeightBox.Text);
-                double height = Convert.ToDouble(HeightBox.Text);
+                if ((WeightBox != null) && (HeightBox != null))
+                {
+                    if ((WeightBox.Text != "0") && (HeightBox.Text != "0"))
+                    {
 
-                double bmi = weight / (height * height);
+                        double weight = Convert.ToDouble(WeightBox.Text);
+                        double height = Convert.ToDouble(HeightBox.Text);
 
-                var bmi2 = String.Format("{0:00}", bmi);
+                        double bmi = weight / (height * height);
 
-                ResultBlock.Text = $"Result: {bmi2}";
+                        var bmi2 = String.Format("{0:00}", bmi);
+                        if (bmi < 1)
+                        {
+                            ResultBlock.Foreground = new SolidColorBrush(Colors.DarkBlue);
+                            ResultBlock.Text = "Wrong input, \nmake sure that you typed height in \nMETERS \nand weight in \nKILOGRAMS ;)";
+                        }
+                        else if (bmi < 18.6)
+                        {
+
+                            ResultBlock.Foreground = new SolidColorBrush(Colors.Yellow);
+                            ResultBlock.Text = $"Result: {bmi2}";
+                        }
+                        else if (bmi < 25)
+                        {
+
+                            ResultBlock.Foreground = new SolidColorBrush(Colors.Green);
+                            ResultBlock.Text = $"Result: {bmi2}";
+                        }
+                        else if (bmi < 30)
+                        {
+
+                            ResultBlock.Foreground = new SolidColorBrush(Colors.Orange);
+                            ResultBlock.Text = $"Result: {bmi2}";
+                        }
+                        else if (bmi > 29.9)
+                        {
+
+                            ResultBlock.Foreground = new SolidColorBrush(Colors.Red);
+                            ResultBlock.Text = $"Result: {bmi2}";
+                        }
+                        
+                    }
+                    else
+                    {
+                        ResultBlock.Foreground = new SolidColorBrush(Colors.DarkBlue);
+                        ResultBlock.Text = "Wrong values";
+                    }
+                }
             }
-            else
+            catch (Exception ex)
             {
-                ResultBlock.Text = "Wrong values";
+                string error = ex.Message;
+                ResultBlock.Foreground = new SolidColorBrush(Colors.Red);
+                ResultBlock.Text = "Enter the values";
             }
-           
-        }
+        } 
     }
 }
+
