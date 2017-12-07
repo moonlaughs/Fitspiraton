@@ -21,8 +21,8 @@
         
         <StackPanel Orientation="Vertical">
 
-            <DatePicker x:Name="ManagerDatePicker" HorizontalAlignment="Left" Margin="115,170,0,0" DateChanged="DatePicker_OnDateChanged" VerticalAlignment="Top"  />
-            <!--DateChanged="DatePicker_OnDateChanged"  Date="{Binding AddNewEvent.Date, Mode=TwoWay}"-->  
+            <DatePicker x:Name="ManagerDatePicker" HorizontalAlignment="Left" Margin="115,170,0,0" DateChanged="DatePicker_OnDateChanged" Date="{Binding AddNewEvent.Date, Mode=TwoWay}" VerticalAlignment="Top"  />
+            <!--DateChanged="DatePicker_OnDateChanged"  -->  
                     
 
         <TextBlock HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" Text="Name of the class" VerticalAlignment="Top"/>
@@ -47,6 +47,8 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="10,0,0,0"  Orientation="Vertical">
+                        <TextBlock Margin ="0, 15, 0, 0" Text="Date"/>
+                        <TextBlock Text="{Binding Date, Mode=TwoWay }"  />
                         <TextBlock Margin ="0,10,5,0" Text="Name:"/>
                         <TextBlock Text="{Binding Type, Mode=TwoWay}"/>
                         <TextBlock Margin ="0,10,5,0" Text="Id: "/>

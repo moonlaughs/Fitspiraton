@@ -34,6 +34,6 @@ namespace Fitspiraton.Model
         public Event()
         {
             
-        } b
+        } 
     }
 }
