@@ -55,8 +55,6 @@ namespace Fitspiraton.View
             DateTimeOffset addedDate = ManagerDatePicker.Date;
             Event aD = new Event(addedDate);
             _collectionEventSingleton.AddEventDate(aD);
-
         }
-
     }
 }
