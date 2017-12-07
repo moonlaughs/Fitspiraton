@@ -40,5 +40,11 @@ namespace Fitspiraton.View
             log = new LoginVm();
             UserMenuFrame.Navigate(typeof(ProfileView),log.CurrentUser);
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            log = new LoginVm();
+            UserMenuFrame.Navigate(typeof(ProfileView), log.CurrentUser);
+        }
     }
 }
