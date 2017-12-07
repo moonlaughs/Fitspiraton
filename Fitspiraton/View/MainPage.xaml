@@ -18,7 +18,11 @@
                     <ColumnDefinition Width="5*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <Image Source="../Assets/FitspirationDesign/Fitness 6.jpg" Stretch="UniformToFill"  HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        <FlipView x:Name="FlipView">
+            <Image Source="../Assets/FitspirationDesign/Fitness 6.jpg" Stretch="UniformToFill"  HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+            <Image Source="../Assets/FitspirationDesign/workout-package_1.png" Stretch="UniformToFill"  HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+            <Image Source="ms-appx:///Assets/FitspirationDesign/24992826_1313837958722147_986259848_o.jpg" Stretch="UniformToFill"  HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        </FlipView>
                 <StackPanel Grid.Column="1" >
                     <Image Source="../Assets/FitspirationDesign/LogoFitspiration.jpg" Height="170" Width="200" Margin="0,100,0,0" HorizontalAlignment="Center"/>
                     <TextBlock Text="Fitspiration" HorizontalAlignment="Center" Width="200" FontFamily="Leelawadee" FontSize="40"

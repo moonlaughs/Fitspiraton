@@ -23,7 +23,7 @@
             <ViewModel:UserMenuVm/>
         </Grid.DataContext>
 
-        <StackPanel Grid.Column="0" Background="#FF252932">
+        <StackPanel Grid.Column="0" Background="#FF252424">
             <Grid Height="1080">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30*"/>
@@ -42,22 +42,22 @@
                             Grid.Row="2">
                     <Button x:Name="ProfileBtn" Click="ProfileBtn_OnClicked" Margin="0,0,0, 5" Height="100" Width="480" Content="Profile" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32" FontFamily="Book Antiqua" Foreground="White">
                         <Button.Background>
-                            <SolidColorBrush Color="Aqua" Opacity="0.8"/>
+                            <SolidColorBrush Color="Red" Opacity="0.8"/>
                         </Button.Background>
                     </Button>
                     <Button x:Name="RecentBookingBtn" Content="Recent Bookings" Margin="0,0,0, 5" Height="100" Width="480" FontSize="32" FontFamily="Book Antiqua" Click="RcentBtn_OnClicked" Foreground="White">
                         <Button.Background>
-                            <SolidColorBrush Color="Aqua" Opacity="0.8"/>
+                            <SolidColorBrush Color="red" Opacity="0.8"/>
                         </Button.Background>
                     </Button>
                     <Button x:Name="BookBtn" Content="Book" Height="100" Width="480" Margin="0,0,0, 5" FontFamily="Book Antiqua" FontSize="32" Click="Button_Click" Foreground="White">
                         <Button.Background>
-                            <SolidColorBrush Color="Aqua" Opacity="0.8"/>
+                            <SolidColorBrush Color="Red" Opacity="0.8"/>
                         </Button.Background>
                     </Button>
                     <Button x:Name="BackBtn" Content="Log out" Height="100" Width="480" Margin="0,0,0, 5" FontFamily="Book Antiqua" FontSize="32" Click="BackBtn_OnClicked" Foreground="White">
                         <Button.Background>
-                            <SolidColorBrush Color="Aqua" Opacity="0.8"/>
+                            <SolidColorBrush Color="Red" Opacity="0.8"/>
                         </Button.Background>
                     </Button>
                 </StackPanel>

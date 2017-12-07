@@ -10,7 +10,7 @@ namespace Fitspiraton.ViewModel
     {
         private bool LoginStatus { get; set; }
 
-        private Member _currentUser = new Member();
+        private static Member _currentUser = new Member();
 
         public Member CurrentUser {
             get => _currentUser;
@@ -48,7 +48,7 @@ namespace Fitspiraton.ViewModel
                     else if (("game" == CurrentUser.Id) && ("ofthrones" == CurrentUser.Password))
                     {
                         LoginStatus = true;
-                        _frame.ActivateFrameNavigation(typeof(CalendarPage), mem);
+                        _frame.ActivateFrameNavigation(typeof(ManagerViewPage), mem);
                         MessageDialog msg = new MessageDialog("Welcome George R.R. Martin");
                         await msg.ShowAsync();
                         break;

@@ -20,17 +20,23 @@ namespace Fitspiraton.View
         private SelectedActivityViewVM savm;
         private BookingHandler _bookingHandler;
         private ObservableCollection<Event> _sortedEvents;
+        private LoginVm log;
+    
 
         public UserBookingView()
         {
 
             this.InitializeComponent();
 
+            log = new LoginVm();
             col =new Collector();
             _bookingHandler = new BookingHandler();
             savm = new SelectedActivityViewVM();
             selectedColor = new SolidColorBrush(Colors.Yellow);
             red = new SolidColorBrush(Windows.UI.Colors.Red);
+
+            string name = log.CurrentUser.Name;
+            //UserTestBox.Text = name;
             
 
             CalendarView.SelectedDates.Add(new DateTime(2017, 10, 29));// Set selected date is "x date");  
@@ -90,7 +96,8 @@ namespace Fitspiraton.View
             await noWifiDialog.ShowAsync();
         }
 
-        private void CalendarView_CalendarViewDayItemChanging(CalendarView sender, CalendarViewDayItemChangingEventArgs args)
+        private void CalendarView_CalendarViewDayItemChanging(CalendarView sender,
+            CalendarViewDayItemChangingEventArgs args)
         {
             try
             {
@@ -130,7 +137,7 @@ namespace Fitspiraton.View
             }
             catch (Exception Expection)
             {
-              // Handle the exception <3   
+                // Handle the exception <3   
             }
 
         }

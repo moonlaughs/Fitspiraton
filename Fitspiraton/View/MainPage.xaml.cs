@@ -10,21 +10,10 @@ using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Fitspiraton.View;
-using Windows.UI.Core;
-
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace Fitspiraton
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class MainPage : Page
     {
         public MainPage()
@@ -34,6 +23,25 @@ namespace Fitspiraton
             formattableTitleBar.ButtonBackgroundColor = Colors.Transparent;
             CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = true;
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            int change = 1;
+
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(5);
+            timer.Tick += (o, a) =>
+            {
+                // If we'd go out of bounds then reverse
+                int newIndex = FlipView.SelectedIndex + change;
+                if (newIndex >= FlipView.Items.Count || newIndex < 0)
+                {
+                    change *= -1;
+                }
+
+                FlipView.SelectedIndex += change;
+            };
+            timer.Start();
         }
     }
 }

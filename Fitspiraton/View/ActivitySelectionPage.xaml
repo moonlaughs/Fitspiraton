@@ -30,7 +30,7 @@
             <ViewModel:ActivityViewVM/>
         </Grid.DataContext>
         <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
-            <TextBlock HorizontalAlignment="Right" Margin="0,0,0,0" TextWrapping="Wrap" Text="Welcome," VerticalAlignment="Bottom" FontSize="40" Foreground="Black" FontFamily="Book Antiqua"/>
+            <TextBlock HorizontalAlignment="Right" Margin="0,0,0,0" TextWrapping="Wrap" Text="Welcome;" VerticalAlignment="Bottom" FontSize="40" Foreground="Black" FontFamily="Book Antiqua"/>
             <TextBlock Margin="15,0,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" FontSize="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="Black" FontFamily="Book Antiqua"/>
         </StackPanel>
 

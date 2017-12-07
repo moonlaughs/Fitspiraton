@@ -97,10 +97,11 @@
     </Compile>
     <Compile Include="Interfaces\ActivitySingleton.cs" />
     <Compile Include="Interfaces\BookingHandler.cs" />
+    <Compile Include="Interfaces\CalendarviewHelper.cs" />
     <Compile Include="Interfaces\EventListSingleton.cs" />
     <Compile Include="Interfaces\FrameNavigateClass.cs" />
     <Compile Include="Interfaces\SingletonMember.cs" />
-    <Compile Include="Model\Bookings.cs" />
+    <Compile Include="Model\Booking.cs" />
     <Compile Include="ViewModel\ActivityViewVM.cs" />
     <Compile Include="ViewModel\SelectedActivityViewVM.cs" />
     <Compile Include="ViewModel\UserBookingVM.cs" />
@@ -121,12 +122,6 @@
     <Compile Include="ViewModel\UserMenuVm.cs" />
     <Compile Include="View\ActivitySelectionPage.xaml.cs">
       <DependentUpon>ActivitySelectionPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\AttendantsListPage.xaml.cs">
-      <DependentUpon>AttendantsListPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\CalendarPage.xaml.cs">
-      <DependentUpon>CalendarPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ManagerUsersPage.xaml.cs">
       <DependentUpon>ManagerUsersPage.xaml</DependentUpon>
@@ -161,8 +156,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\bg2.jpg" />
+    <Content Include="Assets\FitspirationDesign\24992826_1313837958722147_986259848_o.jpg" />
     <Content Include="Assets\FitspirationDesign\Fitness 6.jpg" />
     <Content Include="Assets\FitspirationDesign\LogoFitspiration.jpg" />
+    <Content Include="Assets\FitspirationDesign\workout-package_1.png" />
     <Content Include="Assets\own images\activities\backgrounds\bg.jpg" />
     <Content Include="Assets\own images\activities\backgrounds\fitnessbg.jpg" />
     <Content Include="Assets\own images\activities\backgrounds\salsabg.jpg" />
@@ -199,14 +196,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\ActivitySelectionPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\AttendantsListPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\CalendarPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
