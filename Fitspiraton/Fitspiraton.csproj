@@ -95,8 +95,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\ActivitySingleton.cs" />
     <Compile Include="Interfaces\FrameNavigateClass.cs" />
     <Compile Include="Interfaces\SingletonMember.cs" />
+    <Compile Include="ViewModel\ActivityViewVM.cs" />
+    <Compile Include="ViewModel\SelectedActivityViewVM.cs" />
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -135,6 +138,9 @@
     </Compile>
     <Compile Include="View\SampleActivityPage.xaml.cs">
       <DependentUpon>SampleActivityPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SelectedActivityView.xaml.cs">
+      <DependentUpon>SelectedActivityView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserMenu.xaml.cs">
       <DependentUpon>UserMenu.xaml</DependentUpon>
@@ -214,6 +220,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SampleActivityPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SelectedActivityView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

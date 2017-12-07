@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Fitspiraton.Interfaces;
+using Fitspiraton.Model;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,13 +27,13 @@ namespace Fitspiraton.View
     /// </summary>
     public sealed partial class ActivitySelectionPage : Page
     {
+        private ActivitySingleton _activitySingleton;
         public ActivitySelectionPage()
         {
+           _activitySingleton = ActivitySingleton.GetInstance();
             this.InitializeComponent();
-
-            this.InitializeComponent();
-
-            // To disable Title Bar
+     
+ 
             ApplicationViewTitleBar formattableTitleBar = ApplicationView.GetForCurrentView().TitleBar;
             formattableTitleBar.ButtonBackgroundColor = Colors.Transparent;
             CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
@@ -41,6 +43,20 @@ namespace Fitspiraton.View
         private void StackPanel_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             Frame.Navigate(typeof(UserMenu));
+        }
+
+        private void ListViewBase_OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                var item = (Activity)e.ClickedItem;
+                _activitySingleton.SetActivity(item);
+                this.Frame.Navigate(typeof(SelectedActivityView));
+            }
+            catch (Exception exception)
+            {
+                //EXCEPTION HANDLING
+            }
         }
     }
 }
