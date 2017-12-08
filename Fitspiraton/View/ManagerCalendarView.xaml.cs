@@ -43,7 +43,7 @@ namespace Fitspiraton.View
 
              foreach (var eventDates in _collectionEventSingleton.GetEvents())
              {
-                 if (args.Item.Date.Equals(eventDates.Date))
+                 if (args.Item != null && args.Item.Date.Equals(eventDates.Date))
                  {
                      args.Item.Background = red;
                  }
@@ -55,6 +55,12 @@ namespace Fitspiraton.View
             DateTimeOffset addedDate = ManagerDatePicker.Date;
             Event aD = new Event(addedDate);
             _collectionEventSingleton.AddEventDate(aD);
+        }
+        
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ManagerEventCalendarView.CalendarViewDayItemChanging += CalendarView_OnCalendarViewDayItemChanging;
         }
     }
 }

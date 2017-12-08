@@ -76,6 +76,7 @@ namespace Fitspiraton.ViewModel
         public void DoAddItem()
         {
             Members.Add(AddNewMember);
+
         }
 
         public void DoUpdateItem()

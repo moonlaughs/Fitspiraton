@@ -8,7 +8,7 @@
     x:Class="Fitspiraton.View.ManagerCalendarView"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="Button_Click_1">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="18*"/>
             <ColumnDefinition Width="18*"/>
@@ -17,6 +17,7 @@
         <Grid.DataContext>
             <viewModel:AdminPageVM/>
         </Grid.DataContext>
+        
 
         
         <StackPanel Orientation="Vertical">
@@ -25,20 +26,32 @@
             <!--DateChanged="DatePicker_OnDateChanged"  -->  
                     
 
-        <TextBlock HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" Text="Name of the class" VerticalAlignment="Top"/>
-        <TextBox  HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" Text="{Binding AddNewEvent.Type, Mode=TwoWay}" VerticalAlignment="Top" Width="250"/>
-        <TextBlock HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" Text="Name of teacher" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" Text="{Binding AddNewEvent.NameOfTeacher, Mode=TwoWay}" VerticalAlignment="Top" Width="250"/>
-        <TextBlock HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" Text="Max number of members" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" Text="{Binding AddNewEvent.MaxNumOfMembers, Mode=TwoWay}" VerticalAlignment="Top" Width="250"/>
-        <Button Content="AddClass" Margin="115,50,0,0" Grid.Column="0" Width="230" Command="{Binding AddEventCommand}" />
-            <Button Content="DeleteClass" Margin="115,50,0,0" Width="230" Command="{Binding DeleteEventCommand}" />
-        </StackPanel>
-        
-        <CalendarView x:Name="ManagerEventCalendarView" CalendarViewDayItemChanging="CalendarView_OnCalendarViewDayItemChanging" 
-                      
-                      HorizontalAlignment="Left" Margin="51,50,0,0" VerticalAlignment="Top" Height="432" Width="439" Grid.Column="1"/>
+            <TextBlock HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" 
+                   Text="Name of the class" VerticalAlignment="Top"/>
+            <TextBox  HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" 
+                  Text="{Binding AddNewEvent.Type, Mode=TwoWay}" VerticalAlignment="Top" Width="250"/>
+            <TextBlock HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" 
+                   Text="Name of teacher" VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" 
+                 Text="{Binding AddNewEvent.NameOfTeacher, Mode=TwoWay}" VerticalAlignment="Top" Width="250"/>
+            <TextBlock HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" 
+                   Text="Max number of members" VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" 
+                 Text="{Binding AddNewEvent.MaxNumOfMembers, Mode=TwoWay}" VerticalAlignment="Top" Width="250"/>
+            <Button Content="AddClass" Margin="115,30,0,0" Grid.Column="0" Width="230" 
+                    Command="{Binding AddEventCommand}" />
+            <Button Content="DeleteClass" Margin="115,30,0,0" Width="230" 
+                    Command="{Binding DeleteEventCommand}" />
+            <Button Content="UpdateCalendar" Margin="115,30,0,0" Width="230" 
+                    Click="Button_Click_1" />
+            <!--<Button Content="UpdateClass" Margin="115,30,0,0" Width="230" 
+                Command="{Binding UpdateEventCommand}" />-->
 
+        </StackPanel>
+
+        <CalendarView x:Name="ManagerEventCalendarView" CalendarViewDayItemChanging="CalendarView_OnCalendarViewDayItemChanging"
+                      
+                      HorizontalAlignment="Left" Margin="51,50,0,0" VerticalAlignment="Top" Height="432" Width="439" Grid.Column="1" ></CalendarView>
         <ListView x:Name="EventsListView" Grid.Column="3" HorizontalAlignment="Center" Width="300" 
                   ItemsSource="{Binding Events}" SelectedItem="{Binding SelectedEvent, Mode=TwoWay}">
             <ListView.Background>
@@ -48,7 +61,7 @@
                 <DataTemplate>
                     <StackPanel Margin="10,0,0,0"  Orientation="Vertical">
                         <TextBlock Margin ="0, 15, 0, 0" Text="Date"/>
-                        <TextBlock Text="{Binding Date, Mode=TwoWay }"  />
+                        <TextBlock Text="{Binding Date.Date, Mode=TwoWay }"  />
                         <TextBlock Margin ="0,10,5,0" Text="Name:"/>
                         <TextBlock Text="{Binding Type, Mode=TwoWay}"/>
                         <TextBlock Margin ="0,10,5,0" Text="Id: "/>
