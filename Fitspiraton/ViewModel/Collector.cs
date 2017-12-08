@@ -44,7 +44,6 @@ namespace Fitspiraton.ViewModel
                 new Event(new DateTime(2017,12,25),"Yoga","John", 20),
                 new Event(new DateTime(2017,12,26),"Dance","John", 20),
                 new Event(new DateTime(2017,12,27),"Dance","John", 20),
-
             };
         }
     }

@@ -97,12 +97,14 @@
     </Compile>
     <Compile Include="Interfaces\ActivitySingleton.cs" />
     <Compile Include="Interfaces\BookingHandler.cs" />
+    <Compile Include="Interfaces\BookingSingleton.cs" />
     <Compile Include="Interfaces\CalendarviewHelper.cs" />
     <Compile Include="Interfaces\EventListSingleton.cs" />
     <Compile Include="Interfaces\FrameNavigateClass.cs" />
     <Compile Include="Interfaces\SingletonMember.cs" />
     <Compile Include="Model\Booking.cs" />
     <Compile Include="ViewModel\ActivityViewVM.cs" />
+    <Compile Include="ViewModel\RecentBookingsVM.cs" />
     <Compile Include="ViewModel\SelectedActivityViewVM.cs" />
     <Compile Include="ViewModel\UserBookingVM.cs" />
     <Compile Include="View\MainPage.xaml.cs">

@@ -13,7 +13,7 @@
             <RowDefinition Height="307*"/>
         </Grid.RowDefinitions>
         <Grid.DataContext>
-            <ViewModel:UserBookingVM/>
+            <ViewModel:RecentBookingsVM/>
         </Grid.DataContext>
         <ListView 
             ItemsSource="{Binding Bookings}"

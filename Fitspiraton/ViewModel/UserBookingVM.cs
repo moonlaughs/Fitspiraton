@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.ServiceModel.Channels;
+using Windows.UI.Popups;
 using Fitspiraton.Interfaces;
 using Fitspiraton.Model;
 using Fitspiraton.View;
@@ -14,6 +16,7 @@ namespace Fitspiraton.ViewModel
         private ActivitySingleton _activitySingleton;
         public RelayCommand RegisterCommand { get; set; }
         public readonly FrameNavigateClass Frame;
+        private readonly BookingSingleton _bookingSingleton;
 
         public DateTimeOffset SelectedDate
         {
@@ -34,26 +37,28 @@ namespace Fitspiraton.ViewModel
             Frame = new FrameNavigateClass();
             _activitySingleton = ActivitySingleton.GetInstance();
             RegisterCommand = new RelayCommand(RegisterBooking);
-            Bookings = new ObservableCollection<Booking>()
-            {
-                new Booking("Jobn",DateTimeOffset.Now,"Fitness")
-            };
+            _bookingSingleton = BookingSingleton.GetInstance();
+
+            //Serialization needed to save and redisplay the data , coz at the moment it just overrides.
+            Bookings = new ObservableCollection<Booking>() { };
+            Bookings = _bookingSingleton.GetBookings();
+
         }
         
         public void RegisterBooking()
         {
             try
             {
-                SelectedDate = new DateTimeOffset(DateTime.Now);
+                // SelectedDAte returnes to default 
                 Bookings.Add(new Booking(log.CurrentUser.Id, SelectedDate, _activitySingleton.GetType()));
+                _bookingSingleton.SetBooking(Bookings);
                 Frame.ActivateFrameNavigation(typeof(UserMenu),log.CurrentUser);
-                
-
-                //CurrentUser.NAme = Null + SelectedDate binding not wokrking
             }
             catch (Exception e)
             {
+                string Exception = e.ToString();
                 Frame.ActivateFrameNavigation(typeof(UserMenu), log.CurrentUser);
+                MessageDialog msg = new MessageDialog(Exception,"ERROR");
             }
         }
     }
