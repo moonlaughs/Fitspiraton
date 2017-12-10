@@ -1,37 +1,35 @@
-﻿using System.Collections.ObjectModel;
-using Fitspiraton.Model;
+﻿using Fitspiraton.Model;
 
 namespace Fitspiraton.Interfaces
 {
     class BookingSingleton
     {
-        public static ObservableCollection<Booking> _bookings;
-
-        private static BookingSingleton Instance { get; set; }
+        public static Booking _booking;
+        public static BookingSingleton Istance { get; set; }
 
         private BookingSingleton()
         {
-            _bookings = new ObservableCollection<Booking>();
+            _booking = new Booking();
         }
 
         public static BookingSingleton GetInstance()
         {
-            if (Instance == null)
+            if (Istance == null)
             {
-                Instance = new BookingSingleton();
+                Istance = new BookingSingleton();
             }
-            return Instance;
+            return Istance;
         }
 
-        public void SetBooking(ObservableCollection<Booking> bookings)
+        public void SetBooking(Booking booking)
         {
-            _bookings =  bookings;
+            _booking = booking;
         }
 
-        public ObservableCollection<Booking> GetBookings()
+        public Booking GetBooking()
         {
-            return _bookings;
+            return _booking;
         }
+
     }
 }
-

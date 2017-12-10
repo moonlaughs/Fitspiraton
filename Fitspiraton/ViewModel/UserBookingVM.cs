@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.ServiceModel.Channels;
 using Windows.UI.Popups;
 using Fitspiraton.Interfaces;
 using Fitspiraton.Model;
@@ -16,7 +15,7 @@ namespace Fitspiraton.ViewModel
         private ActivitySingleton _activitySingleton;
         public RelayCommand RegisterCommand { get; set; }
         public readonly FrameNavigateClass Frame;
-        private readonly BookingSingleton _bookingSingleton;
+        private readonly BookingListSingleton _bookingSingleton;
 
         public DateTimeOffset SelectedDate
         {
@@ -37,10 +36,9 @@ namespace Fitspiraton.ViewModel
             Frame = new FrameNavigateClass();
             _activitySingleton = ActivitySingleton.GetInstance();
             RegisterCommand = new RelayCommand(RegisterBooking);
-            _bookingSingleton = BookingSingleton.GetInstance();
+            _bookingSingleton = BookingListSingleton.GetInstance();
 
-            //Serialization needed to save and redisplay the data , coz at the moment it just overrides.
-            Bookings = new ObservableCollection<Booking>() { };
+            Bookings = new ObservableCollection<Booking>(){};
             Bookings = _bookingSingleton.GetBookings();
 
         }
@@ -50,7 +48,15 @@ namespace Fitspiraton.ViewModel
             try
             {
                 // SelectedDAte returnes to default 
+                //It adds a lot of booking at the time just for testing 
                 Bookings.Add(new Booking(log.CurrentUser.Id, SelectedDate, _activitySingleton.GetType()));
+                Bookings.Add(new Booking(log.CurrentUser.Id, SelectedDate, _activitySingleton.GetType()));
+                Bookings.Add(new Booking(log.CurrentUser.Id, SelectedDate, _activitySingleton.GetType()));
+                Bookings.Add(new Booking(log.CurrentUser.Id, SelectedDate, _activitySingleton.GetType()));
+                Bookings.Add(new Booking(log.CurrentUser.Id, SelectedDate, _activitySingleton.GetType()));
+                Bookings.Add(new Booking(log.CurrentUser.Id, SelectedDate, _activitySingleton.GetType()));
+                Bookings.Add(new Booking(log.CurrentUser.Id, SelectedDate, _activitySingleton.GetType()));
+
                 _bookingSingleton.SetBooking(Bookings);
                 Frame.ActivateFrameNavigation(typeof(UserMenu),log.CurrentUser);
             }
