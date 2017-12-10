@@ -8,70 +8,82 @@
     x:Class="Fitspiraton.View.ManagerCalendarView"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="Button_Click_1">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="ButtonBase_OnClick">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="18*"/>
-            <ColumnDefinition Width="18*"/>
-            <ColumnDefinition Width="27*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+
         </Grid.ColumnDefinitions>
         <Grid.DataContext>
             <viewModel:AdminPageVM/>
         </Grid.DataContext>
-        
-
-        
-        <StackPanel Orientation="Vertical">
-
-            <DatePicker x:Name="ManagerDatePicker" HorizontalAlignment="Left" Margin="115,170,0,0" DateChanged="DatePicker_OnDateChanged" Date="{Binding AddNewEvent.Date, Mode=TwoWay}" VerticalAlignment="Top"  />
-            <!--DateChanged="DatePicker_OnDateChanged"  -->  
-                    
-
-            <TextBlock HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" 
-                   Text="Name of the class" VerticalAlignment="Top"/>
-            <TextBox  HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" 
-                  Text="{Binding AddNewEvent.Type, Mode=TwoWay}" VerticalAlignment="Top" Width="250"/>
-            <TextBlock HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" 
-                   Text="Name of teacher" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" 
-                 Text="{Binding AddNewEvent.NameOfTeacher, Mode=TwoWay}" VerticalAlignment="Top" Width="250"/>
-            <TextBlock HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" 
-                   Text="Max number of members" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" 
-                 Text="{Binding AddNewEvent.MaxNumOfMembers, Mode=TwoWay}" VerticalAlignment="Top" Width="250"/>
-            <Button Content="AddClass" Margin="115,30,0,0" Grid.Column="0" Width="230" 
-                    Command="{Binding AddEventCommand}" />
-            <Button Content="DeleteClass" Margin="115,30,0,0" Width="230" 
-                    Command="{Binding DeleteEventCommand}" />
-            <Button Content="UpdateCalendar" Margin="115,30,0,0" Width="230" 
-                    Click="Button_Click_1" />
-            <!--<Button Content="UpdateClass" Margin="115,30,0,0" Width="230" 
-                Command="{Binding UpdateEventCommand}" />-->
-
-        </StackPanel>
 
         <CalendarView x:Name="ManagerEventCalendarView" CalendarViewDayItemChanging="CalendarView_OnCalendarViewDayItemChanging"
-                      
-                      HorizontalAlignment="Left" Margin="51,50,0,0" VerticalAlignment="Top" Height="432" Width="439" Grid.Column="1" ></CalendarView>
-        <ListView x:Name="EventsListView" Grid.Column="3" HorizontalAlignment="Center" Width="300" 
-                  ItemsSource="{Binding Events}" SelectedItem="{Binding SelectedEvent, Mode=TwoWay}">
-            <ListView.Background>
-                <SolidColorBrush Color="Gainsboro" Opacity="0.75"/>
-            </ListView.Background>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Margin="10,0,0,0"  Orientation="Vertical">
-                        <TextBlock Margin ="0, 15, 0, 0" Text="Date"/>
-                        <TextBlock Text="{Binding Date.Date, Mode=TwoWay }"  />
-                        <TextBlock Margin ="0,10,5,0" Text="Name:"/>
-                        <TextBlock Text="{Binding Type, Mode=TwoWay}"/>
-                        <TextBlock Margin ="0,10,5,0" Text="Id: "/>
-                        <TextBlock Text="{Binding NameOfTeacher, Mode=TwoWay}"/>
-                        <TextBlock Margin ="0,10,5,0" Text="Password:"/>
-                        <TextBlock Text="{Binding MaxNumOfMembers, Mode=TwoWay}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-       
+                      HorizontalAlignment="Left" Margin="51,50,0,0" VerticalAlignment="Top" 
+                      Height="432" Width="439" Grid.Column="1" Grid.Row="1" />
+
+        <RelativePanel Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center">
+            
+            <StackPanel RelativePanel.AlignTopWithPanel="True" Name="InfoPanel" Orientation="Vertical" 
+                        Grid.Column="2" HorizontalAlignment="Center" 
+                        Margin="10,0,9,0" Grid.Row="1">
+
+                <StackPanel Orientation="Horizontal" Height="60">
+                   <TextBlock HorizontalAlignment="Left" Text="Book Activities" FontSize="23" 
+                              VerticalAlignment="Center" Margin="10, 0, 0, 0"/>
+               </StackPanel>
+                <DatePicker x:Name="ManagerDatePicker" HorizontalAlignment="Center"
+                        DateChanged="DatePicker_OnDateChanged" 
+                        Date="{Binding AddNewEvent.Date, Mode=TwoWay}" 
+                        Margin="0,100,0,0"  VerticalAlignment="Top" />
+
+            <TextBlock HorizontalAlignment="Center" Margin="0,40,0,0" TextWrapping="Wrap" 
+                   Text="Name of the class" VerticalAlignment="Top"/>
+            <TextBox  HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" 
+                  Text="{Binding AddNewEvent.Type, Mode=TwoWay}" VerticalAlignment="Top" Width="250"/>
+                <TextBlock HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" 
+                    Text="Name of teacher" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" 
+                    Text="{Binding AddNewEvent.NameOfTeacher, Mode=TwoWay}" VerticalAlignment="Top" Width="250"/>
+                <TextBlock HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" 
+                    Text="Max number of members" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" 
+                    Text="{Binding AddNewEvent.MaxNumOfMembers, Mode=TwoWay}" VerticalAlignment="Top" Width="250"/>
+                <Button Content="AddClass" Margin="115,30,0,0" Grid.Column="0" Width="230" 
+                    Command="{Binding AddEventCommand}" />
+                <Button Content="DeleteClass" Margin="115,30,0,0" Width="230" 
+                    Command="{Binding DeleteEventCommand}" />
+                <Button Content="UpdateCalendar" Margin="115,30,0,0" Width="230" Click="ButtonBase_OnClick" />
+            </StackPanel>
+
+            <ListView x:Name="EventsListView" RelativePanel.Below="InfoPanel" RelativePanel.AlignHorizontalCenterWithPanel="True"
+                      Grid.Column="3" HorizontalAlignment="Center" Width="300" 
+                       ItemsSource="{Binding Events}" SelectedItem="{Binding SelectedEvent, Mode=TwoWay}"
+                       Margin="0, 60, 0, 0" Grid.Row="1">
+                <ListView.Background>
+                      <SolidColorBrush Color="Gainsboro" Opacity="0.75"/>
+                </ListView.Background>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="10,0,0,0"  Orientation="Vertical">
+                            <TextBlock Margin ="0, 15, 0, 0" Text="Date"/>
+                            <TextBlock Text="{Binding Date.Date, Mode=TwoWay }"  />
+                            <TextBlock Margin ="0,10,5,0" Text="Name:"/>
+                            <TextBlock Text="{Binding Type, Mode=TwoWay}"/>
+                            <TextBlock Margin ="0,10,5,0" Text="Id: "/>
+                            <TextBlock Text="{Binding NameOfTeacher, Mode=TwoWay}"/>
+                            <TextBlock Margin ="0,10,5,0" Text="Password:"/>
+                            <TextBlock Text="{Binding MaxNumOfMembers, Mode=TwoWay}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </RelativePanel>
     </Grid>
 </Page>

@@ -33,6 +33,7 @@ namespace Fitspiraton.View
             this.InitializeComponent();
             ManagerEventCalendarView.MinDate = new DateTime(2017,11,29);
             ManagerEventCalendarView.MaxDate = DateTime.Now.AddMonths(1);
+            ManagerDatePicker.Date = DateTimeOffset.Now;
             _collectionEventSingleton = CollectionEventSingleton.GetInstance();
             _collectionEventSingleton.SetEvent(CalendarViewCollector.EventCollection);
         }
@@ -56,11 +57,13 @@ namespace Fitspiraton.View
             Event aD = new Event(addedDate);
             _collectionEventSingleton.AddEventDate(aD);
         }
-        
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+
+       
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             ManagerEventCalendarView.CalendarViewDayItemChanging += CalendarView_OnCalendarViewDayItemChanging;
         }
     }
+    
 }
