@@ -13,6 +13,7 @@ namespace Fitspiraton.ViewModel
         private Booking _selectedBooking;
         private LoginVm lvm;
         private ObservableCollection<Booking> CurrentBookingList;
+        private Booking doubleDeleteBooking;
 
         public ObservableCollection<Booking> Bookings { get; set; }
 
@@ -32,6 +33,7 @@ namespace Fitspiraton.ViewModel
         public RecentBookingsVM()
         {
             lvm = new LoginVm();
+            CurrentBookingList = new ObservableCollection<Booking>();
             _bookingListSingleton = BookingListSingleton.GetInstance();
             DisplayCurrentUsersBookings();
             Bookings = CurrentBookingList;
@@ -41,8 +43,13 @@ namespace Fitspiraton.ViewModel
         }
 
         public void DoDeleteBooking()
-        { 
-            _bookingListSingleton.GetBookings().Remove(SelectedBooking);
+        {
+;
+            doubleDeleteBooking = SelectedBooking;
+            CurrentBookingList.Remove(doubleDeleteBooking);
+            _bookingListSingleton.GetBookings().Remove(doubleDeleteBooking);
+            //DisplayCurrentUsersBookings();
+
         }
         //Not working 
         private void ExistingBookingCheck()
@@ -63,7 +70,7 @@ namespace Fitspiraton.ViewModel
                     if (booking.Membername == lvm.CurrentUser.Id)
                     {
                         
-                        CurrentBookingList = new ObservableCollection<Booking>();
+                       
                         CurrentBookingList.Add(booking);
                     }
                 }

@@ -38,7 +38,7 @@ namespace Fitspiraton.ViewModel
             RegisterCommand = new RelayCommand(RegisterBooking);
             _bookingSingleton = BookingListSingleton.GetInstance();
 
-            Bookings = new ObservableCollection<Booking>(){};
+           // Bookings = new ObservableCollection<Booking>(){};
             Bookings = _bookingSingleton.GetBookings();
 
         }
@@ -49,7 +49,6 @@ namespace Fitspiraton.ViewModel
             {
                 // SelectedDate returnes to default need to be fixed 
                 Bookings.Add(new Booking(log.CurrentUser.Id, SelectedDate, _activitySingleton.GetType()));
-               
                 _bookingSingleton.SetBooking(Bookings);
                 Frame.ActivateFrameNavigation(typeof(UserMenu),log.CurrentUser);
             }
