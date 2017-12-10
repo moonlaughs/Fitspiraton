@@ -47,16 +47,9 @@ namespace Fitspiraton.ViewModel
         {
             try
             {
-                // SelectedDAte returnes to default 
-                //It adds a lot of booking at the time just for testing 
+                // SelectedDate returnes to default need to be fixed 
                 Bookings.Add(new Booking(log.CurrentUser.Id, SelectedDate, _activitySingleton.GetType()));
-                Bookings.Add(new Booking(log.CurrentUser.Id, SelectedDate, _activitySingleton.GetType()));
-                Bookings.Add(new Booking(log.CurrentUser.Id, SelectedDate, _activitySingleton.GetType()));
-                Bookings.Add(new Booking(log.CurrentUser.Id, SelectedDate, _activitySingleton.GetType()));
-                Bookings.Add(new Booking(log.CurrentUser.Id, SelectedDate, _activitySingleton.GetType()));
-                Bookings.Add(new Booking(log.CurrentUser.Id, SelectedDate, _activitySingleton.GetType()));
-                Bookings.Add(new Booking(log.CurrentUser.Id, SelectedDate, _activitySingleton.GetType()));
-
+               
                 _bookingSingleton.SetBooking(Bookings);
                 Frame.ActivateFrameNavigation(typeof(UserMenu),log.CurrentUser);
             }
