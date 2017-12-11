@@ -102,12 +102,18 @@
     <Compile Include="Interfaces\CalendarviewHelper.cs" />
     <Compile Include="Interfaces\EventListSingleton.cs" />
     <Compile Include="Interfaces\FrameNavigateClass.cs" />
+    <Compile Include="Interfaces\SingletonBMI.cs" />
     <Compile Include="Interfaces\SingletonMember.cs" />
+<<<<<<< HEAD
     <Compile Include="Model\Booking.cs" />
     <Compile Include="ViewModel\ActivityViewVM.cs" />
     <Compile Include="ViewModel\RecentBookingsVM.cs" />
     <Compile Include="ViewModel\SelectedActivityViewVM.cs" />
     <Compile Include="ViewModel\UserBookingVM.cs" />
+=======
+    <Compile Include="Model\BMI.cs" />
+    <Compile Include="ViewModel\BMIVm.cs" />
+>>>>>>> a5911f256b2edd1ff2133294377839aae0a2c2e1
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -155,11 +161,22 @@
     <None Include="Fitspiraton_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\b3.png" />
     <Content Include="Assets\bg2.jpg" />
+<<<<<<< HEAD
     <Content Include="Assets\FitspirationDesign\24992826_1313837958722147_986259848_o.jpg" />
     <Content Include="Assets\FitspirationDesign\Fitness 6.jpg" />
     <Content Include="Assets\FitspirationDesign\LogoFitspiration.jpg" />
     <Content Include="Assets\FitspirationDesign\workout-package_1.png" />
+=======
+    <Content Include="Assets\bg4.jpg" />
+    <Content Include="Assets\book.png" />
+    <Content Include="Assets\button.png" />
+    <Content Include="Assets\FitspirationDesign\Fitness 6.jpg" />
+    <Content Include="Assets\FitspirationDesign\LogoFitspiration.jpg" />
+    <Content Include="Assets\LogoTrnasparent.png" />
+    <Content Include="Assets\logOut.png" />
+>>>>>>> a5911f256b2edd1ff2133294377839aae0a2c2e1
     <Content Include="Assets\own images\activities\backgrounds\bg.jpg" />
     <Content Include="Assets\own images\activities\backgrounds\fitnessbg.jpg" />
     <Content Include="Assets\own images\activities\backgrounds\salsabg.jpg" />
@@ -170,6 +187,8 @@
     <Content Include="Assets\own images\activities\thumbnails\yoga_thumbnail.png" />
     <Content Include="Assets\own images\backbutton.png" />
     <Content Include="Assets\own images\bg.jpg" />
+    <Content Include="Assets\person-icon.png" />
+    <Content Include="Assets\resentIMG.png" />
     <Content Include="Assets\UP\arya.jpg" />
     <Content Include="Assets\UP\bran.jpg" />
     <Content Include="Assets\UP\daenerys.jpg" />

@@ -39,6 +39,7 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Orientation="Vertical" HorizontalAlignment="Stretch">
+<<<<<<< HEAD
             <ListView 
                       ItemsSource="{Binding Activitys}"
                       SelectedItem="{Binding SelecetedActivity, Mode=TwoWay }"
@@ -49,6 +50,14 @@
                       Visibility="Visible" HorizontalAlignment="Stretch" Opacity="0.98"
                       IsItemClickEnabled="True"
                       ItemClick="ListViewBase_OnItemClick">
+=======
+            <ListView HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,200,0,0" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+>>>>>>> a5911f256b2edd1ff2133294377839aae0a2c2e1
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Horizontal"/>

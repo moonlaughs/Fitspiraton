@@ -1,5 +1,6 @@
 ﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 using Fitspiraton.ViewModel;
 
 namespace Fitspiraton.View
@@ -40,5 +41,13 @@ namespace Fitspiraton.View
             log = new LoginVm();
             UserMenuFrame.Navigate(typeof(ProfileView),log.CurrentUser);
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            log = new LoginVm();
+            UserMenuFrame.Navigate(typeof(ProfileView), log.CurrentUser);
+        }
+
+       
     }
 }
