@@ -7,7 +7,7 @@ using Fitspiraton.Interfaces;
 
 namespace Fitspiraton.ViewModel
 {
-    class UserMenuVm : NotifyPropertyClass
+    public class UserMenuVm : NotifyPropertyClass
     {
 
         private SingletonMember _singleton;

@@ -8,7 +8,7 @@ using Fitspiraton.ViewModel;
 
 namespace Fitspiraton.Interfaces
 {
-    class SingletonMember
+    public class SingletonMember
     {
         public static Member _member;
 

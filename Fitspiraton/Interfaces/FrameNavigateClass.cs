@@ -4,7 +4,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace Fitspiraton.Interfaces
 {
-    class FrameNavigateClass
+    public class FrameNavigateClass
     {
         public void ActivateFrameNavigation(Type type, Object currentUser)
         {

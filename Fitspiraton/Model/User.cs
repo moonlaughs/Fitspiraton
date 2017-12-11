@@ -1,6 +1,8 @@
-﻿namespace Fitspiraton.Model
+﻿using Fitspiraton.ViewModel;
+
+namespace Fitspiraton.Model
 {
-    public class User
+    public class User :NotifyPropertyClass
     {
         public string Name { get; set; }
         public string Id { get; set; }

@@ -4,13 +4,19 @@ using Fitspiraton.Model;
 namespace Fitspiraton.ViewModel
 {
     //Collect here all of the List<T>
-    class Collector
+    public class Collector
     {
         //instanceFields
         private ObservableCollection<Member> _persons;
 
         //Properties
         public ObservableCollection<Member> Persons { get => _persons; set => _persons = value; }
+
+        //IZa
+        public string Name { get; set; }
+        public string Id { get; set; }
+        public string Photo { get; set; }
+        public string Password { get; set; }
 
         //Ctor
         public Collector()

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fitspiraton.Model
 {
-    class Admin : User
+    public class Admin : User
     {
         public Admin(string name, string id, string password, string photo) : base(name, id, password, photo)
         {

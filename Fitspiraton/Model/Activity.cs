@@ -1,6 +1,6 @@
 ﻿namespace Fitspiraton.Model
 {
-    class Activity
+    public class Activity
     {
         private string _type;
         private int _maxNumOfMembers;

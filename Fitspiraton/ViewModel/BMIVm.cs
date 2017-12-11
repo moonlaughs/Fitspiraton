@@ -7,7 +7,7 @@ using Fitspiraton.Interfaces;
 
 namespace Fitspiraton.ViewModel
 {
-    class BMIVm :NotifyPropertyClass
+    public class BMIVm :NotifyPropertyClass
     {
         private readonly SingletonBMI _singleton;
 

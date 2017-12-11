@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fitspiraton.Model
 {
-    class Event
+    public class Event
     {
         private DateTimeOffset _date;
         private string _type;

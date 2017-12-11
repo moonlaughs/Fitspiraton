@@ -7,7 +7,7 @@ using Fitspiraton.Model;
 
 namespace Fitspiraton.Interfaces
 {
-    class SingletonBMI
+    public class SingletonBMI
     {
         public static BMI _bmi;
 
