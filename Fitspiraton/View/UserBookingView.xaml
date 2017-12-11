@@ -21,9 +21,12 @@
                       Height="399" 
                       Margin="0,332,0,269"
                       Width="520"
-                      CalendarViewDayItemChanging="CalendarView_CalendarViewDayItemChanging"/>
+                      CalendarViewDayItemChanging="CalendarView_CalendarViewDayItemChanging"
+                        />
+
         <CalendarDatePicker x:Name="CalendarDatePicker" DateChanged="CalendarDatePicker_DateChanged"  Margin="90,253,0,715"/>
-        <TextBlock x:Name="UserTestBox" Margin="100" Height="100" Width="100"/>
-        <Button Content="Book" Margin="600,0,0,0" Command="{Binding RegisterCommand}"></Button>
+        <TextBlock x:Name="UserTestBox" Margin="910,490,415,490" Height="100"/>
+        <Button Content="Book" Margin="600,0,0,0" Command="{Binding RegisterCommand}"/>
+        <Button Content="CHECK" Margin="700,0,0,0" Click="Button_Click"></Button>
     </Grid>
 </Page>

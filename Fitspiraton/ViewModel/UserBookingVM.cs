@@ -13,9 +13,20 @@ namespace Fitspiraton.ViewModel
         private ObservableCollection<Booking> _bookings;
         private DateTimeOffset _selectedDate;
         private ActivitySingleton _activitySingleton;
+        private ObservableCollection<DateTimeOffset> _selectedDates;
         public RelayCommand RegisterCommand { get; set; }
         public readonly FrameNavigateClass Frame;
         private readonly BookingListSingleton _bookingSingleton;
+
+        public ObservableCollection<DateTimeOffset> SelectedDates
+        {
+            get => _selectedDates;
+            set
+            {
+                _selectedDates = value;
+                OnPropertyChanged((nameof(SelectedDates)));
+            }
+        }
 
         public DateTimeOffset SelectedDate
         {
@@ -37,6 +48,7 @@ namespace Fitspiraton.ViewModel
             _activitySingleton = ActivitySingleton.GetInstance();
             RegisterCommand = new RelayCommand(RegisterBooking);
             _bookingSingleton = BookingListSingleton.GetInstance();
+            SelectedDates = new ObservableCollection<DateTimeOffset>();
 
            // Bookings = new ObservableCollection<Booking>(){};
             Bookings = _bookingSingleton.GetBookings();
