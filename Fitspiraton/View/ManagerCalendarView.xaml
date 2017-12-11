@@ -33,12 +33,23 @@
                 <SolidColorBrush Color="#FF18222D"/>
              </CalendarView.CalendarItemBackground>
             <CalendarView.BorderBrush>
-                <SolidColorBrush Color="DarkGray"></SolidColorBrush>
+                <SolidColorBrush Color="DarkGray"/>
             </CalendarView.BorderBrush>
             <CalendarView.BlackoutForeground>
-                <SolidColorBrush Color="Gainsboro"></SolidColorBrush>
+                <SolidColorBrush Color="Gainsboro"/>
             </CalendarView.BlackoutForeground>
-            <!--<CalendarView.CalendarViewDayItemStyle>
+            <CalendarView.CalendarItemForeground>
+                <SolidColorBrush Color="#FFA3CDD1"/>
+            </CalendarView.CalendarItemForeground>
+            <CalendarView.HorizontalDayItemAlignment>Right</CalendarView.HorizontalDayItemAlignment>
+            <CalendarView.VerticalDayItemAlignment>Top</CalendarView.VerticalDayItemAlignment>
+            <CalendarView.OutOfScopeBackground>#FF18222D</CalendarView.OutOfScopeBackground>
+            <CalendarView.OutOfScopeForeground>#FFA3CDD1</CalendarView.OutOfScopeForeground>
+            
+           
+         
+              
+                <!--<CalendarView.CalendarViewDayItemStyle>
                 <Style TargetType="CalendarViewDayItem">
                     <Setter Property="BorderThickness" Value="20"/>
                     <Setter Property="Background" Value="#FF18222D"/>
@@ -52,7 +63,7 @@
 
             <StackPanel RelativePanel.AlignTopWithPanel="True" Name="InfoPanel" Orientation="Vertical" 
                         Grid.Column="2" HorizontalAlignment="Center" 
-                        Margin="0,0,0,5" Grid.Row="1" Height="500">
+                        Margin="0,0,0,5" Grid.Row="1" Height="500" BorderBrush="DarkGray" BorderThickness="1" >
 
                 <StackPanel Orientation="Horizontal" Height="60" Background="#FF363A4F">
                     <TextBlock HorizontalAlignment="Left" Text="Book your Activity" FontSize="23"  
@@ -84,7 +95,7 @@
                             HorizontalAlignment="Center" Margin="0,10,0,0" Width="230" Foreground="#FFA3CDD1" Background="#FFD83C2D" />
             </StackPanel>
 
-            <StackPanel RelativePanel.Below="InfoPanel" RelativePanel.AlignHorizontalCenterWithPanel="True">
+            <StackPanel RelativePanel.Below="InfoPanel" RelativePanel.AlignHorizontalCenterWithPanel="True" BorderBrush="DarkGray" BorderThickness="1" >
                 <StackPanel Orientation="Horizontal" Height="60" Background="#FF363A4F" >
                     <TextBlock x:Name="ActivityList" Text="Activity List"
                                FontSize="23" Margin="10,0,0,0" VerticalAlignment="Center" Foreground="#FFA3CDD1"/>
@@ -101,28 +112,28 @@
                             <RelativePanel>
                                 <StackPanel  Margin="0,0,0,8"  Orientation="Vertical" Width="289">
                                     <RelativePanel>
-                                        <TextBlock x:Name="BlockDate" Text="Date: " Margin ="0,3,0,0" FontSize="17"/>
+                                        <TextBlock x:Name="BlockDate" Text="Date: " Margin ="0,3,0,0" FontSize="17" Foreground="#FFA3CDD1"/>
                                         <TextBlock x:Name="DateBlock" Text="{Binding Date.Date, Mode=TwoWay }"
                                                        RelativePanel.AlignBottomWith="BlockDate" RelativePanel.RightOf="BlockDate"
-                                                       Margin="47,0,0,0" FontSize="15" Foreground="White"/>
+                                                       Margin="47,0,0,0" FontSize="15" Foreground="#FFA3CDD1"/>
                                     </RelativePanel>
                                     <RelativePanel>
-                                        <TextBlock x:Name="BlockName" Text="Name: " Margin ="0,3,0,0" FontSize="17"  />
+                                        <TextBlock x:Name="BlockName" Text="Name: " Margin ="0,3,0,0" FontSize="17" Foreground="#FFA3CDD1"  />
                                         <TextBlock x:Name="NameBlock" Text="{Binding Type, Mode=TwoWay}"
                                                        RelativePanel.AlignBottomWith="BlockName" RelativePanel.RightOf="BlockName"
-                                                       Margin="40,0,0,0" FontSize="15" Foreground="White"/>
+                                                       Margin="40,0,0,0" FontSize="15" Foreground="#FFA3CDD1"/>
                                     </RelativePanel>
                                     <RelativePanel>
-                                        <TextBlock x:Name="BlockTeacher" Text="Teacher: " Margin ="0,3,0,0" FontSize="17" />
+                                        <TextBlock x:Name="BlockTeacher" Text="Teacher: " Margin ="0,3,0,0" FontSize="17" Foreground="#FFA3CDD1" />
                                         <TextBlock x:Name="TeacherBlock" Text="{Binding NameOfTeacher, Mode=TwoWay}"
                                                    RelativePanel.AlignBottomWith="BlockTeacher" RelativePanel.RightOf="BlockTeacher"
-                                                   Margin="30,0,0,0" FontSize="15" Foreground="White"/>
+                                                   Margin="30,0,0,0" FontSize="15" Foreground="#FFA3CDD1"/>
                                     </RelativePanel>
                                     <RelativePanel>
-                                        <TextBlock x:Name="BlockCapacity" Text="Capacity: " Margin ="0,3,0,0" FontSize="17"/>
+                                        <TextBlock x:Name="BlockCapacity" Text="Capacity: " Margin ="0,3,0,0" FontSize="17" Foreground="#FFA3CDD1"/>
                                         <TextBlock x:Name="CapacityBlock" Text="{Binding MaxNumOfMembers, Mode=TwoWay}"
                                                        RelativePanel.AlignBottomWith="BlockCapacity" RelativePanel.RightOf="BlockCapacity"
-                                                       Margin="27,0,0,0" FontSize="15" Foreground="White"/>
+                                                       Margin="27,0,0,0" FontSize="15" Foreground="#FFA3CDD1"/>
                                     </RelativePanel>
                                 </StackPanel>
                             </RelativePanel>

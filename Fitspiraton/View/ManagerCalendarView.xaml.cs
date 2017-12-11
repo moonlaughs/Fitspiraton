@@ -31,9 +31,9 @@ namespace Fitspiraton.View
         public ManagerCalendarView()
         {
             this.InitializeComponent();
-            ManagerEventCalendarView.MinDate = new DateTime(2017,11,29);
-            ManagerEventCalendarView.MaxDate = DateTime.Now.AddMonths(1);
-            ManagerDatePicker.Date = DateTimeOffset.Now;
+            ManagerEventCalendarView.MinDate = new DateTime(2017,11,25);
+            ManagerEventCalendarView.MaxDate = DateTime.Now.AddMonths(3);
+            ManagerDatePicker.Date = DateTime.Now;
             _collectionEventSingleton = CollectionEventSingleton.GetInstance();
             _collectionEventSingleton.SetEvent(CalendarViewCollector.EventCollection);
         }
