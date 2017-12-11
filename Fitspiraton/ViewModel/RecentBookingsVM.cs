@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Windows.Security.Cryptography.Core;
 using Windows.UI.Popups;
 using Fitspiraton.Interfaces;
 using Fitspiraton.Model;
@@ -37,7 +36,7 @@ namespace Fitspiraton.ViewModel
             _bookingListSingleton = BookingListSingleton.GetInstance();
             DisplayCurrentUsersBookings();
             Bookings = CurrentBookingList;
-           // ExistingBookingCheck();
+            ExistingBookingCheck();
             SelectedBooking = new Booking();
             DeleteBookingCommand = new RelayCommand(DoDeleteBooking);
         }
@@ -48,16 +47,17 @@ namespace Fitspiraton.ViewModel
             doubleDeleteBooking = SelectedBooking;
             CurrentBookingList.Remove(doubleDeleteBooking);
             _bookingListSingleton.GetBookings().Remove(doubleDeleteBooking);
-            //DisplayCurrentUsersBookings();
+           
 
         }
-        //Not working 
+        
         private void ExistingBookingCheck()
         {
             if (Bookings.Count == 0)
             {
                 MessageDialog msg = new MessageDialog("Your booking list is empty. Book your first event in the booking menu","NO BOOKINGS");
-                
+                msg.ShowAsync();
+
             }   
         }
 
@@ -69,8 +69,6 @@ namespace Fitspiraton.ViewModel
                 {
                     if (booking.Membername == lvm.CurrentUser.Id)
                     {
-                        
-                       
                         CurrentBookingList.Add(booking);
                     }
                 }
@@ -79,6 +77,7 @@ namespace Fitspiraton.ViewModel
             {
                 string error = e.ToString();
                 MessageDialog msg = new MessageDialog(error,"ERROR");
+                msg.ShowAsync();
             }
         }
 
