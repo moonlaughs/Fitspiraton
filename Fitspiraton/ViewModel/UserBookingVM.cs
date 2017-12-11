@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using Windows.UI.Popups;
 using Fitspiraton.Interfaces;
 using Fitspiraton.Model;
 using Fitspiraton.View;
@@ -12,8 +13,20 @@ namespace Fitspiraton.ViewModel
         private ObservableCollection<Booking> _bookings;
         private DateTimeOffset _selectedDate;
         private ActivitySingleton _activitySingleton;
+        private ObservableCollection<DateTimeOffset> _selectedDates;
         public RelayCommand RegisterCommand { get; set; }
         public readonly FrameNavigateClass Frame;
+        private readonly BookingListSingleton _bookingSingleton;
+
+        public ObservableCollection<DateTimeOffset> SelectedDates
+        {
+            get => _selectedDates;
+            set
+            {
+                _selectedDates = value;
+                OnPropertyChanged((nameof(SelectedDates)));
+            }
+        }
 
         public DateTimeOffset SelectedDate
         {
@@ -34,26 +47,28 @@ namespace Fitspiraton.ViewModel
             Frame = new FrameNavigateClass();
             _activitySingleton = ActivitySingleton.GetInstance();
             RegisterCommand = new RelayCommand(RegisterBooking);
-            Bookings = new ObservableCollection<Booking>()
-            {
-                new Booking("Jobn",DateTimeOffset.Now,"Fitness")
-            };
+            _bookingSingleton = BookingListSingleton.GetInstance();
+            SelectedDates = new ObservableCollection<DateTimeOffset>();
+
+           // Bookings = new ObservableCollection<Booking>(){};
+            Bookings = _bookingSingleton.GetBookings();
+
         }
         
         public void RegisterBooking()
         {
             try
             {
-                SelectedDate = new DateTimeOffset(DateTime.Now);
+                // SelectedDate returnes to default need to be fixed 
                 Bookings.Add(new Booking(log.CurrentUser.Id, SelectedDate, _activitySingleton.GetType()));
+                _bookingSingleton.SetBooking(Bookings);
                 Frame.ActivateFrameNavigation(typeof(UserMenu),log.CurrentUser);
-                
-
-                //CurrentUser.NAme = Null + SelectedDate binding not wokrking
             }
             catch (Exception e)
             {
+                string Exception = e.ToString();
                 Frame.ActivateFrameNavigation(typeof(UserMenu), log.CurrentUser);
+                MessageDialog msg = new MessageDialog(Exception,"ERROR");
             }
         }
     }

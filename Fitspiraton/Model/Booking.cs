@@ -16,6 +16,10 @@ namespace Fitspiraton.Model
             _type = type;
         }
 
+        public Booking()
+        {
+            
+        }
         public string Membername { get => _membername; set => _membername = value; }
         public DateTimeOffset Date { get => _date; set => _date = value; }
         public string Type { get => _type; set => _type = value; }

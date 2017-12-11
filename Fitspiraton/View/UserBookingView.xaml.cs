@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Windows.UI;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -21,7 +23,7 @@ namespace Fitspiraton.View
         private BookingHandler _bookingHandler;
         private ObservableCollection<Event> _sortedEvents;
         private LoginVm log;
-    
+
 
         public UserBookingView()
         {
@@ -29,7 +31,7 @@ namespace Fitspiraton.View
             this.InitializeComponent();
 
             log = new LoginVm();
-            col =new Collector();
+            col = new Collector();
             _bookingHandler = new BookingHandler();
             savm = new SelectedActivityViewVM();
             selectedColor = new SolidColorBrush(Colors.Yellow);
@@ -37,18 +39,19 @@ namespace Fitspiraton.View
 
             string name = log.CurrentUser.Name;
             //UserTestBox.Text = name;
-            
 
-            CalendarView.SelectedDates.Add(new DateTime(2017, 10, 29));// Set selected date is "x date");  
-            CalendarView.MinDate = new DateTime(2017, 11, 1);//Min date is "x date " 
+
+            CalendarView.SelectedDates.Add(new DateTime(2017, 10, 29)); // Set selected date is "x date");  
+            CalendarView.MinDate = new DateTime(2017, 11, 1); //Min date is "x date " 
             CalendarView.MaxDate = DateTime.Now.AddMonths(12); //Max date is "x" months from current date
-            CalendarView.NumberOfWeeksInView = 5;//Month view show "x" weeks at a time 
+            CalendarView.NumberOfWeeksInView = 5; //Month view show "x" weeks at a time 
             CalendarView.SelectedForeground = selectedColor;
 
             _eventListSingleton = EventListSingleton.GetInstance();
             _eventListSingleton.SetEvents(col.Events);
 
             ChooseEventList();
+            dates = new List<DateTimeOffset>();
         }
 
         public ObservableCollection<Event> ChooseEventList()
@@ -65,7 +68,7 @@ namespace Fitspiraton.View
             {
                 _sortedEvents = _bookingHandler.Dance;
             }
-            if (savm.Type != "Fitness" && savm.Type != "Dance" && savm.Type !="Yoga")
+            if (savm.Type != "Fitness" && savm.Type != "Dance" && savm.Type != "Yoga")
             {
                 _sortedEvents = _bookingHandler.Unhandeled;
             }
@@ -74,7 +77,8 @@ namespace Fitspiraton.View
         }
 
 
-        private void CalendarDatePicker_DateChanged(CalendarDatePicker sender, CalendarDatePickerDateChangedEventArgs args)
+        private void CalendarDatePicker_DateChanged(CalendarDatePicker sender,
+            CalendarDatePickerDateChangedEventArgs args)
         {
             //Checking selected date is null  
             if (args.NewDate != null)
@@ -140,6 +144,32 @@ namespace Fitspiraton.View
                 // Handle the exception <3   
             }
 
+        }
+
+        private IList<DateTimeOffset> dates;
+        public DateTimeOffset chosenDate;
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+                dates =  CalendarView.SelectedDates;
+
+                foreach (var date in dates)
+                {
+                    chosenDate = date;
+                }
+
+                UserTestBox.Text = chosenDate.ToString();
+            }
+            catch (Exception exception)
+            {
+
+                string ne = exception.ToString();
+               MessageDialog msg = new MessageDialog( ne,"");
+                msg.ShowAsync();
+            }
         }
     }
 }

@@ -8,36 +8,39 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="233*"/>
-            <RowDefinition Height="307*"/>
-        </Grid.RowDefinitions>
         <Grid.DataContext>
-            <ViewModel:UserBookingVM/>
+            <ViewModel:RecentBookingsVM/>
         </Grid.DataContext>
-        <ListView 
+        <ParallaxView Source="{x:Bind Path=BookingListView}" VerticalShift="200">
+            <Image x:Name="ParallaxImage" 
+                   Source="ms-appx:///Assets/bg2.jpg"
+                   Stretch="UniformToFill"/>
+        </ParallaxView>
+        <ListView x:Name="BookingListView"
             ItemsSource="{Binding Bookings}"
-            ScrollViewer.VerticalScrollBarVisibility="Disabled"
+            SelectedItem="{Binding SelectedBooking , Mode=TwoWay}"
+            ScrollViewer.VerticalScrollBarVisibility="Hidden"
             ScrollViewer.HorizontalScrollBarVisibility="Hidden"
             ScrollViewer.HorizontalScrollMode="Enabled"                  
-            ScrollViewer.VerticalScrollMode="Disabled" 
-            Visibility="Visible" HorizontalAlignment="Stretch" Opacity="0.98"
-            IsItemClickEnabled="True"
-            >
+            ScrollViewer.VerticalScrollMode="Enabled"
+            Visibility="Visible"
+            Opacity="100"
+            IsItemClickEnabled="True" Width="800" Height="1080" HorizontalAlignment="Center">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal"/>
+                    <StackPanel Orientation="Vertical" Height="1080" HorizontalAlignment="Stretch"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate >
                 <DataTemplate>
-                    <StackPanel BorderBrush="Black" Margin="800,30,0,0" Orientation="Vertical" HorizontalAlignment="Stretch" Width="300" VerticalAlignment="Stretch" Height="300">
-                        <TextBlock  Height="100" Width="100" Text="{Binding Membername}"></TextBlock>
-                        <TextBlock   Height="50" Width="200" Text="{Binding Date}"></TextBlock>
-                        <TextBlock   Height="50" Width="50" Text="{Binding Type}"></TextBlock>
+                    <StackPanel BorderBrush="Black" Margin="0,0,0,0" Orientation="Vertical" HorizontalAlignment="Stretch" Width="100" VerticalAlignment="Stretch" Height="300">
+                        <TextBlock  Height="100" Width="100" Text="{Binding Membername}"/>
+                        <TextBlock   Height="50" Width="100" Text="{Binding Date}"/>
+                        <TextBlock   Height="50" Width="50" Text="{Binding Type}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Button Content="Delete Booking" Command="{Binding DeleteBookingCommand}"/>
     </Grid>
 </Page>

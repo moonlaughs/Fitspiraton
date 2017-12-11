@@ -11,8 +11,8 @@
     <AssemblyName>Fitspiraton</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.15063.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.16299.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -97,12 +97,15 @@
     </Compile>
     <Compile Include="Interfaces\ActivitySingleton.cs" />
     <Compile Include="Interfaces\BookingHandler.cs" />
+    <Compile Include="Interfaces\BookingListSingleton.cs" />
+    <Compile Include="Interfaces\BookingSingleton.cs" />
     <Compile Include="Interfaces\CalendarviewHelper.cs" />
     <Compile Include="Interfaces\EventListSingleton.cs" />
     <Compile Include="Interfaces\FrameNavigateClass.cs" />
     <Compile Include="Interfaces\SingletonMember.cs" />
     <Compile Include="Model\Booking.cs" />
     <Compile Include="ViewModel\ActivityViewVM.cs" />
+    <Compile Include="ViewModel\RecentBookingsVM.cs" />
     <Compile Include="ViewModel\SelectedActivityViewVM.cs" />
     <Compile Include="ViewModel\UserBookingVM.cs" />
     <Compile Include="View\MainPage.xaml.cs">
@@ -134,9 +137,6 @@
     </Compile>
     <Compile Include="View\RecentBookingsView.xaml.cs">
       <DependentUpon>RecentBookingsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\SampleActivityPage.xaml.cs">
-      <DependentUpon>SampleActivityPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SelectedActivityView.xaml.cs">
       <DependentUpon>SelectedActivityView.xaml</DependentUpon>
@@ -212,10 +212,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\RecentBookingsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\SampleActivityPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
