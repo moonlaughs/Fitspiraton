@@ -26,7 +26,7 @@
         </Grid.DataContext>
 
         <CalendarView x:Name="ManagerEventCalendarView" CalendarViewDayItemChanging="CalendarView_OnCalendarViewDayItemChanging"
-                      HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"
+                      HorizontalAlignment="Left" Margin= "10,10,0,0" VerticalAlignment="Top"
                       Height="933" Width="940" Grid.Column="1" Grid.Row="1"
                       Background="#FF18222D" Foreground="#FFA3CDD1">
             <CalendarView.CalendarItemBackground>
@@ -46,9 +46,6 @@
             <CalendarView.OutOfScopeBackground>#FF18222D</CalendarView.OutOfScopeBackground>
             <CalendarView.OutOfScopeForeground>#FFA3CDD1</CalendarView.OutOfScopeForeground>
             
-           
-         
-              
                 <!--<CalendarView.CalendarViewDayItemStyle>
                 <Style TargetType="CalendarViewDayItem">
                     <Setter Property="BorderThickness" Value="20"/>
