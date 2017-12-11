@@ -4,11 +4,12 @@
     xmlns:local="using:Fitspiraton.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:viewModel="using:Fitspiraton.ViewModel"
     x:Class="Fitspiraton.View.ManagerCalendarView"
     mc:Ignorable="d">
     
-    <Grid Loaded="ButtonBase_OnClick" Background="#FF18222D">
+    <Grid Loaded="ButtonBase_OnClick" Background="White">
       
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -28,23 +29,23 @@
         <CalendarView x:Name="ManagerEventCalendarView" CalendarViewDayItemChanging="CalendarView_OnCalendarViewDayItemChanging"
                       HorizontalAlignment="Left" Margin= "10,10,0,0" VerticalAlignment="Top"
                       Height="933" Width="940" Grid.Column="1" Grid.Row="1"
-                      Background="#FF18222D" Foreground="#FFA3CDD1">
+                      Background="White" Foreground="Black">
             <CalendarView.CalendarItemBackground>
-                <SolidColorBrush Color="#FF18222D"/>
+                <SolidColorBrush Color="White"/>
              </CalendarView.CalendarItemBackground>
             <CalendarView.BorderBrush>
-                <SolidColorBrush Color="DarkGray"/>
+                <SolidColorBrush Color="White"/>
             </CalendarView.BorderBrush>
             <CalendarView.BlackoutForeground>
-                <SolidColorBrush Color="Gainsboro"/>
+                <SolidColorBrush Color="Black"/>
             </CalendarView.BlackoutForeground>
             <CalendarView.CalendarItemForeground>
-                <SolidColorBrush Color="#FFA3CDD1"/>
+                <SolidColorBrush Color="Black"/>
             </CalendarView.CalendarItemForeground>
             <CalendarView.HorizontalDayItemAlignment>Right</CalendarView.HorizontalDayItemAlignment>
             <CalendarView.VerticalDayItemAlignment>Top</CalendarView.VerticalDayItemAlignment>
-            <CalendarView.OutOfScopeBackground>#FF18222D</CalendarView.OutOfScopeBackground>
-            <CalendarView.OutOfScopeForeground>#FFA3CDD1</CalendarView.OutOfScopeForeground>
+            <CalendarView.OutOfScopeBackground>White</CalendarView.OutOfScopeBackground>
+            <CalendarView.OutOfScopeForeground>White</CalendarView.OutOfScopeForeground>
             
                 <!--<CalendarView.CalendarViewDayItemStyle>
                 <Style TargetType="CalendarViewDayItem">

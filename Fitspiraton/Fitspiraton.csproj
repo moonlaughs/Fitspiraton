@@ -138,6 +138,10 @@
     <None Include="Fitspiraton_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\FitspirationDesign\AddUser.png" />
+    <Content Include="Assets\FitspirationDesign\AddUserBlack.png" />
+    <Content Include="Assets\FitspirationDesign\CreateUser.png" />
+    <Content Include="Assets\FitspirationDesign\Edit User.png" />
     <Content Include="Assets\FitspirationDesign\Fitness 6.jpg" />
     <Content Include="Assets\FitspirationDesign\LogoFitspiration.jpg" />
     <Content Include="Assets\own images\bg.jpg" />
@@ -197,6 +201,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
+      <Version>2.1.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />
