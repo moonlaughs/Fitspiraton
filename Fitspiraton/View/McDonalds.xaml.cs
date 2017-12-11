@@ -25,6 +25,7 @@ namespace Fitspiraton.View
         public McDonalds()
         {
             this.InitializeComponent();
+
             Wb.Navigate(new Uri("https://www.google.dk/maps/search/nearest+Mcdonalds/@55.5893805,9.6126911,11z/data=!3m1!4b1"));
         }
     }
