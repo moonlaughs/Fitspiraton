@@ -48,31 +48,47 @@ namespace Fitspiraton.View
                         if (bmi < 1)
                         {
                             ResultBlock.Foreground = new SolidColorBrush(Colors.DarkBlue);
+                            CommentBlock.Visibility = Visibility.Visible;
                             ResultBlock.Text = "Wrong input, \nmake sure that you typed height in \nMETERS \nand weight in \nKILOGRAMS ;)";
+                            SmallFrame.Visibility = Visibility.Collapsed;
                         }
                         else if (bmi < 18.6)
                         {
 
                             ResultBlock.Foreground = new SolidColorBrush(Colors.Yellow);
                             ResultBlock.Text = $"Result: {bmi2}";
+                            CommentBlock.Visibility = Visibility.Visible;
+                            CommentBlock.Text = "You are way too skinny, \nhere is our solution for you ;) \ngo ahead and check here:";
+                            SmallFrame.Visibility = Visibility.Visible;
+                            SmallFrame.Navigate(typeof(McDonalds));
                         }
                         else if (bmi < 25)
                         {
 
                             ResultBlock.Foreground = new SolidColorBrush(Colors.Green);
                             ResultBlock.Text = $"Result: {bmi2}";
+                            CommentBlock.Visibility = Visibility.Visible;
+                            CommentBlock.Text = "Your BMI is perfect, \ntry keep it up \nby picking your favouirite activity \nin our fitness center \nand keep your diet healthy! \nWe believe in you ♥";
+                            SmallFrame.Visibility = Visibility.Collapsed;
                         }
                         else if (bmi < 30)
                         {
 
                             ResultBlock.Foreground = new SolidColorBrush(Colors.Orange);
                             ResultBlock.Text = $"Result: {bmi2}";
+                            CommentBlock.Visibility = Visibility.Visible;
+                            CommentBlock.Text = "Your BMI is above the average. \nPick your favourite activity in Fitspiration \nand come back to your PERFECT shape ;)";
+                            SmallFrame.Visibility = Visibility.Collapsed;
                         }
                         else if (bmi > 29.9)
                         {
 
                             ResultBlock.Foreground = new SolidColorBrush(Colors.Red);
                             ResultBlock.Text = $"Result: {bmi2}";
+                            CommentBlock.Visibility = Visibility.Visible;
+                            CommentBlock.Text =
+                                "Your BMI is not in a good level.\nYou have to practise more. \nContact one of our consultants at Fitspiration \nso they can help you with making\nyour own, unique plan for exercises and will guide you with a healthy diet.\nDo not worry,\nFitspiration is here for you to help You";
+                            SmallFrame.Visibility = Visibility.Collapsed;
                         }
                         
                     }
@@ -80,6 +96,8 @@ namespace Fitspiraton.View
                     {
                         ResultBlock.Foreground = new SolidColorBrush(Colors.DarkBlue);
                         ResultBlock.Text = "Wrong values";
+                        SmallFrame.Visibility = Visibility.Collapsed;
+                        CommentBlock.Visibility = Visibility.Collapsed;
                     }
                 }
             }
@@ -88,6 +106,8 @@ namespace Fitspiraton.View
                 string error = ex.Message;
                 ResultBlock.Foreground = new SolidColorBrush(Colors.Red);
                 ResultBlock.Text = "Enter the values";
+                SmallFrame.Visibility = Visibility.Collapsed;
+                CommentBlock.Visibility = Visibility.Collapsed;
             }
         } 
     }

@@ -39,23 +39,29 @@
                     </Grid.DataContext>
                     
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="600"/>
+                        <ColumnDefinition Width="600"/>
                     </Grid.ColumnDefinitions>
                   
                     <StackPanel Grid.Column="0">
                         <TextBox x:Name="HeightBox" PlaceholderText="Height in meters" Margin="20" Width="300" HorizontalAlignment="Left"/>
                         <TextBox x:Name="WeightBox" PlaceholderText="Weight in kilograms"  Margin="20" Width="300" HorizontalAlignment="Left"/>
-                        <Button x:Name="countBtn" Content="Count" Margin="140, 0, 0, 0" HorizontalAlignment="Left" Click="countBtn_Click"/>
-                        <TextBlock Text="{Binding Description}" Margin="0, 20, 0,0" FontFamily="Book Antiqua" FontSize="24"/>
-                        <TextBlock Text="BMI Categories:" Margin="0, 10, 0,0" FontFamily="Book Antiqua" FontSize="24"/>
-                        <TextBlock Text="Underweight less or equal to 18.5" Margin="0, 10, 0,0" FontFamily="Book Antiqua" FontSize="24" Foreground="Yellow"/>
-                        <TextBlock Text="Normal weight = 18.5–24.9" Margin="0, 10, 0,0" FontFamily="Book Antiqua" FontSize="24" Foreground="Green"/>
-                        <TextBlock Text="Overweight = 25–29.9" Margin="0, 10, 0,0" FontFamily="Book Antiqua" FontSize="24" Foreground="Orange"/>
-                        <TextBlock Text="Obesity = BMI of 30 or greater" Margin="0, 10, 0,0" FontFamily="Book Antiqua" FontSize="24" Foreground="Red"/>
+                        <Button x:Name="countBtn" Content="Count" Margin="140, 0, 0, 0" HorizontalAlignment="Left" Click="countBtn_Click" />
+                        <TextBlock Text="{Binding Description}" Margin="0, 20, 0,0" FontFamily="Book Antiqua" FontSize="24" HorizontalAlignment="Left"/>
+                        <TextBlock Text="BMI Categories:" Margin="0, 10, 0,0" FontFamily="Book Antiqua" FontSize="24" HorizontalAlignment="Left"/>
+                        <TextBlock Text="Underweight less or equal to 18.5" Margin="0, 10, 0,0" FontFamily="Book Antiqua" FontSize="24" Foreground="Yellow" HorizontalAlignment="Left"/>
+                        <TextBlock Text="Normal weight = 18.5–24.9" Margin="0, 10, 0,0" FontFamily="Book Antiqua" FontSize="24" Foreground="Green" HorizontalAlignment="Left"/>
+                        <TextBlock Text="Overweight = 25–29.9" Margin="0, 10, 0,0" FontFamily="Book Antiqua" FontSize="24" Foreground="Orange" HorizontalAlignment="Left"/>
+                        <TextBlock Text="Obesity = BMI of 30 or greater" Margin="0, 10, 0,0" FontFamily="Book Antiqua" FontSize="24" Foreground="Red" HorizontalAlignment="Left"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="1">
+                    <StackPanel Margin="20,0,0,0" Grid.Column="1" Orientation="Vertical">
                         <TextBlock x:Name="ResultBlock" Margin="0,10,0,0" FontFamily="Book Antiqua" FontSize="24"/>
+                        <TextBlock x:Name="CommentBlock" Margin="0,10,0,0" FontFamily="Book Antiqua" FontSize="24"/>
+                        <Frame Width="400" 
+                               Height="400" 
+                               x:Name="SmallFrame"
+                               HorizontalAlignment="Left"
+                               Margin="0,20,0,0"/>
                     </StackPanel>
                 </Grid>
             </PivotItem>
