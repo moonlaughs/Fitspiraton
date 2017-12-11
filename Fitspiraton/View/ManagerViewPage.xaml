@@ -40,7 +40,7 @@
         </RelativePanel>
 
 
-        <SplitView x:Name ="ManagerSplitView" DisplayMode="CompactOverlay" OpenPaneLength="200" CompactPaneLength="56" HorizontalAlignment="Left" Grid.Row="1" Opacity="0.5">
+        <SplitView x:Name ="ManagerSplitView" DisplayMode="CompactOverlay" OpenPaneLength="200" CompactPaneLength="56" HorizontalAlignment="Left" Grid.Row="1" >
             <SplitView.Pane>
                 <ListBox SelectionMode="Single" x:Name="IconsListBox" SelectionChanged="ItemsListBox_SelectionChanged">
                     <ListBoxItem x:Name="Users">
