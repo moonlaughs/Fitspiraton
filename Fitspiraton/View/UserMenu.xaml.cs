@@ -33,7 +33,7 @@ namespace Fitspiraton.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             log = new LoginVm();
-            Frame.Navigate(typeof(ActivitySelectionPage),log.CurrentUser);
+            Frame.Navigate(typeof(ActivityView),log.CurrentUser);
         }
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)

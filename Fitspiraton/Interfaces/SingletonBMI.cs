@@ -9,24 +9,29 @@ namespace Fitspiraton.Interfaces
 {
     public class SingletonBMI
     {
+        //instance field
         public static BMI _bmi;
 
+        //property
         private static SingletonBMI Instance { get; set; }
 
+        //Constructor
         private SingletonBMI()
         {
             _bmi = new BMI();
         }
 
+        //method for getting the instance
         public static SingletonBMI GetInstance()
         {
-            if (Instance == null)
+            if(Instance == null)
             {
                 Instance = new SingletonBMI();
             }
             return Instance;
         }
-        
+
+        //method of the business logic
         public string GetDescriptin()
         {
             return _bmi.Description;

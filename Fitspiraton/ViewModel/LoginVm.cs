@@ -1,17 +1,29 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using Windows.UI.Popups;
 using Fitspiraton.Interfaces;
 using Fitspiraton.Model;
+using Fitspiraton.Persistancy;
 using Fitspiraton.View;
 
 namespace Fitspiraton.ViewModel
 {
-    class LoginVm :NotifyPropertyClass
+    public class LoginVm :NotifyPropertyClass
     {
+        //instance fields
+        private Member _currentUser;
+        private readonly FrameNavigateClass _frame;
+        private readonly SingletonMember _userSingleton;                          //singleton
+        private GetItem _getMembers;                                              //persistancy
+        private ObservableCollection<Member> _membersCatalog;
+    
+        //properties
         private bool LoginStatus { get; set; }
+        public Member Obj { get; set; }
+        public RelayCommand CheckCommand { get; set; }
 
-        private Member _currentUser = new Member();
-
+        //dynamic properties
         public Member CurrentUser {
             get => _currentUser;
             set
@@ -21,39 +33,57 @@ namespace Fitspiraton.ViewModel
             }
         }
 
-        public Collector Col { get; set; }
+        public ObservableCollection<Member> MemberCatalog
+        {
+            get { return _membersCatalog; }
+            set
+            {
+                _membersCatalog = value;
+                OnPropertyChanged(nameof(MemberCatalog));
+            }
+        }
 
-        public RelayCommand CheckCommand { get; set; }
-        private readonly FrameNavigateClass _frame = new FrameNavigateClass();
-        private readonly SingletonMember _userSingleton;
+        //constructor
+        public LoginVm()
+        {
+            _currentUser = new Member();
+            _frame = new FrameNavigateClass();
+            _userSingleton = SingletonMember.GetInstance();                  //singleton
+            _getMembers = new GetItem();                                     //persistancy
+            MemberCatalog = new ObservableCollection<Member>();
+            CheckCommand = new RelayCommand(Check);
+            Obj = new Member();
+            LoadMembers();
+        }
 
+        //login method
         public async void Check()
         {
             LoginStatus = false;
-            if (Col.Persons != null)
+            LoadMembers();                                                                            //persistancy
+            if (Obj.Persons != null)
             {
 
-                foreach (Member mem in Col.Persons)
+                foreach (Member member in MemberCatalog)
                 {
                     
-                    if ((mem.Id == CurrentUser.Id) && (mem.Password == CurrentUser.Password))
+                    if ((member.Id == CurrentUser.Id) && (member.Password == CurrentUser.Password))
                     {
-                        _userSingleton.SetPerson(mem);
+                        _userSingleton.SetPerson(member);                                                       //singleton
                         LoginStatus = true;
-                        _frame.ActivateFrameNavigation(typeof(UserMenu), mem);
-                        MessageDialog msg = new MessageDialog($"Welcome {mem.Name}!");
+                        _frame.ActivateFrameNavigation(typeof(UserMenu), member);
+                        MessageDialog msg = new MessageDialog($"Welcome {member.Name}!");
                         await msg.ShowAsync();
                         break;
                     }
                     else if (("game" == CurrentUser.Id) && ("ofthrones" == CurrentUser.Password))
                     {
                         LoginStatus = true;
-                        _frame.ActivateFrameNavigation(typeof(CalendarPage), mem);
+                        _frame.ActivateFrameNavigation(typeof(ManagerUsersPage), member);
                         MessageDialog msg = new MessageDialog("Welcome George R.R. Martin");
                         await msg.ShowAsync();
                         break;
                     }
-
                 }
                 if (LoginStatus == false)
                 {
@@ -63,12 +93,17 @@ namespace Fitspiraton.ViewModel
             }
         }
 
-
-        public LoginVm()
+        //Load from json method
+        public async void LoadMembers()
         {
-            CheckCommand = new RelayCommand(Check);
-            Col = new Collector();
-            _userSingleton = SingletonMember.GetInstance();
+            try
+            {
+                    MemberCatalog = await _getMembers.LoadFromJson();        //persistancy
+            }
+            catch
+            {
+                MemberCatalog.Clear();
+            }
         }
     }
 }

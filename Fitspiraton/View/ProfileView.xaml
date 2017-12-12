@@ -61,7 +61,8 @@
                                Height="400" 
                                x:Name="SmallFrame"
                                HorizontalAlignment="Left"
-                               Margin="0,20,0,0"/>
+                               Margin="0,20,0,0">
+                        </Frame>
                     </StackPanel>
                 </Grid>
             </PivotItem>

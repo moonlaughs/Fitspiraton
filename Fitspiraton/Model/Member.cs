@@ -9,8 +9,15 @@ namespace Fitspiraton.Model
 {
     public class Member : User
     {
+        //instance field
         private int _bmiResult;
+        public ObservableCollection<Member> _persons;
 
+        //properties
+        public ObservableCollection<Member> Persons { get { return _persons; } set { _persons = value; OnPropertyChanged(nameof(Persons)); } }
+        public int BmiResult { get => _bmiResult; set => _bmiResult = value; }
+
+        //constructors
         public Member(string name, string id, string password, string photo , int bmiResult) : base(name, id, password, photo)
         {
             BmiResult = bmiResult;
@@ -24,9 +31,6 @@ namespace Fitspiraton.Model
             Photo = photo;
         }
 
-        public ObservableCollection<Member> _persons;
-        public ObservableCollection<Member> Persons { get { return _persons; } set { _persons = value; OnPropertyChanged(nameof(Persons)); } }
-
         public Member()
         {
             Persons = new ObservableCollection<Member>()
@@ -39,6 +43,5 @@ namespace Fitspiraton.Model
 
         }
 
-        public int BmiResult { get => _bmiResult; set => _bmiResult = value; }
     }
 }

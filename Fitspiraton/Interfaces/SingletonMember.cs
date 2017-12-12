@@ -10,15 +10,19 @@ namespace Fitspiraton.Interfaces
 {
     public class SingletonMember
     {
+        //instance field
         public static Member _member;
 
+        //property
         private static SingletonMember Instance { get; set; }
 
+        //Constructor
         private SingletonMember()
         {
             _member = new Member();
         }
 
+        //method for getting the instance
         public static SingletonMember GetInstance()
         {
             if (Instance == null)
@@ -28,6 +32,7 @@ namespace Fitspiraton.Interfaces
             return Instance;
         }
 
+        //method of the business logic
         public void SetPerson(Member member)
         {
             _member = member;

@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2005
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fitspiraton", "Fitspiraton\Fitspiraton.csproj", "{A10CB12D-391C-4D85-8FD9-C2FAE280D78A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitspirationUnitTest", "FitspirationUnitTest\FitspirationUnitTest.csproj", "{EE6EE0DC-F725-4D06-ACCE-F066905F31FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,24 @@ Global
 		{A10CB12D-391C-4D85-8FD9-C2FAE280D78A}.Release|x86.ActiveCfg = Release|x86
 		{A10CB12D-391C-4D85-8FD9-C2FAE280D78A}.Release|x86.Build.0 = Release|x86
 		{A10CB12D-391C-4D85-8FD9-C2FAE280D78A}.Release|x86.Deploy.0 = Release|x86
+		{EE6EE0DC-F725-4D06-ACCE-F066905F31FE}.Debug|ARM.ActiveCfg = Debug|ARM
+		{EE6EE0DC-F725-4D06-ACCE-F066905F31FE}.Debug|ARM.Build.0 = Debug|ARM
+		{EE6EE0DC-F725-4D06-ACCE-F066905F31FE}.Debug|ARM.Deploy.0 = Debug|ARM
+		{EE6EE0DC-F725-4D06-ACCE-F066905F31FE}.Debug|x64.ActiveCfg = Debug|x64
+		{EE6EE0DC-F725-4D06-ACCE-F066905F31FE}.Debug|x64.Build.0 = Debug|x64
+		{EE6EE0DC-F725-4D06-ACCE-F066905F31FE}.Debug|x64.Deploy.0 = Debug|x64
+		{EE6EE0DC-F725-4D06-ACCE-F066905F31FE}.Debug|x86.ActiveCfg = Debug|x86
+		{EE6EE0DC-F725-4D06-ACCE-F066905F31FE}.Debug|x86.Build.0 = Debug|x86
+		{EE6EE0DC-F725-4D06-ACCE-F066905F31FE}.Debug|x86.Deploy.0 = Debug|x86
+		{EE6EE0DC-F725-4D06-ACCE-F066905F31FE}.Release|ARM.ActiveCfg = Release|ARM
+		{EE6EE0DC-F725-4D06-ACCE-F066905F31FE}.Release|ARM.Build.0 = Release|ARM
+		{EE6EE0DC-F725-4D06-ACCE-F066905F31FE}.Release|ARM.Deploy.0 = Release|ARM
+		{EE6EE0DC-F725-4D06-ACCE-F066905F31FE}.Release|x64.ActiveCfg = Release|x64
+		{EE6EE0DC-F725-4D06-ACCE-F066905F31FE}.Release|x64.Build.0 = Release|x64
+		{EE6EE0DC-F725-4D06-ACCE-F066905F31FE}.Release|x64.Deploy.0 = Release|x64
+		{EE6EE0DC-F725-4D06-ACCE-F066905F31FE}.Release|x86.ActiveCfg = Release|x86
+		{EE6EE0DC-F725-4D06-ACCE-F066905F31FE}.Release|x86.Build.0 = Release|x86
+		{EE6EE0DC-F725-4D06-ACCE-F066905F31FE}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

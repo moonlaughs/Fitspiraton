@@ -14,35 +14,70 @@ namespace Fitspiraton.Persistancy
 {
     public class GetItem
     {
-        
-            private ObservableCollection<Member> _itemsCatalog;
+        //-------------------------------------serialization----------------------------------
+        //----------------------------------------Members-------------------------------------
+        //Auto propery
+        public ObservableCollection<Member> ItemsCatalog { get; set; }
 
-        public ObservableCollection<Member> ItemsCatalog { get => _itemsCatalog; set => _itemsCatalog = value; }
-
+        //saving into the file
         public async Task SavetoJson(ObservableCollection<Member> items)
+        {
+            var localFolder = ApplicationData.Current.LocalFolder;
+            var jsonFile = await localFolder.CreateFileAsync("items2.txt", CreationCollisionOption.ReplaceExisting);
+            var jsonSerializer = new DataContractJsonSerializer(typeof(ObservableCollection<Member>));
+            using (var stream = await jsonFile.OpenStreamForWriteAsync())
             {
-                var localFolder = ApplicationData.Current.LocalFolder;
-                var jsonFile = await localFolder.CreateFileAsync("items2.txt", CreationCollisionOption.ReplaceExisting);
-                var jsonSerializer = new DataContractJsonSerializer(typeof(ObservableCollection<Member>));
-                using (var stream = await jsonFile.OpenStreamForWriteAsync())
-                {
-                    jsonSerializer.WriteObject(stream, items);
-                }
+                jsonSerializer.WriteObject(stream, items);
             }
+        }
 
-            public async Task<ObservableCollection<Member>> LoadFromJson()
+        //retriving from the file
+        public async Task<ObservableCollection<Member>> LoadFromJson()
+        {
+            var localFolder = ApplicationData.Current.LocalFolder;
+            var jsonFile = await localFolder.GetFileAsync("items2.txt");
+            var jsonSerializer = new DataContractJsonSerializer(typeof(ObservableCollection<Member>));
+            using (var stream = await jsonFile.OpenStreamForReadAsync())
             {
-                var localFolder = ApplicationData.Current.LocalFolder;
-                var jsonFile = await localFolder.GetFileAsync("myItems.txt");
-                var jsonSerializer = new DataContractJsonSerializer(typeof(ObservableCollection<Member>));
-                using (var stream = await jsonFile.OpenStreamForReadAsync())
-                {
-                    ItemsCatalog = jsonSerializer.ReadObject(stream) as ObservableCollection<Member>;
-                }
-
-                return ItemsCatalog;
+                ItemsCatalog = jsonSerializer.ReadObject(stream) as ObservableCollection<Member>;
             }
+            return ItemsCatalog;
+        }
 
-        
+        //----------------------------------------Members-------------------------------------
+        //Auto propery
+        public ObservableCollection<Event> EventCatalog { get; set; }
+
+        //saving into the file
+        public async Task SaveEventsToJson(ObservableCollection<Event> events)
+        {
+            var localFolder = ApplicationData.Current.LocalFolder;
+            var jsonFile = await localFolder.CreateFileAsync("events.txt", CreationCollisionOption.ReplaceExisting);
+            var jsonSerializer = new DataContractJsonSerializer(typeof(ObservableCollection<Event>));
+            using (var stream = await jsonFile.OpenStreamForWriteAsync())
+            {
+                jsonSerializer.WriteObject(stream, events);
+            }
+        }
+
+        //retriving from the file
+        public async Task<ObservableCollection<Event>> LoadEventsFromJson()
+        {
+            var localFolder = ApplicationData.Current.LocalFolder;
+            var jsonFile = await localFolder.GetFileAsync("events.txt");
+            var jsonSerializer = new DataContractJsonSerializer(typeof(ObservableCollection<Event>));
+            using (var stream = await jsonFile.OpenStreamForReadAsync())
+            {
+                EventCatalog = jsonSerializer.ReadObject(stream) as ObservableCollection<Event>;
+            }
+            return EventCatalog;
+        }
+
+        //----------------------------------------Recent bookings-------------------------------------
+        //Auto propery
+
+        //saving into the file
+
+        //retriving from the file
     }
 }

@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using Fitspiraton.Model;
 using Fitspiraton.ViewModel;
@@ -36,7 +35,7 @@ namespace FitspirationUnitTest
             {
                 Assert.ThrowsException<ArgumentException>(() => _collector.Name = _member.Name);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Assert.AreEqual("Jane", _collector.Name);
             }
@@ -65,10 +64,10 @@ namespace FitspirationUnitTest
             {
                 _serializeUserVm.DoAddMember();
             }
-            catch (Exception )
+            catch (Exception)
             {
-                Assert.AreEqual("Jane", _member.Name);
-                Assert.AreEqual("pw", _member.Password);
+                Assert.AreEqual("Lucy", _member.Name);
+                Assert.AreEqual("o", _member.Password);
             }
         }
 
@@ -76,18 +75,41 @@ namespace FitspirationUnitTest
         public void LoadMembersTest()
         {
             //loading from json
+            //??????????????????????????????
         }
 
         [TestMethod]
         public void DeleteMethodTest()
         {
             //deleting member
+            //try
+            //{
+            //    _serializeUserVm.DoDeleteItem();
+            //}
+            //catch (Exception)
+            //{
+            //    Assert.AreEqual("Jane", _member.Name);
+            //}
+            Member x = new Member("Ola", "ola", "p", "kk");
+            MembersList.Add(x);
+            _serializeUserVm.DoDeleteItem();
+            Assert.AreEqual(null, x.Name);
         }
 
         [TestMethod]
         public void UpdateTest()
         {
             //updating test
+            try
+            {
+                _serializeUserVm.DoUpdateItem();
+                //_member.Name = "Ola"; //??????????????????????
+            }
+            catch (Exception)
+            {
+                Assert.AreEqual("Ola", _member.Name);
+                
+            }
         }
     }
 }

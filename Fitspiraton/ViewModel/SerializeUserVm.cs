@@ -16,23 +16,20 @@ namespace Fitspiraton.ViewModel
 {
     public class SerializeUserVm :NotifyPropertyClass
     {
-        private FrameNavigateClass _frame = new FrameNavigateClass();
-
+        //instance fields
         private Member _selectedItem;
+        private readonly GetItem _getMembers;                                   //serialization
+        private ObservableCollection<Member> _members;
+        private ObservableCollection<Member> _membersCatalog;
 
-        private GetItem getMembers;
-
+        //properties
         public RelayCommand AddItemCommand { get; set; }
         public RelayCommand DeleteItemCommand { get; set; }
         public RelayCommand UpdateItemCommand { get; set; }
-
         public Member AddNewMember { get; set; }
         public Member Up { get; set; }
 
-        private ObservableCollection<Member> _members;
-
-        private ObservableCollection<Member> _membersCatalog;
-        
+        //dynamic properties
         public ObservableCollection<Member> Members
         {
             get { return _members; }
@@ -42,7 +39,6 @@ namespace Fitspiraton.ViewModel
                 OnPropertyChanged(nameof(Members));
             }
         }
-
         public ObservableCollection<Member> MemberCatalog
         {
             get { return _membersCatalog; }
@@ -52,7 +48,6 @@ namespace Fitspiraton.ViewModel
                 OnPropertyChanged(nameof(MemberCatalog));
             }
         }
-
         public Member SelectedItem
         {
             get => _selectedItem;
@@ -63,71 +58,70 @@ namespace Fitspiraton.ViewModel
             }
         }
 
+        //constructor
         public SerializeUserVm()
         {
-            //Members = new ObservableCollection<Member>
-            //{
-
-            //    new Member("Jon", "stark01", "youknownothing", "../Assets/UP/jon.jpg"),
-            //    new Member("Arya", "stark02", "needle", "../Assets/UP/arya.jpg")
-            //}
-
+            //initializing objects
             AddNewMember = new Member();
             Up = new Member();
-            //MemberCatalog = new ObservableCollection<Member>()
-            //{
-            //    new Member("Jon", "stark01", "youknownothing", "../Assets/UP/jon.jpg"),
-            //    new Member("Arya", "stark02", "needle", "../Assets/UP/arya.jpg")
-            //};
-            MemberCatalog = new ObservableCollection<Member>();
-            
-            getMembers = new GetItem();
-
-
             AddItemCommand = new RelayCommand(DoAddMember);
             DeleteItemCommand = new RelayCommand(DoDeleteItem);
             UpdateItemCommand = new RelayCommand(DoUpdateItem);
-
-
             SelectedItem = new Member();
+            _getMembers = new GetItem();                                       //serialization
 
-            //LoadMembers();
+            Task.Run(()=> LoadMembers());                                      //serialization
         }
 
-        public async void DoAddMember()
-        {
-            MemberCatalog.Add(AddNewMember);
-            await getMembers.SavetoJson(MemberCatalog);
-            await LoadMembers();
-        }
-
-        public async Task LoadMembers()
+        //Loading method
+        public async void LoadMembers()                                        //serialization
         {
             try
             {
-                MemberCatalog = await getMembers.LoadFromJson();
+                MemberCatalog = await _getMembers.LoadFromJson();
             }
             catch (Exception e)
             {
+                foreach (Member upPerson in Up.Persons)
+                {
+                    var person = upPerson;
+                }
                 string error = e.Message;
             }
         }
 
+        //CRUD methods
+        //CR(eate)
+        public async void DoAddMember()
+        {
+            
+            MemberCatalog.Add(AddNewMember);
+            await _getMembers.SavetoJson(MemberCatalog);                       //serialization
+        }
+        
+        //U(pdate)
+        public void DoUpdateItem()
+        {
+            //await LoadMembers();
+            //Up = new Member(SelectedItem.Name, SelectedItem.Id, SelectedItem.Password, SelectedItem.Photo);
+            //MemberCatalog.Add(Up);
+            //MemberCatalog.Remove(SelectedItem);
+            //await _getMembers.SavetoJson(MemberCatalog);
+            //await LoadMembers();
+
+            MemberCatalog = new ObservableCollection<Member>
+           {
+                new Member(SelectedItem.Name, SelectedItem.Id , SelectedItem.Password, SelectedItem.Photo)
+           };
+
+            //await LoadMembers();
+        }
+
+        //D(elete)
         public async void DoDeleteItem()
         {
             MemberCatalog.Remove(SelectedItem);
-            await getMembers.SavetoJson(MemberCatalog);
-        }
-
-        public async void DoUpdateItem()
-        {
-            await LoadMembers();
-            Up = new Member(SelectedItem.Name, SelectedItem.Id, SelectedItem.Password, SelectedItem.Photo);
-            MemberCatalog.Add(Up);
-            MemberCatalog.Remove(SelectedItem);
-            await getMembers.SavetoJson(MemberCatalog);
-            await LoadMembers();
-
+            await _getMembers.SavetoJson(MemberCatalog);                       //serialization
         }
     }
 }

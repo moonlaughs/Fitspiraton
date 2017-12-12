@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid>
+    <!--<Grid>
         <Grid.Background>
             <ImageBrush Stretch="Fill" ImageSource="../Assets/own images/bg.jpg"/>
         </Grid.Background>
@@ -38,5 +38,5 @@
 
             <Button Content="Go!" HorizontalAlignment="Right" Margin="0,40,30,0" Height="85" Width="500" Foreground="White" Background="Orange" FontSize="55"/>
         </StackPanel>
-    </Grid>
+    </Grid>-->
 </Page>

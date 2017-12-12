@@ -16,7 +16,6 @@
         </Grid.Background>
 
         <ProgressRing Height="200" Width="200" IsActive="True" RequestedTheme="Dark"/>
-        <WebView x:Name="Wb">
-        </WebView>    
+        <WebView x:Name="Wb"/>
     </Grid>
 </Page>
