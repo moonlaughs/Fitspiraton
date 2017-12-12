@@ -11,8 +11,8 @@
     <AssemblyName>Fitspiraton</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.15063.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.16299.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -95,7 +95,20 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="Interfaces\ActivitySingleton.cs" />
+    <Compile Include="Interfaces\BookingHandler.cs" />
+    <Compile Include="Interfaces\BookingListSingleton.cs" />
+    <Compile Include="Interfaces\BookingSingleton.cs" />
+    <Compile Include="Interfaces\CalendarviewHelper.cs" />
+    <Compile Include="Interfaces\EventListSingleton.cs" />
+    <Compile Include="Interfaces\FrameNavigateClass.cs" />
+    <Compile Include="Interfaces\SingletonMember.cs" />
+    <Compile Include="Model\Booking.cs" />
+    <Compile Include="ViewModel\ActivityViewVM.cs" />
+    <Compile Include="ViewModel\RecentBookingsVM.cs" />
+    <Compile Include="ViewModel\SelectedActivityViewVM.cs" />
+    <Compile Include="ViewModel\UserBookingVM.cs" />
+    <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Activity.cs" />
@@ -108,14 +121,10 @@
     <Compile Include="Interfaces\RelayCommand.cs" />
     <Compile Include="ViewModel\AdminPageVM.cs" />
     <Compile Include="ViewModel\Collector.cs" />
+    <Compile Include="ViewModel\LoginVm.cs" />
+    <Compile Include="ViewModel\UserMenuVm.cs" />
     <Compile Include="View\ActivitySelectionPage.xaml.cs">
       <DependentUpon>ActivitySelectionPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\AttendantsListPage.xaml.cs">
-      <DependentUpon>AttendantsListPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\CalendarPage.xaml.cs">
-      <DependentUpon>CalendarPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ManagerUsersPage.xaml.cs">
       <DependentUpon>ManagerUsersPage.xaml</DependentUpon>
@@ -123,8 +132,20 @@
     <Compile Include="View\ManagerViewPage.xaml.cs">
       <DependentUpon>ManagerViewPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SampleActivityPage.xaml.cs">
-      <DependentUpon>SampleActivityPage.xaml</DependentUpon>
+    <Compile Include="View\ProfileView.xaml.cs">
+      <DependentUpon>ProfileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RecentBookingsView.xaml.cs">
+      <DependentUpon>RecentBookingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SelectedActivityView.xaml.cs">
+      <DependentUpon>SelectedActivityView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserBookingView.xaml.cs">
+      <DependentUpon>UserBookingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserMenu.xaml.cs">
+      <DependentUpon>UserMenu.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -134,8 +155,20 @@
     <None Include="Fitspiraton_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\bg2.jpg" />
+    <Content Include="Assets\FitspirationDesign\24992826_1313837958722147_986259848_o.jpg" />
     <Content Include="Assets\FitspirationDesign\Fitness 6.jpg" />
     <Content Include="Assets\FitspirationDesign\LogoFitspiration.jpg" />
+    <Content Include="Assets\FitspirationDesign\workout-package_1.png" />
+    <Content Include="Assets\own images\activities\backgrounds\bg.jpg" />
+    <Content Include="Assets\own images\activities\backgrounds\fitnessbg.jpg" />
+    <Content Include="Assets\own images\activities\backgrounds\salsabg.jpg" />
+    <Content Include="Assets\own images\activities\backgrounds\yogabg.jpg" />
+    <Content Include="Assets\own images\activities\thumbnails\fitness_thumbnail.png" />
+    <Content Include="Assets\own images\activities\thumbnails\salsa_thumbnail.png" />
+    <Content Include="Assets\own images\activities\thumbnails\testActivity.png" />
+    <Content Include="Assets\own images\activities\thumbnails\yoga_thumbnail.png" />
+    <Content Include="Assets\own images\backbutton.png" />
     <Content Include="Assets\own images\bg.jpg" />
     <Content Include="Assets\UP\arya.jpg" />
     <Content Include="Assets\UP\bran.jpg" />
@@ -151,25 +184,18 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Assets\bg3.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
+    <Page Include="View\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\ActivitySelectionPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\AttendantsListPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\CalendarPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -181,7 +207,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SampleActivityPage.xaml">
+    <Page Include="View\ProfileView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RecentBookingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SelectedActivityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserBookingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

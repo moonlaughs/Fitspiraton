@@ -35,22 +35,22 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Text="Name:" FontSize="30" Grid.Row="2"/>
-        <TextBox PlaceholderText="Enter the name of the user" Text="{Binding AddNewUser.name, Mode=TwoWay}"  FontSize="20"  Grid.Row="2" Grid.Column="1"/>
+        <TextBox PlaceholderText="Enter the name of the user" Text="{Binding AddNewUser.Name, Mode=TwoWay}"  FontSize="20"  Grid.Row="2" Grid.Column="1"/>
         <TextBlock Text="ID:" FontSize="30" Grid.Row="3"/>
-        <TextBox PlaceholderText="Enter the ID of the user" Text="{Binding AddNewUser.id, Mode=TwoWay}" FontSize="20"  Grid.Row="3" Grid.Column="1"/>
+        <TextBox PlaceholderText="Enter the ID of the user" Text="{Binding AddNewUser.Id, Mode=TwoWay}" FontSize="20"  Grid.Row="3" Grid.Column="1"/>
         <TextBlock Text="Password:" FontSize="30" Grid.Row="4"/>
-        <TextBox PlaceholderText="Enter the password of the user" Text="{Binding AddNewUser.password, Mode=TwoWay}" FontSize="20"  Grid.Row="4" Grid.Column="1"/>
+        <TextBox PlaceholderText="Enter the password of the user" Text="{Binding AddNewUser.Password, Mode=TwoWay}" FontSize="20"  Grid.Row="4" Grid.Column="1"/>
         <TextBlock Text="Photo:" FontSize="30" Grid.Row="5"/>
-        <TextBox PlaceholderText="Enter a photo of the user" Text="{Binding AddNewUser.photo, Mode=TwoWay}" FontSize="20"  Grid.Row="5" Grid.Column="1"/>
+        <TextBox PlaceholderText="Enter a photo of the user" Text="{Binding AddNewUser.Photo, Mode=TwoWay}" FontSize="20"  Grid.Row="5" Grid.Column="1"/>
 
         <TextBlock Text="Name:" FontSize="30" Grid.Row="2" Grid.Column="5"/>
-        <TextBox PlaceholderText="Update the name of the user" Text="{Binding SelectedItem.name, Mode=TwoWay}"  FontSize="20"  Grid.Row="2" Grid.Column="6"/>
+        <TextBox PlaceholderText="Update the name of the user" Text="{Binding SelectedItem.Name, Mode=TwoWay}"  FontSize="20"  Grid.Row="2" Grid.Column="6"/>
         <TextBlock Text="ID:" FontSize="30" Grid.Row="3" Grid.Column="5"/>
-        <TextBox PlaceholderText="Update the ID of the user" Text="{Binding SelectedItem.id, Mode=TwoWay}" FontSize="20"  Grid.Row="3" Grid.Column="6"/>
+        <TextBox PlaceholderText="Update the ID of the user" Text="{Binding SelectedItem.Id, Mode=TwoWay}" FontSize="20"  Grid.Row="3" Grid.Column="6"/>
         <TextBlock Text="Password:" FontSize="30" Grid.Row="4" Grid.Column="5"/>
-        <TextBox PlaceholderText="Update the password of the user" Text="{Binding SelectedItem.password, Mode=TwoWay}" FontSize="20"  Grid.Row="4" Grid.Column="6"/>
+        <TextBox PlaceholderText="Update the password of the user" Text="{Binding SelectedItem.Password, Mode=TwoWay}" FontSize="20"  Grid.Row="4" Grid.Column="6"/>
         <TextBlock Text="Photo:" FontSize="30" Grid.Row="5" Grid.Column="5"/>
-        <TextBox PlaceholderText="Update the photo of the user" Text="{Binding SelectedItem.photo, Mode=TwoWay}" FontSize="20"  Grid.Row="5" Grid.Column="6"/>
+        <TextBox PlaceholderText="Update the photo of the user" Text="{Binding SelectedItem.Photo, Mode=TwoWay}" FontSize="20"  Grid.Row="5" Grid.Column="6"/>
 
         <Button Content="ADD" Grid.Row="6" Command="{Binding AddItemCommand}" />
         <Button Content="DELETE" Grid.Row="6" Grid.Column="1" Command="{Binding DeleteItemCommand}" />
@@ -69,14 +69,14 @@
                 <DataTemplate>
                     <StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <Image   Width="150" Height="150" Name="Image" Source="{Binding photo, Mode=TwoWay}" Stretch="UniformToFill" Margin="0,5,0,5" />
+                            <Image   Width="150" Height="150" Name="Image" Source="{Binding Photo, Mode=TwoWay}" Stretch="UniformToFill" Margin="0,5,0,5" />
                             <StackPanel Margin="10,0,0,0"  Orientation="Vertical">
                                 <TextBlock Margin ="0,10,5,0" Text="Name:"/>
-                                <TextBlock Text="{Binding name, Mode=TwoWay}"/>
+                                <TextBlock Text="{Binding Name, Mode=TwoWay}"/>
                                 <TextBlock Margin ="0,10,5,0" Text="Id: "/>
-                                <TextBlock Text="{Binding id, Mode=TwoWay}"/>
+                                <TextBlock Text="{Binding Id, Mode=TwoWay}"/>
                                 <TextBlock Margin ="0,10,5,0" Text="Password:"/>
-                                <TextBlock Text="{Binding password, Mode=TwoWay}"/>
+                                <TextBlock Text="{Binding Password, Mode=TwoWay}"/>
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>

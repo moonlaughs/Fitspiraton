@@ -1,0 +1,32 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Fitspiraton.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ViewModel="using:Fitspiraton.ViewModel"
+    xmlns:interfaces="using:Fitspiraton.Interfaces"
+    x:Class="Fitspiraton.View.UserBookingView"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.DataContext>
+            <ViewModel:UserBookingVM/>
+        </Grid.DataContext>
+        <CalendarView x:Name="CalendarView"
+                      SelectionMode="Single" 
+                      CalendarItemBackground="Chartreuse"
+                      BorderBrush="Orange"
+                      BorderThickness="3"
+                      Height="399" 
+                      Margin="0,332,0,269"
+                      Width="520"
+                      CalendarViewDayItemChanging="CalendarView_CalendarViewDayItemChanging"
+                        />
+
+        <CalendarDatePicker x:Name="CalendarDatePicker" DateChanged="CalendarDatePicker_DateChanged"  Margin="90,253,0,715"/>
+        <TextBlock x:Name="UserTestBox" Margin="910,490,415,490" Height="100"/>
+        <Button Content="Book" Margin="600,0,0,0" Command="{Binding RegisterCommand}"/>
+        <Button Content="CHECK" Margin="700,0,0,0" Click="Button_Click"></Button>
+    </Grid>
+</Page>

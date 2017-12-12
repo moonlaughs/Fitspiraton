@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace Fitspiraton.Model
 {
-    class Event
+    public class Event
     {
-        private DateTimeOffset _date;
+        private DateTime _date;
         private string _type;
         private string _nameOfTeacher;
         private int _maxNumOfMembers;
 
-        public DateTimeOffset Date { get => _date; set => _date = value; }
+        public DateTime Date { get => _date; set => _date = value; }
         public string Type { get => _type; set => _type = value; }
         public string NameOfTeacher { get => _nameOfTeacher; set => _nameOfTeacher = value; }
         public int MaxNumOfMembers { get => _maxNumOfMembers; set => _maxNumOfMembers = value; }
 
-        public Event(DateTimeOffset date, string type, string nameOfTeacher, int maxNumOfMembers)
+        public Event(DateTime date, string type, string nameOfTeacher, int maxNumOfMembers)
         {
             Date = date;
             Type = type;
