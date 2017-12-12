@@ -64,15 +64,15 @@
                             DateChanged="DatePicker_OnDateChanged" 
                             Date="{Binding AddNewEvent.Date, Mode=TwoWay}" 
                             Margin="0,10,0,0"  VerticalAlignment="Top" />
-                <TextBox  HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" Width="297" Foreground="White"
-                              Text="" />
-                 
-                
-                <TextBox HorizontalAlignment="Center" Margin="0,5,0,0" Width="297" 
-                             Text="{Binding AddNewEvent.NameOfTeacher, Mode=TwoWay}" VerticalAlignment="Top" />
-                
-                <TextBox HorizontalAlignment="Center" Margin="0,5,0,0" TextWrapping="Wrap" Width="297"
-                             Text="{Binding AddNewEvent.MaxNumOfMembers, Mode=TwoWay}" VerticalAlignment="Top"/>
+                <TextBox  HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="297" BorderBrush="#00000000" Foreground="White"
+                              Text="{Binding AddNewEvent.Type, Mode=TwoWay}" PlaceholderText="Activity Name" />
+                <Line Fill="#FF7A7676" Stroke="#FF595656" Height="20" X1="290" StrokeThickness="2" HorizontalAlignment="Center"/>
+                <TextBox HorizontalAlignment="Center" Margin="0,5,0,0" Width="297" BorderBrush="#00000000"
+                             Text="{Binding AddNewEvent.NameOfTeacher, Mode=TwoWay}" PlaceholderText="Teacher Name" VerticalAlignment="Top" />
+                <Line Fill="#FF7A7676" Stroke="#FF595656" Height="20" X1="290" StrokeThickness="2" HorizontalAlignment="Center"/>
+                <TextBox  HorizontalAlignment="Center" Margin="0,5,0,0" Width="297" BorderBrush="#00000000"
+                             Text="{Binding AddNewEvent.MaxNumOfMembers, Mode=TwoWay}" PlaceholderText="Max Capacity" VerticalAlignment="Top"/>
+                <Line Fill="#FF7A7676" Stroke="#FF595656" Height="20" X1="290" StrokeThickness="2" HorizontalAlignment="Center"/>
                 <Button Content="AddClass" Command="{Binding AddEventCommand}" 
                             HorizontalAlignment="Center" Margin="0,30,0,0" Grid.Column="0" Width="230" Foreground="#FFA3CDD1" Background="Gray" />
                 <Button Content="DeleteClass" Command="{Binding DeleteEventCommand}" 
@@ -81,7 +81,7 @@
                             HorizontalAlignment="Center" Margin="0,10,0,0" Width="230" Foreground="#FFA3CDD1" Background="Gray" />
             </StackPanel>
 
-            <StackPanel RelativePanel.Below="InfoPanel" RelativePanel.AlignHorizontalCenterWithPanel="True" BorderBrush="DarkGray" BorderThickness="1" >
+            27b<StackPanel RelativePanel.Below="InfoPanel" RelativePanel.AlignHorizontalCenterWithPanel="True" BorderBrush="DarkGray" BorderThickness="1" >
                 <StackPanel Orientation="Horizontal" Height="60" Background="Gray" >
                     <TextBlock x:Name="ActivityList" Text="Activity List"
                                FontSize="23" Margin="10,0,0,0" VerticalAlignment="Center" Foreground="#FFA3CDD1"/>
