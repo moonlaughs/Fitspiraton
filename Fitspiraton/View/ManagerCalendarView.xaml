@@ -81,7 +81,7 @@
                             HorizontalAlignment="Center" Margin="0,10,0,0" Width="230" Foreground="#FFA3CDD1" Background="Gray" />
             </StackPanel>
 
-            27b<StackPanel RelativePanel.Below="InfoPanel" RelativePanel.AlignHorizontalCenterWithPanel="True" BorderBrush="DarkGray" BorderThickness="1" >
+            <StackPanel RelativePanel.Below="InfoPanel" RelativePanel.AlignHorizontalCenterWithPanel="True" BorderBrush="DarkGray" BorderThickness="1" >
                 <StackPanel Orientation="Horizontal" Height="60" Background="Gray" >
                     <TextBlock x:Name="ActivityList" Text="Activity List"
                                FontSize="23" Margin="10,0,0,0" VerticalAlignment="Center" Foreground="#FFA3CDD1"/>
