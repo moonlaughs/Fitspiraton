@@ -143,7 +143,10 @@
     <Content Include="Assets\FitspirationDesign\CreateUser.png" />
     <Content Include="Assets\FitspirationDesign\Edit User.png" />
     <Content Include="Assets\FitspirationDesign\Fitness 6.jpg" />
+    <Content Include="Assets\FitspirationDesign\ID Icon.png" />
+    <Content Include="Assets\FitspirationDesign\ID Icon2.png" />
     <Content Include="Assets\FitspirationDesign\LogoFitspiration.jpg" />
+    <Content Include="Assets\FitspirationDesign\PassWordIcon.png" />
     <Content Include="Assets\own images\bg.jpg" />
     <Content Include="Assets\UP\arya.jpg" />
     <Content Include="Assets\UP\bran.jpg" />

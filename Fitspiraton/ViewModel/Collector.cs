@@ -32,8 +32,8 @@ namespace Fitspiraton.ViewModel
         {
             MemberCollection = new ObservableCollection<Member>
             {
-                new Member("Jon", "Stark1", "you know nothing", "../Assets/UP/jon.jpg", 20),
-                new Member("Arya", "Stark2", "needle", "../Assets/UP/arya.jpg", 18)
+                new Member("Jon Snow", "Stark1", "youknownothing", "../Assets/UP/jon.jpg", 20),
+                new Member("Arya Stark", "Stark2", "needle", "../Assets/UP/arya.jpg", 18)
             };
 
             EventCollection = new ObservableCollection<Event>
