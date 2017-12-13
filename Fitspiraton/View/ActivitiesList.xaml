@@ -17,7 +17,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.55*"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
@@ -45,8 +45,7 @@
                 ScrollViewer.HorizontalScrollMode="Enabled"                  
                 ScrollViewer.VerticalScrollMode="Disabled" 
                 Visibility="Visible" HorizontalAlignment="Stretch" Opacity="0.98"
-                IsItemClickEnabled="True"
-                ItemClick="ListViewBase_OnItemClick">
+                IsItemClickEnabled="True">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Horizontal"/>
@@ -54,11 +53,27 @@
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate >
                     <DataTemplate>
-                        <StackPanel BorderBrush="Black" Margin="0,30,0,0" Orientation="Vertical" HorizontalAlignment="Stretch" Width="300" VerticalAlignment="Stretch" Height="300">
-                            <Image  Source="{Binding ImgSource}" Width="800" Height="200"/>
+                        <StackPanel Margin="0,20,0,10" Orientation="Vertical" HorizontalAlignment="Stretch" Width="200" VerticalAlignment="Stretch" Height="400">
+                            <Image Source="{Binding ImgSource}" Height="200" Width="200" Stretch="Fill" />
+                            <Button Margin="0,5,0,0" Width="200" Height="50" Background="Gainsboro" Content="{Binding Type}" FontSize="20"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="3" Grid.Column="1">
+            <ListView  ItemsSource="{Binding Activitys, Mode=TwoWay}" SelectedItem ="{Binding SelectedActivity , Mode =TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                      <StackPanel Height="500" Width="1380" Background="AliceBlue" Orientation="Vertical">
+                          <TextBlock Text="{Binding Type, Mode = OneWay}"/>
+                          <TextBlock Text="{Binding Description, Mode=OneWay}"/>
+                    </StackPanel>
+                    </DataTemplate >
+                </ListView.ItemTemplate>
+
+
             </ListView>
         </StackPanel>
 

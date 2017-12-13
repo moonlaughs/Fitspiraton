@@ -26,5 +26,12 @@ namespace Fitspiraton.View
         {
             this.InitializeComponent();
         }
+
+        private void StackPanel_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+       
     }
 }

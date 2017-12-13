@@ -30,7 +30,10 @@ namespace Fitspiraton.ViewModel
                 new Activity("Fitness",20,"JohnDoe","Descripton....","../Assets/own images/activities/icons/fitness.jpg"),
                 new Activity("Yoga",20,"JohnDoe","Descripton....","../Assets/own images/activities/icons/yoga.jpg"),
                 new Activity("Salsa",20,"JohnDoe","Descripton....","../Assets/own images/activities/icons/salsa.jpg"),
-                new Activity("TEST",20,"JohnDoe","Descripton....","../Assets/own images/activities/thumbnails/testActivity.png")
+                new Activity("Pole dance",20,"JohnDoe","Descripton....","../Assets/own images/activities/icons/pole.jpg"),
+                new Activity("Zumba",20,"JohnDoe","Descripton....","../Assets/own images/activities/icons/zumba.jpg"),
+                new Activity("Karate",20,"JohnDoe","Descripton....","../Assets/own images/activities/icons/karate.jpg"),
+                new Activity("Kangoo jumps",20,"JohnDoe","Descripton....","../Assets/own images/activities/icons/kangoo.jpg")
 
             };
 

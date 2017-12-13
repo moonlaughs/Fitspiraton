@@ -31,6 +31,7 @@
                               Margin="0,0,0,50" TextWrapping="Wrap"  VerticalAlignment="Top" Width="180" BorderBrush="#660F0F0F" />
                     <PasswordBox Password="{Binding CurrentUser.Password, Mode=TwoWay}" PasswordChar="*" HorizontalAlignment="Center" PlaceholderText="password" Margin="70,0,70,50" VerticalAlignment="Top" Width="180"/>
                     <Button Content="Log In" FontFamily="Barlow Semi Condensed Thin" HorizontalAlignment="Center" Margin="70,0,70,50" VerticalAlignment="Top" Width="180" BorderBrush="#7FF013B3" Background="#B2EC1616" Foreground="#FFF7F5F5" BorderThickness="3" Command="{Binding CheckCommand, Mode=TwoWay}"/>
+                    <Button Content="Activities" Click="Button_Click"></Button>
                     <TextBlock  VerticalAlignment="Bottom" Text="Powered by: Mistery Inc." Margin="0,300,0,0" HorizontalAlignment="Center" Width="200" FontFamily="Calibri Light" FontSize="18"/>
 
                 </StackPanel>
