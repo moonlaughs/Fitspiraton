@@ -27,9 +27,9 @@ namespace Fitspiraton.ViewModel
 
             Activitys = new ObservableCollection<Activity>()
             {
-                new Activity("Fitness",20,"JohnDoe","Descripton....","../Assets/own images/activities/thumbnails/fitness_thumbnail.png"),
-                new Activity("Yoga",20,"JohnDoe","Descripton....","../Assets/own images/activities/thumbnails/yoga_thumbnail.png"),
-                new Activity("Salsa",20,"JohnDoe","Descripton....","../Assets/own images/activities/thumbnails/salsa_thumbnail.png"),
+                new Activity("Fitness",20,"JohnDoe","Descripton....","../Assets/own images/activities/icons/fitness.jpg"),
+                new Activity("Yoga",20,"JohnDoe","Descripton....","../Assets/own images/activities/icons/yoga.jpg"),
+                new Activity("Salsa",20,"JohnDoe","Descripton....","../Assets/own images/activities/icons/salsa.jpg"),
                 new Activity("TEST",20,"JohnDoe","Descripton....","../Assets/own images/activities/thumbnails/testActivity.png")
 
             };

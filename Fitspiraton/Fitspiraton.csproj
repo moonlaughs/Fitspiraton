@@ -108,6 +108,9 @@
     <Compile Include="ViewModel\RecentBookingsVM.cs" />
     <Compile Include="ViewModel\SelectedActivityViewVM.cs" />
     <Compile Include="ViewModel\UserBookingVM.cs" />
+    <Compile Include="View\ActivitiesList.xaml.cs">
+      <DependentUpon>ActivitiesList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -164,6 +167,16 @@
     <Content Include="Assets\own images\activities\backgrounds\fitnessbg.jpg" />
     <Content Include="Assets\own images\activities\backgrounds\salsabg.jpg" />
     <Content Include="Assets\own images\activities\backgrounds\yogabg.jpg" />
+    <Content Include="Assets\own images\activities\icons\ballet2.jpg" />
+    <Content Include="Assets\own images\activities\icons\fencing2.jpg" />
+    <Content Include="Assets\own images\activities\icons\fitness.jpg" />
+    <Content Include="Assets\own images\activities\icons\kangoo.jpg" />
+    <Content Include="Assets\own images\activities\icons\karate.jpg" />
+    <Content Include="Assets\own images\activities\icons\pole.jpg" />
+    <Content Include="Assets\own images\activities\icons\salsa.jpg" />
+    <Content Include="Assets\own images\activities\icons\tenis.png" />
+    <Content Include="Assets\own images\activities\icons\yoga.jpg" />
+    <Content Include="Assets\own images\activities\icons\zumba.jpg" />
     <Content Include="Assets\own images\activities\thumbnails\fitness_thumbnail.png" />
     <Content Include="Assets\own images\activities\thumbnails\salsa_thumbnail.png" />
     <Content Include="Assets\own images\activities\thumbnails\testActivity.png" />
@@ -191,6 +204,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\ActivitiesList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
