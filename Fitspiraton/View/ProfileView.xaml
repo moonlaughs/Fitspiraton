@@ -8,22 +8,55 @@
     x:Class="Fitspiraton.View.ProfileView"
     mc:Ignorable="d">
 
-    <Grid RenderTransformOrigin="0.5,0.5">
-        <Grid.Background>
-            <ImageBrush Stretch="UniformToFill" ImageSource="bg3.jpg" Opacity="0.45">
-                <ImageBrush.RelativeTransform>
-                    <CompositeTransform/>
-                </ImageBrush.RelativeTransform>
-            </ImageBrush>
-        </Grid.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
         <Grid.DataContext>
             <ViewModel:UserMenuVm/>
         </Grid.DataContext>
 
-        <Pivot x:Name="ProfilePivot" Margin="100, 100, 100, 100">
+        <StackPanel Orientation="Vertical" Name="PrincipalProfileStackPanel">
+            <Grid Name="Profile" Grid.Row="0">
+                <Grid.Background>
+                    <ImageBrush></ImageBrush>
+                </Grid.Background>
+                <Ellipse>
+                    <Ellipse.Fill>
+                        <ImageBrush ></ImageBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                
+                
+            </Grid>
+            <StackPanel Name="BMIPanel"  Orientation="Vertical" Grid.Row="1">
+                
+            </StackPanel>
+
+
+        </StackPanel>
+
+        <!--<Grid.Background>-->
+        <!--<ImageBrush Stretch="UniformToFill" ImageSource="bg3.jpg" Opacity="0.45">
+                <ImageBrush.RelativeTransform>
+                    <CompositeTransform/>
+                </ImageBrush.RelativeTransform>
+            </ImageBrush>
+        </Grid.Background>-->
+
+
+
+        <!--<Pivot x:Name="ProfilePivot" Margin="100, 100, 100, 100">
             <PivotItem Header="Profile ♥">
-                <!--Pivot content goes here-->
+                -->
+        <!--Pivot content goes here-->
+        <!--
                 <StackPanel>
                     <Image Source="{Binding Image, Mode=TwoWay}" Height="200" Width="200"  />
                     <TextBox Text="{Binding Name, Mode=TwoWay}" Width="200" HorizontalAlignment="Center"/>
@@ -32,13 +65,15 @@
                 </StackPanel>
             </PivotItem>
             <PivotItem Header="BMI ♥">
-                <!--Pivot content goes here-->
+                -->
+        <!--Pivot content goes here-->
+        <!--
                 <StackPanel>
                     <TextBox PlaceholderText="Height"/>
                     <TextBox PlaceholderText="Weight"/>
                     <TextBlock Text="Your BMI -.- (heart) ♥"/>
                 </StackPanel>
             </PivotItem>
-        </Pivot>
+        </Pivot>-->
     </Grid>
 </Page>

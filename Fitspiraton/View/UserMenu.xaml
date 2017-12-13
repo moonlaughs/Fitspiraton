@@ -8,80 +8,69 @@
     mc:Ignorable="d">
 
     <Grid Loaded="Grid_Loaded">
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.465">
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="White" Offset="0.018"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+      
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="15*"/>
         </Grid.ColumnDefinitions>
 
         <Grid.DataContext>
             <ViewModel:UserMenuVm/>
         </Grid.DataContext>
 
-        <StackPanel Grid.Column="0" Background="#FF252932">
-            <Grid Height="1080">
+        <StackPanel Grid.Column="0" Background="White" Orientation="Vertical">
+           <Grid>
+
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="30*"/>
-                    <RowDefinition Height="130*"/>
-                    <RowDefinition Height="257*"/>
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Fitspiration" FontSize="48" Margin="70,0,0,0" HorizontalAlignment="Left" Grid.Row="0" FontFamily="Book Antiqua" Foreground="White"/>
-                <Image Source="../Assets/LogoTrnasparent.png" HorizontalAlignment="Left" Margin="10,0,0,0"></Image>
-                <Ellipse Grid.Row="1" Height="200" Width="200" Margin="0,0,0,150">
-                    <Ellipse.Fill>
-                        <ImageBrush Stretch="UniformToFill" ImageSource="{Binding Image, Mode=TwoWay}"/>
-                    </Ellipse.Fill>
-                </Ellipse>
-                <TextBlock Grid.Row="1" Text="{Binding Name, Mode=TwoWay}" HorizontalAlignment="Center" Margin="0,130,0,0" Height="50" FontSize="32" FontFamily="Book Antiqua" Foreground="Gray"/>
-                <TextBlock Grid.Row="1" Text="{Binding Id, Mode=TwoWay}" HorizontalAlignment="Center" Margin="0,230,0,0" Height="50" FontSize="24" FontFamily="Book Antiqua" Foreground="#FF50D2E5"/>
-                <StackPanel Orientation="Vertical"
-                            Grid.Row="2">
-                    <Button x:Name="ProfileBtn" Click="ProfileBtn_OnClicked" Margin="0,0,0, 5" Height="100" Width="480" FontSize="32" FontFamily="Book Antiqua" Foreground="Gray" BorderBrush="#FF525252" BorderThickness="1">
-                        <Button.Background>
-                            <SolidColorBrush Color="Transparent" Opacity="0.5"/>
-                        </Button.Background>
+
+                <StackPanel Orientation="Vertical" Grid.Row="1">
+                    <Image Source="../Assets/FitspirationDesign/fitspiration_icon.png" 
+                           HorizontalAlignment="Center" VerticalAlignment="Center" 
+                           Stretch="UniformToFill" Margin="130,130,130,130"/>
+                    <Button x:Name="ProfileBtn" Click="ProfileBtn_OnClicked" 
+                            Margin="0,0,0,0" Height="100" Width="480" FontSize="32" HorizontalAlignment="Center"
+                            BorderBrush="#FF525252" BorderThickness="1" Background="White">
                         <StackPanel Orientation="Horizontal" Height="90" Width="450">
-                            <Image Source="../Assets/person-icon.png" Margin="10,0,10,0" Height="50" Width="50"/>
-                            <TextBlock Text="Profile" FontSize="32" FontFamily="Book Antiqua" Foreground="Gray" VerticalAlignment="Center"/>
+                            <Image Source="../Assets/FitspirationDesign/ProfileIcon.png"
+                                   Margin="10,0,10,0" Height="50" Width="50"/>
+                            <TextBlock Text="Profile" FontSize="32" Foreground="Gray" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
-                    <Button x:Name="RecentBookingBtn" Margin="0,0,0, 5" Height="100" Width="480" FontSize="32" FontFamily="Book Antiqua" Click="RcentBtn_OnClicked" Foreground="Gray" BorderBrush="#FF525252" BorderThickness="1">
-                        <Button.Background>
-                            <SolidColorBrush Color="Transparent" Opacity="0.8"/>
-                        </Button.Background>
-                        <StackPanel Orientation="Horizontal" Height="90" Width="450">
-                            <Image Source="../Assets/resentIMG.png" Margin="10,0,10,0" Height="50" Width="50"/>
-                            <TextBlock Text="Recent Bookings" FontSize="32" FontFamily="Book Antiqua" Foreground="Gray" VerticalAlignment="Center"/>
+                    <Button x:Name="RecentBookingBtn" Click="RcentBtn_OnClicked"
+                            Margin="0,0,0,0" Height="100" Width="480" FontSize="32" HorizontalAlignment="Center"
+                            BorderBrush="#FF525252" BorderThickness="1" Background="White">
+                      <StackPanel Orientation="Horizontal" Height="90" Width="450">
+                            <Image Source="../Assets/FitspirationDesign/HistoryIcon.png"  Margin="10,0,10,0" Height="50" Width="50"/>
+                            <TextBlock Text="Recent Bookings" FontSize="32" Foreground="Gray" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
-                    <Button x:Name="BookBtn"  Height="100" Width="480" Margin="0,0,0, 5" FontFamily="Book Antiqua" FontSize="32" Click="Button_Click" Foreground="Gray" BorderBrush="#FF525252" BorderThickness="1">
-                        <Button.Background>
-                            <SolidColorBrush Color="Transparent" Opacity="0.8"/>
-                        </Button.Background>
+                    <Button x:Name="BookBtn" Click="Button_Click" 
+                            Height="100" Width="480" Margin="0,0,0, 5" FontSize="32" HorizontalAlignment="Center"
+                            Foreground="Gray" BorderBrush="#FF525252" BorderThickness="1" Background="White" >
+                 
                         <StackPanel Orientation="Horizontal" Height="90" Width="450">
-                            <Image Source="../Assets/book.png" Margin="10,0,10,0" Height="50" Width="50"/>
-                            <TextBlock Text="Book" FontSize="32" FontFamily="Book Antiqua" Foreground="Gray" VerticalAlignment="Center"/>
+                            <Image Source="../Assets/FitspirationDesign/BookingIcon.png"  Margin="10,0,10,0" Height="50" Width="50"/>
+                            <TextBlock Text="Book" FontSize="32"  Foreground="Gray" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
-                    <Button x:Name="BackBtn" Height="100" Width="480" Margin="0,0,0, 5" FontFamily="Book Antiqua" FontSize="32" Click="BackBtn_OnClicked" Foreground="Gray" BorderBrush="#FF525252" BorderThickness="1">
-                        <Button.Background>
-                            <SolidColorBrush Color="Transparent" Opacity="0.8"/>
-                        </Button.Background>
-                        <StackPanel Orientation="Horizontal" Height="90" Width="450">
-                            <Image Source="../Assets/logOut.png" Margin="10,0,10,0" Height="50" Width="50"/>
-                            <TextBlock Text="Log Out" FontSize="32" FontFamily="Book Antiqua" Foreground="Gray" VerticalAlignment="Center"/>
+                    <Button x:Name="BackBtn"  Click="BackBtn_OnClicked" 
+                            Height="100" Width="480" Margin="0,0,0, 5" FontSize="32" HorizontalAlignment="Center"
+                            Foreground="Gray" BorderBrush="#FF525252" BorderThickness="1" Background="White">
+                      <StackPanel Orientation="Horizontal" Height="90" Width="450">
+                            <Image Source="../Assets/FitspirationDesign/LogOutIcon.png"  Margin="10,0,10,0" Height="50" Width="50"/>
+                            <TextBlock Text="Log Out" FontSize="32"  Foreground="Gray" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
                 </StackPanel>
-            </Grid>
+           </Grid>
         </StackPanel>
         <Frame Grid.Column="1"
                Width="1445"
-               x:Name="UserMenuFrame"/>
+               x:Name="UserMenuFrame" Grid.ColumnSpan="2" Margin="0,0,-5,0"/>
     </Grid>
 </Page>
