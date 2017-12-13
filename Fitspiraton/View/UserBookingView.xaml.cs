@@ -149,27 +149,27 @@ namespace Fitspiraton.View
         private IList<DateTimeOffset> dates;
         public DateTimeOffset chosenDate;
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
 
-            try
-            {
-                dates =  CalendarView.SelectedDates;
+        //    try
+        //    {
+        //        dates =  CalendarView.SelectedDates;
 
-                foreach (var date in dates)
-                {
-                    chosenDate = date;
-                }
+        //        foreach (var date in dates)
+        //        {
+        //            chosenDate = date;
+        //        }
 
-                UserTestBox.Text = chosenDate.ToString();
-            }
-            catch (Exception exception)
-            {
+        //        UserTestBox.Text = chosenDate.ToString();
+        //    }
+        //    catch (Exception exception)
+        //    {
 
-                string ne = exception.ToString();
-               MessageDialog msg = new MessageDialog( ne,"");
-                msg.ShowAsync();
-            }
-        }
+        //        string ne = exception.ToString();
+        //       MessageDialog msg = new MessageDialog( ne,"");
+        //        msg.ShowAsync();
+        //    }
+        //}
     }
 }

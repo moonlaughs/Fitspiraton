@@ -27,7 +27,7 @@ namespace Fitspiraton.View
     {
         public ProfileView()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
     }
 }

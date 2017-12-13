@@ -11,6 +11,7 @@
     mc:Ignorable="d">
 
     <Grid>
+
         <Grid.Background>White</Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -31,18 +32,18 @@
         <controls:DropShadowPanel Grid.Row="1" Grid.Column="1" BlurRadius="10" ShadowOpacity="0.3" OffsetX="16" OffsetY="8"  Color="Black">
             <Pivot Grid.Row="1" Grid.Column="1" Background="White" Foreground="DarkGray" BorderBrush="DarkGray" BorderThickness="2">
                 <PivotItem Header="Profile" Margin="20,0,20,20" Background="White"/>
-              
-                
+
+
                 <StackPanel>
-                    
+
                     <Ellipse Height="170" Width="170" Margin="100,100,100,10" Stroke="White" StrokeThickness="10">
-                         <Ellipse.Fill>
+                        <Ellipse.Fill>
                             <ImageBrush x:Name="ProfileBackGround" ImageSource="{Binding Image, Mode=TwoWay}" Stretch="UniformToFill"/>
-                         </Ellipse.Fill>
+                        </Ellipse.Fill>
                     </Ellipse>
-                 
+
                     <TextBlock Text="{Binding Name, Mode=TwoWay}" HorizontalAlignment="Center" FontSize="50" Foreground="White" />
-                    
+
                     <StackPanel Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
                         <Image Source="../Assets/FitspirationDesign/LocationIcon.png"  Stretch="UniformToFill"/>
                         <TextBlock x:Name="Location" Text="{Binding Id, Mode=TwoWay}" 
@@ -54,11 +55,11 @@
                         <TextBlock x:Name="Age" Text="{Binding Password, Mode=TwoWay}" HorizontalAlignment="Center" FontSize="30" Foreground="White" />
                     </StackPanel>
                 </StackPanel>
-            <PivotItem Header="BMI" Foreground="DarkGray">
-                <StackPanel x:Name="BMIStackPanel" BorderBrush="DarkGray" BorderThickness="1" Margin="100, 100, 100,200">
-                </StackPanel>
-            </PivotItem>
-         </Pivot>
+                <PivotItem Header="BMI" Foreground="DarkGray">
+                    <StackPanel x:Name="BMIStackPanel" BorderBrush="DarkGray" BorderThickness="1" Margin="100, 100, 100,200">
+                    </StackPanel>
+                </PivotItem>
+            </Pivot>
         </controls:DropShadowPanel>
 
 
@@ -152,5 +153,6 @@
                 </StackPanel>
             </PivotItem>
         </Pivot>-->
+
     </Grid>
 </Page>

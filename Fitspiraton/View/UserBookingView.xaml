@@ -21,9 +21,9 @@
             <ColumnDefinition Width="137*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid.DataContext>
+        <!--<Grid.DataContext>
             <ViewModel:UserBookingVM/>
-        </Grid.DataContext>
+        </Grid.DataContext>-->
 
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
             <CalendarView x:Name="CalendarView"
