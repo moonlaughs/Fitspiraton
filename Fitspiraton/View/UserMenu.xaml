@@ -31,7 +31,7 @@
                 <StackPanel Orientation="Vertical" Grid.Row="1">
                     <Image Source="../Assets/FitspirationDesign/fitspiration_icon.png" 
                            HorizontalAlignment="Center" VerticalAlignment="Center" 
-                           Stretch="UniformToFill" Margin="130,130,130,130"/>
+                           Stretch="UniformToFill" Margin="190,50,190,50"/>
                     <Button x:Name="ProfileBtn" Click="ProfileBtn_OnClicked" 
                             Margin="0,0,0,0" Height="100" Width="480" FontSize="32" HorizontalAlignment="Center"
                             BorderBrush="#FF525252" BorderThickness="1" Background="White">
