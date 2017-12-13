@@ -10,7 +10,40 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="79*"/>
+            <ColumnDefinition Width="424*"/>
+            <ColumnDefinition Width="137*"/>
+        </Grid.ColumnDefinitions>
+
         <Grid.DataContext>
+            <ViewModel:UserBookingVM/>
+        </Grid.DataContext>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
+            <CalendarView x:Name="CalendarView"
+                      HorizontalAlignment="Center" VerticalAlignment="Center"
+                      SelectionMode="Single" 
+                      CalendarItemBackground="Chartreuse"
+                      BorderBrush="LightGray"
+                      BorderThickness="3"
+                      Height="670" 
+                      Margin="0,0,0,0"
+                      Width="1000"
+                      CalendarViewDayItemChanging="CalendarView_CalendarViewDayItemChanging" />
+
+            <Button   x:Name="BookingButton" Command="{Binding RegisterCommand}"
+                      Height="100" Width="300" Content="Book" HorizontalAlignment="Center" Margin="0,30,0,0" />
+
+        </StackPanel>
+
+
+        <!--<Grid.DataContext>
             <ViewModel:UserBookingVM/>
         </Grid.DataContext>
         <CalendarView x:Name="CalendarView"
@@ -24,9 +57,8 @@
                       CalendarViewDayItemChanging="CalendarView_CalendarViewDayItemChanging"
                         />
 
-        <CalendarDatePicker x:Name="CalendarDatePicker" DateChanged="CalendarDatePicker_DateChanged"  Margin="90,253,0,715"/>
-        <TextBlock x:Name="UserTestBox" Margin="910,490,415,490" Height="100"/>
-        <Button Content="Book" Margin="600,0,0,0" Command="{Binding RegisterCommand}"/>
-        <Button Content="CHECK" Margin="700,0,0,0" Click="Button_Click"></Button>
+        
+        <Button Content="Book" Margin="600,0,0,0" Command="{Binding RegisterCommand}"/>-->
+
     </Grid>
 </Page>
