@@ -157,10 +157,14 @@
   <ItemGroup>
     <Content Include="Assets\bg2.jpg" />
     <Content Include="Assets\FitspirationDesign\24992826_1313837958722147_986259848_o.jpg" />
+    <Content Include="Assets\FitspirationDesign\BackGroundDesign1.jpg" />
+    <Content Include="Assets\FitspirationDesign\BackGroundDesign3.jpg" />
+    <Content Include="Assets\FitspirationDesign\BackgroundDesign4.png" />
     <Content Include="Assets\FitspirationDesign\BookingIcon.png" />
     <Content Include="Assets\FitspirationDesign\Fitness 6.jpg" />
     <Content Include="Assets\FitspirationDesign\fitspiration_icon.png" />
     <Content Include="Assets\FitspirationDesign\HistoryIcon.png" />
+    <Content Include="Assets\FitspirationDesign\LocationIcon.png" />
     <Content Include="Assets\FitspirationDesign\LogoFitspiration.jpg" />
     <Content Include="Assets\FitspirationDesign\LogOutIcon.png" />
     <Content Include="Assets\FitspirationDesign\ProfileIcon.png" />
