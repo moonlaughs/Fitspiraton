@@ -27,19 +27,19 @@ namespace FitspirationUnitTest
         }
 
         //n collector class
-        [TestMethod]
-        public void ColectorTest()
-        {
-            //testing adding to the colector list
-            try
-            {
-                Assert.ThrowsException<ArgumentException>(() => _collector.Name = _member.Name);
-            }
-            catch (Exception)
-            {
-                Assert.AreEqual("Jane", _collector.Name);
-            }
-        }
+        //[TestMethod]
+        //public void ColectorTest()
+        //{
+        //    //testing adding to the colector list
+        //    try
+        //    {
+        //        Assert.ThrowsException<ArgumentException>(() => _collector.Name = _member.Name);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        Assert.AreEqual("Jane", _collector.Name);
+        //    }
+        //}
 
         //in loginVm class
         [TestMethod]

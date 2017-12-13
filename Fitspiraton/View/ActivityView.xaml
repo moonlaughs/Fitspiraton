@@ -9,9 +9,11 @@
     mc:Ignorable="d">
 
     <Grid>
+
         <Grid.DataContext>
             <viewModel:ActivityVm/>
         </Grid.DataContext>
+
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.465">
                 <GradientStop Color="Black" Offset="1"/>

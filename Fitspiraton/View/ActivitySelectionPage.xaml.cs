@@ -37,7 +37,7 @@ namespace Fitspiraton.View
             CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = true;
 
-            DescriptionFrame.Navigate(typeof(SampleActivityPage));
+            //DescriptionFrame.Navigate(typeof(SampleActivityPage));
         }
 
         private void StackPanel_PointerPressed(object sender, PointerRoutedEventArgs e)

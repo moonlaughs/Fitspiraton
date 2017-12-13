@@ -54,5 +54,10 @@ namespace Fitspiraton
                 string error = e.Message;
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ActivityView));
+        }
     }
 }
