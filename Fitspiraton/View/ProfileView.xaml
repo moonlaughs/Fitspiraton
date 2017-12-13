@@ -24,26 +24,22 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
-        
-        <controls:DropShadowPanel Grid.Row="1" Grid.Column="1" BlurRadius="20" ShadowOpacity="0.3" OffsetX="5" OffsetY="10" Color="DarkGray">
+        <Grid.DataContext>
+            <ViewModel:UserMenuVm/>
+        </Grid.DataContext>
 
-            <Pivot Grid.Row="1" Grid.Column="1" >
+        <controls:DropShadowPanel Grid.Row="1" Grid.Column="1" BlurRadius="10" ShadowOpacity="0.3" OffsetX="16" OffsetY="8"  Color="Black">
+            <Pivot Grid.Row="1" Grid.Column="1" Background="White" Foreground="DarkGray" BorderBrush="DarkGray" BorderThickness="2">
+                <PivotItem Header="Profile" Margin="20,0,20,20" Background="White"/>
+              
                 
-               
-                <PivotItem Header="Profile" Foreground="DarkGray">
-
-
-                    <PivotItem.Background>
-                    <ImageBrush ImageSource="../Assets/FitspirationDesign/BackGroundDesign5.jpg"></ImageBrush>
-                </PivotItem.Background>
-               
-                    <StackPanel BorderBrush="DarkGray" BorderThickness="1" >
+                <StackPanel>
                     
-                        <Ellipse Height="170" Width="170" Margin="100,100,100,10" Stroke="White" StrokeThickness="10">
-                            <Ellipse.Fill>
+                    <Ellipse Height="170" Width="170" Margin="100,100,100,10" Stroke="White" StrokeThickness="10">
+                         <Ellipse.Fill>
                             <ImageBrush x:Name="ProfileBackGround" ImageSource="{Binding Image, Mode=TwoWay}" Stretch="UniformToFill"/>
-                            </Ellipse.Fill>
-                        </Ellipse>
+                         </Ellipse.Fill>
+                    </Ellipse>
                  
                     <TextBlock Text="{Binding Name, Mode=TwoWay}" HorizontalAlignment="Center" FontSize="50" Foreground="White" />
                     
@@ -58,24 +54,12 @@
                         <TextBlock x:Name="Age" Text="{Binding Password, Mode=TwoWay}" HorizontalAlignment="Center" FontSize="30" Foreground="White" />
                     </StackPanel>
                 </StackPanel>
-            </PivotItem>
-         
-
-
             <PivotItem Header="BMI" Foreground="DarkGray">
-                <controls:DropShadowPanel Grid.Row="1" Grid.Column="1" BlurRadius="20" ShadowOpacity="0.3" OffsetX="5" OffsetY="5" Color="DarkGray">
-                    <StackPanel x:Name="BMIStackPanel" BorderBrush="DarkGray" BorderThickness="1" Margin="100, 100, 100,200">
-                    
+                <StackPanel x:Name="BMIStackPanel" BorderBrush="DarkGray" BorderThickness="1" Margin="100, 100, 100,200">
                 </StackPanel>
-
-                </controls:DropShadowPanel>
             </PivotItem>
-               
-        </Pivot>
+         </Pivot>
         </controls:DropShadowPanel>
-
-
-
 
 
         <!--<PivotHeaderPanel x:Name="StaticHeader" Height="100" Width="300">
