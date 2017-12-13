@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ViewModel="using:Fitspiraton.ViewModel"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     x:Class="Fitspiraton.View.ProfileView"
   
     mc:Ignorable="d">
@@ -22,13 +23,21 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
+
         
-        <Pivot Grid.Row="1" Grid.Column="1">
-            <PivotItem Header="Profile" Foreground="DarkGray">
-                <PivotItem.Background>
+        <controls:DropShadowPanel Grid.Row="1" Grid.Column="1" BlurRadius="20" ShadowOpacity="0.3" OffsetX="5" OffsetY="10" Color="DarkGray">
+
+            <Pivot Grid.Row="1" Grid.Column="1" >
+                
+               
+                <PivotItem Header="Profile" Foreground="DarkGray">
+
+
+                    <PivotItem.Background>
                     <ImageBrush ImageSource="../Assets/FitspirationDesign/BackGroundDesign5.jpg"></ImageBrush>
                 </PivotItem.Background>
-                <StackPanel BorderBrush="DarkGray" BorderThickness="1">
+               
+                    <StackPanel BorderBrush="DarkGray" BorderThickness="1" >
                     
                         <Ellipse Height="170" Width="170" Margin="100,100,100,10" Stroke="White" StrokeThickness="10">
                             <Ellipse.Fill>
@@ -49,22 +58,38 @@
                         <TextBlock x:Name="Age" Text="{Binding Password, Mode=TwoWay}" HorizontalAlignment="Center" FontSize="30" Foreground="White" />
                     </StackPanel>
                 </StackPanel>
-                
             </PivotItem>
+         
+
+
             <PivotItem Header="BMI" Foreground="DarkGray">
-                <StackPanel x:Name="BMIStackPanel" BorderBrush="DarkGray" BorderThickness="1" Margin="100, 100, 100,200">
+                <controls:DropShadowPanel Grid.Row="1" Grid.Column="1" BlurRadius="20" ShadowOpacity="0.3" OffsetX="5" OffsetY="5" Color="DarkGray">
+                    <StackPanel x:Name="BMIStackPanel" BorderBrush="DarkGray" BorderThickness="1" Margin="100, 100, 100,200">
                     
                 </StackPanel>
-                
-                
+
+                </controls:DropShadowPanel>
             </PivotItem>
-            
+               
         </Pivot>
+        </controls:DropShadowPanel>
 
 
 
 
-            <!--<Grid.RowDefinitions>
+
+        <!--<PivotHeaderPanel x:Name="StaticHeader" Height="100" Width="300">
+            <PivotHeaderPanel x:Name="Header">
+                <PivotHeaderPanel.RenderTransform>
+                    <TransformGroup>
+                        <CompositeTransform x:Name="HeaderTRanslateTransforme"/>
+                        <CompositeTransform x:Name="HeaderOffsetTranslateTransform"/>
+                    </TransformGroup>
+                </PivotHeaderPanel.RenderTransform>
+            </PivotHeaderPanel>
+        </PivotHeaderPanel>-->
+
+        <!--<Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
