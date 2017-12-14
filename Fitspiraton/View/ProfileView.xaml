@@ -20,21 +20,21 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
 
         <Grid.DataContext>
             <ViewModel:UserMenuVm/>
         </Grid.DataContext>
 
-        <controls:DropShadowPanel Grid.Row="1" Grid.Column="1" BlurRadius="10" ShadowOpacity="0.3" OffsetX="16" OffsetY="8"  Color="Black">
-            <Pivot Grid.Row="1" Grid.Column="1" Background="White" Foreground="DarkGray" BorderBrush="DarkGray" BorderThickness="2">
-                <PivotItem Header="Profile" Margin="20,0,20,20" Background="White"/>
 
-
-                <StackPanel>
+        <controls:DropShadowPanel Grid.Row="1" Grid.Column="1" BlurRadius="10" ShadowOpacity="0.3" OffsetX="30" OffsetY="30" Color="Black" Width="735">
+            <StackPanel Width="735" >
+                <StackPanel.Background>
+                <ImageBrush ImageSource="../Assets/FitspirationDesign/GradientBackGroundProfile.png"></ImageBrush>
+            </StackPanel.Background>
 
                     <Ellipse Height="170" Width="170" Margin="100,100,100,10" Stroke="White" StrokeThickness="10">
                         <Ellipse.Fill>
@@ -54,105 +54,11 @@
                         <Image/>
                         <TextBlock x:Name="Age" Text="{Binding Password, Mode=TwoWay}" HorizontalAlignment="Center" FontSize="30" Foreground="White" />
                     </StackPanel>
-                </StackPanel>
-                <PivotItem Header="BMI" Foreground="DarkGray">
-                    <StackPanel x:Name="BMIStackPanel" BorderBrush="DarkGray" BorderThickness="1" Margin="100, 100, 100,200">
-                    </StackPanel>
-                </PivotItem>
-            </Pivot>
+        </StackPanel>
         </controls:DropShadowPanel>
 
 
-        <!--<PivotHeaderPanel x:Name="StaticHeader" Height="100" Width="300">
-            <PivotHeaderPanel x:Name="Header">
-                <PivotHeaderPanel.RenderTransform>
-                    <TransformGroup>
-                        <CompositeTransform x:Name="HeaderTRanslateTransforme"/>
-                        <CompositeTransform x:Name="HeaderOffsetTranslateTransform"/>
-                    </TransformGroup>
-                </PivotHeaderPanel.RenderTransform>
-            </PivotHeaderPanel>
-        </PivotHeaderPanel>-->
 
-        <!--<Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="500"/>
-            <ColumnDefinition Width="*" />
-        
-        </Grid.ColumnDefinitions>
-
-        <Grid.DataContext>
-            <ViewModel:UserMenuVm/>
-        </Grid.DataContext>
-
-        <StackPanel Orientation="Vertical" Name="PrincipalProfileStackPanel">
-            <StackPanel.Background>
-                <ImageBrush ImageSource="../Assets/FitspirationDesign/BackgroundDesign4.png"></ImageBrush>
-            </StackPanel.Background>
-            
-                <Ellipse Height="170" Width="170" Margin="100,100,100,10">
-                    <Ellipse.Fill>
-                        <ImageBrush x:Name="ProfileBackGround" ImageSource="{Binding Image, Mode=TwoWay}" Stretch="UniformToFill"/>
-                    </Ellipse.Fill>
-                </Ellipse>
-                <TextBlock Text="{Binding Name, Mode=TwoWay}" HorizontalAlignment="Center" Grid.Row="1" FontSize="50" Foreground="White" />
-                <StackPanel Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
-                    <Image Source="../Assets/FitspirationDesign/LocationIcon.png"  Stretch="UniformToFill"/>
-                    <TextBlock x:Name="Location" Text="{Binding Id, Mode=TwoWay}" 
-                               HorizontalAlignment="Center" FontSize="30" Foreground="White" />
-                </StackPanel>
-                
-                <StackPanel Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
-                    <Image/>
-                <TextBlock x:Name="Age" Text="{Binding Password, Mode=TwoWay}" HorizontalAlignment="Center" FontSize="30" Foreground="White" />
-                </StackPanel>
-        </StackPanel>
-
-        <StackPanel Name="BMIPanel"  Orientation="Vertical" Grid.Row="1">
-
-            <TextBlock x:Name="InsertHeight" Text="Insert your height" FontSize="30"/>
-            <TextBox x:Name="Height" Height="70" Margin="0,20,0,20" />
-            <TextBlock x:Name="InsertWeight" Text="Insert your weight" FontSize="30"/>
-            <TextBox x:Name="Weight" Height="70" Margin="0,20,0,20"/>
-            <Button x:Name="GetBMI" Height="70" Width="300" HorizontalAlignment="Center" Margin="0,30,0,20"/>
-        </StackPanel>-->
-
-        <!--<Grid.Background>-->
-        <!--<ImageBrush Stretch="UniformToFill" ImageSource="bg3.jpg" Opacity="0.45">
-                <ImageBrush.RelativeTransform>
-                    <CompositeTransform/>
-                </ImageBrush.RelativeTransform>
-            </ImageBrush>
-        </Grid.Background>-->
-
-
-
-        <!--<Pivot x:Name="ProfilePivot" Margin="100, 100, 100, 100">
-            <PivotItem Header="Profile ♥">
-                -->
-        <!--Pivot content goes here-->
-        <!--
-                <StackPanel>
-                    <Image Source="{Binding Image, Mode=TwoWay}" Height="200" Width="200"  />
-                    <TextBox Text="{Binding Name, Mode=TwoWay}" Width="200" HorizontalAlignment="Center"/>
-                    <TextBox Text="{Binding Id, Mode=TwoWay}" Width="200" HorizontalAlignment="Center"/>
-                    <TextBox Text="{Binding Password, Mode=TwoWay}" Width="200" HorizontalAlignment="Center"/>
-                </StackPanel>
-            </PivotItem>
-            <PivotItem Header="BMI ♥">
-                -->
-        <!--Pivot content goes here-->
-        <!--
-                <StackPanel>
-                    <TextBox PlaceholderText="Height"/>
-                    <TextBox PlaceholderText="Weight"/>
-                    <TextBlock Text="Your BMI -.- (heart) ♥"/>
-                </StackPanel>
-            </PivotItem>
-        </Pivot>-->
 
     </Grid>
 </Page>

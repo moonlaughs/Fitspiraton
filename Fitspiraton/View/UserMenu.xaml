@@ -7,70 +7,91 @@
     x:Class="Fitspiraton.View.UserMenu"
     mc:Ignorable="d">
 
-    <Grid Loaded="Grid_Loaded">
-      
+    <Grid Loaded="Grid_Loaded" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="8*"/>
-            <ColumnDefinition Width="8*"/>
-            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="31*"/>
+            
         </Grid.ColumnDefinitions>
 
         <Grid.DataContext>
             <ViewModel:UserMenuVm/>
         </Grid.DataContext>
 
-        <StackPanel Grid.Column="0" Background="White" Orientation="Vertical">
-           <Grid>
-
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="100" />
-                    <RowDefinition Height="5*" />
-                    <RowDefinition Height="1*"/>
-                </Grid.RowDefinitions>
-
-                <StackPanel Orientation="Vertical" Grid.Row="1">
-                    <Image Source="../Assets/FitspirationDesign/fitspiration_icon.png" 
-                           HorizontalAlignment="Center" VerticalAlignment="Center" 
-                           Stretch="UniformToFill" Margin="190,50,190,50"/>
-                    <Button x:Name="ProfileBtn" Click="ProfileBtn_OnClicked" 
-                            Margin="0,0,0,0" Height="100" Width="480" FontSize="32" HorizontalAlignment="Center"
-                            BorderBrush="#FF525252" BorderThickness="1" Background="White">
-                        <StackPanel Orientation="Horizontal" Height="90" Width="450">
-                            <Image Source="../Assets/FitspirationDesign/ProfileIcon.png"
-                                   Margin="10,0,10,0" Height="50" Width="50"/>
-                            <TextBlock Text="Profile" FontSize="32" Foreground="Gray" VerticalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-                    <Button x:Name="RecentBookingBtn" Click="RcentBtn_OnClicked"
-                            Margin="0,0,0,0" Height="100" Width="480" FontSize="32" HorizontalAlignment="Center"
-                            BorderBrush="#FF525252" BorderThickness="1" Background="White">
-                      <StackPanel Orientation="Horizontal" Height="90" Width="450">
-                            <Image Source="../Assets/FitspirationDesign/HistoryIcon.png"  Margin="10,0,10,0" Height="50" Width="50"/>
-                            <TextBlock Text="Recent Bookings" FontSize="32" Foreground="Gray" VerticalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-                    <Button x:Name="BookBtn" Click="Button_Click" 
-                            Height="100" Width="480" Margin="0,0,0, 5" FontSize="32" HorizontalAlignment="Center"
-                            Foreground="Gray" BorderBrush="#FF525252" BorderThickness="1" Background="White" >
-                 
-                        <StackPanel Orientation="Horizontal" Height="90" Width="450">
-                            <Image Source="../Assets/FitspirationDesign/BookingIcon.png"  Margin="10,0,10,0" Height="50" Width="50"/>
-                            <TextBlock Text="Book" FontSize="32"  Foreground="Gray" VerticalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-                    <Button x:Name="BackBtn"  Click="BackBtn_OnClicked" 
-                            Height="100" Width="480" Margin="0,0,0, 5" FontSize="32" HorizontalAlignment="Center"
-                            Foreground="Gray" BorderBrush="#FF525252" BorderThickness="1" Background="White">
-                      <StackPanel Orientation="Horizontal" Height="90" Width="450">
-                            <Image Source="../Assets/FitspirationDesign/LogOutIcon.png"  Margin="10,0,10,0" Height="50" Width="50"/>
-                            <TextBlock Text="Log Out" FontSize="32"  Foreground="Gray" VerticalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-                </StackPanel>
-           </Grid>
+        <StackPanel Background="#FF171716">
+            <Image Source="../Assets/FitspirationDesign/fitspiration_logo Orange.png" 
+                   VerticalAlignment="Center" HorizontalAlignment="Left" Margin="40,20,40,40" Stretch="Uniform"/>
         </StackPanel>
-        <Frame Grid.Column="1"
-               Width="1445"
-               x:Name="UserMenuFrame" Grid.ColumnSpan="2" Margin="0,0,-5,0"/>
+
+        <StackPanel Grid.Row="1" Background="#FF2B2A27" >
+
+            <Button x:Name="ProfileBtn" Click="ProfileBtn_OnClicked" Height="120" Width="385" Background="Transparent" 
+                    BorderBrush="Transparent" Margin="30,70,10,0">
+                <StackPanel Orientation="Horizontal" Height="90" Width="370">
+                    <Image Source="../Assets/FitspirationDesign/ProfileIconWhite.png"
+                           Margin="10,0,10,0" Height="50" Width="50"/>
+                    <TextBlock Text="Profile" FontSize="32" FontFamily="Leelawadee"
+                               VerticalAlignment="Center" Foreground="White" Margin="10,0,0,0"/>
+                </StackPanel>
+            </Button>
+            <Line Fill="White" Stroke="White" Height="1" X1="380" StrokeThickness="2" HorizontalAlignment="Center"/>
+
+            <Button x:Name="RecentBookingBtn" Click="RcentBtn_OnClicked"
+                    Height="120" Width="385" Background="Transparent" 
+                    BorderBrush="Transparent" Margin="30,70,10,0">
+                <StackPanel Orientation="Horizontal" Height="90" Width="370">
+                    <Image Source="../Assets/FitspirationDesign/HistoryIconWhite.png"
+                           Margin="10,0,10,0" Height="50" Width="50"/>
+                    <TextBlock Text="History" FontSize="32" FontFamily="Leelawadee"
+                               VerticalAlignment="Center" Foreground="White" Margin="10,0,0,0"/>
+                </StackPanel>
+            </Button>
+            <Line Fill="White" Stroke="White" Height="1" X1="380" StrokeThickness="2" HorizontalAlignment="Center"/>
+
+            <Button x:Name="BookBtn" Click="Button_Click" 
+                    Height="120" Width="385" Background="Transparent" 
+                    BorderBrush="Transparent" Margin="30,70,10,0">
+                <StackPanel Orientation="Horizontal" Height="90" Width="370">
+                    <Image Source="../Assets/FitspirationDesign/BookingIconWhite.png"
+                           Margin="10,0,10,0" Height="50" Width="50"/>
+                    <TextBlock Text="Book It" FontSize="32" FontFamily="Leelawadee"
+                               VerticalAlignment="Center" Foreground="White" Margin="10,0,0,0"/>
+                </StackPanel>
+            </Button>
+            <Line Fill="White" Stroke="White" Height="1" X1="380" StrokeThickness="2" HorizontalAlignment="Center"/>
+
+            <Button x:Name="BackBtn"  Click="BackBtn_OnClicked" 
+                    Height="120" Width="385" Background="Transparent" 
+                    BorderBrush="Transparent" Margin="30,70,10,0">
+                <StackPanel Orientation="Horizontal" Height="90" Width="370">
+                    <Image Source="../Assets/FitspirationDesign/LogOutIconWhite.png"
+                           Margin="0,0,10,0" Height="80" Width="80"/>
+                    <TextBlock Text="Log Out" FontSize="32" FontFamily="Leelawadee"
+                               VerticalAlignment="Center" Foreground="White" Margin="10,0,0,0"/>
+                </StackPanel>
+            </Button>
+            <Line Fill="White" Stroke="White" Height="1" X1="380" StrokeThickness="2" HorizontalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Background="#FF2B2A27"/>
+        
+        <StackPanel Grid.Column="1" Background="WhiteSmoke">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <ComboBox Margin="10,70,10,0" Width="150" BorderBrush="Transparent" HorizontalAlignment="Right"/>
+            <Image Source="../Assets/FitspirationDesign/SettingsIcon.png" 
+                   Stretch="UniformToFill" HorizontalAlignment="Right" 
+                   Margin="0,60,30,30" Width="50" Height="50"/>
+        </StackPanel>
+        </StackPanel>
+
+
+        <Frame Grid.Column="1" Grid.Row="1"
+               Width="1400" 
+               x:Name="UserMenuFrame" />
     </Grid>
 </Page>
