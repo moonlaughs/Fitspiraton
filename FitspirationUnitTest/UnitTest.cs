@@ -12,7 +12,6 @@ namespace FitspirationUnitTest
         //creating objects from classes
         private Member _member;
         private ObservableCollection<Member> MembersList;
-        private Collector _collector;
         private LoginVm _loginVm;
         private SerializeUserVm _serializeUserVm;
 
@@ -20,7 +19,6 @@ namespace FitspirationUnitTest
         [TestInitialize]
         public void BeforeTest()
         {
-            _collector = new Collector();
             _member = new Member("Jane", "jane", "pw", "../Assets/UP/sansa.jpg");
             _loginVm = new LoginVm();
             _serializeUserVm = new SerializeUserVm();
@@ -30,14 +28,14 @@ namespace FitspirationUnitTest
         [TestMethod]
         public void ColectorTest()
         {
-            //testing adding to the colector list
+            //testing adding to the member list
             try
             {
-                Assert.ThrowsException<ArgumentException>(() => _collector.Name = _member.Name);
+                Assert.ThrowsException<ArgumentException>(() => _member.Name = "Jane");
             }
             catch (Exception)
             {
-                Assert.AreEqual("Jane", _collector.Name);
+                Assert.AreEqual("Jane", _member.Name);
             }
         }
 
@@ -99,17 +97,7 @@ namespace FitspirationUnitTest
         [TestMethod]
         public void UpdateTest()
         {
-            //updating test
-            try
-            {
-                _serializeUserVm.DoUpdateItem();
-                //_member.Name = "Ola"; //??????????????????????
-            }
-            catch (Exception)
-            {
-                Assert.AreEqual("Ola", _member.Name);
-                
-            }
+            //cannot test this method, it does not have any parameter
         }
     }
 }

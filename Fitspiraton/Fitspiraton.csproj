@@ -118,18 +118,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Interfaces\NotifyPropertyClass.cs" />
     <Compile Include="Interfaces\RelayCommand.cs" />
-    <Compile Include="ViewModel\AdminPageVM.cs" />
     <Compile Include="ViewModel\Collector.cs" />
     <Compile Include="ViewModel\LoginVm.cs" />
     <Compile Include="ViewModel\UserMenuVm.cs" />
     <Compile Include="View\ActivitySelectionPage.xaml.cs">
       <DependentUpon>ActivitySelectionPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\AttendantsListPage.xaml.cs">
-      <DependentUpon>AttendantsListPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\CalendarPage.xaml.cs">
-      <DependentUpon>CalendarPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ManagerUsersPage.xaml.cs">
       <DependentUpon>ManagerUsersPage.xaml</DependentUpon>
@@ -145,9 +138,6 @@
     </Compile>
     <Compile Include="View\RecentBookingsView.xaml.cs">
       <DependentUpon>RecentBookingsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\SampleActivityPage.xaml.cs">
-      <DependentUpon>SampleActivityPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserMenu.xaml.cs">
       <DependentUpon>UserMenu.xaml</DependentUpon>
@@ -216,14 +206,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AttendantsListPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\CalendarPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\ManagerUsersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -241,10 +223,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\RecentBookingsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\SampleActivityPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
