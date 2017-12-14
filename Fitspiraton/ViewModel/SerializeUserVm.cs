@@ -69,6 +69,7 @@ namespace Fitspiraton.ViewModel
             UpdateItemCommand = new RelayCommand(DoUpdateItem);
             SelectedItem = new Member();
             _getMembers = new GetItem();                                       //serialization
+            MemberCatalog = new ObservableCollection<Member>();
 
             Task.Run(()=> LoadMembers());                                      //serialization
         }
@@ -79,6 +80,7 @@ namespace Fitspiraton.ViewModel
             try
             {
                 MemberCatalog = await _getMembers.LoadFromJson();
+                //Up.Persons = MemberCatalog;
             }
             catch (Exception e)
             {

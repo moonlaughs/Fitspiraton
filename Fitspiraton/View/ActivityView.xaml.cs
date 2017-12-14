@@ -29,7 +29,7 @@ namespace Fitspiraton.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(UserMenu));
+            Frame.Navigate(typeof(CalendarPage));
         }
     }
 }

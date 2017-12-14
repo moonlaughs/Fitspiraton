@@ -98,11 +98,17 @@ namespace Fitspiraton.ViewModel
         {
             try
             {
-                    MemberCatalog = await _getMembers.LoadFromJson();        //persistancy
+                MemberCatalog = await _getMembers.LoadFromJson();        //persistancy
+                Obj.Persons = MemberCatalog;
             }
-            catch
+            catch (Exception ex)
             {
-                MemberCatalog.Clear();
+                foreach (Member persons in Obj.Persons)
+                {
+                    var person = persons;
+                }
+                //MemberCatalog.Clear();
+                string error = ex.Message;
             }
         }
     }
