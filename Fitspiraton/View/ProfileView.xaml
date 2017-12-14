@@ -30,7 +30,7 @@
         </Grid.DataContext>
 
 
-        <controls:DropShadowPanel Grid.Row="1" Grid.Column="1" BlurRadius="10" ShadowOpacity="0.3" OffsetX="30" OffsetY="30" Color="Black" Width="735">
+        <controls:DropShadowPanel Grid.Row="1" Grid.Column="1" BlurRadius="10" ShadowOpacity="0.3" OffsetX="15" OffsetY="15" Color="Black" Width="735">
             <StackPanel Width="735" >
                 <StackPanel.Background>
                 <ImageBrush ImageSource="../Assets/FitspirationDesign/GradientBackGroundProfile.png"></ImageBrush>
