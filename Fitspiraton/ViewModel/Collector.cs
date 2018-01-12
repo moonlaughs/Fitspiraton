@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
+using Fitspiraton.Interfaces;
 using Fitspiraton.Model;
 
 namespace Fitspiraton.ViewModel
@@ -6,28 +8,31 @@ namespace Fitspiraton.ViewModel
     //Collect here all of the List<T>
     public class Collector
     {
-        ////instanceFields
-        //private ObservableCollection<Member> _persons;
+        private ObservableCollection<Event> _events;
 
-        ////Properties
-        //public ObservableCollection<Member> Persons { get => _persons; set => _persons = value; }
+        internal ObservableCollection<Event> Events { get => _events; set => _events = value; }
 
-        ////IZa
-        //public string Name { get; set; }
-        //public string Id { get; set; }
-        //public string Photo { get; set; }
-        //public string Password { get; set; }
-
-        ////Ctor
-        //public Collector()
-        //{
-        //    Persons = new ObservableCollection<Member>()
-        //    {
-        //        new Member("Jon", "stark01", "youknownothing",  "../Assets/UP/jon.jpg"),
-        //        new Member("Arya", "stark02", "needle", "../Assets/UP/arya.jpg"),
-        //        new Member("Patrik<3", "pat", "xxx", "../Assets/UP/sansa.jpg"),
-        //        new Member("Iza", "moon", "ooo", "../Assets/UP/arya.jpg")
-        //    };
-        //}
+        public Collector()
+        {
+            Events = new ObservableCollection<Event>()
+            {
+                new Event(new DateTime(2017,12,20),"Fitness","John", 20),
+                new Event(new DateTime(2017,12,21),"Fitness","John", 20),
+                new Event(new DateTime(2017,12,22),"Fitness","John", 20),
+                new Event(new DateTime(2017,12,23),"Fitness","John", 20),
+                new Event(new DateTime(2017,12,24),"Yoga","John", 20),
+                new Event(new DateTime(2017,12,25),"Yoga","John", 20),
+                new Event(new DateTime(2017,12,26),"Salsa","John", 20),
+                new Event(new DateTime(2017,12,27),"Salsa","John", 20),
+                new Event(new DateTime(2017,12,12),"Karate","John", 20),
+                new Event(new DateTime(2017,12,14),"Ballet","John", 20),
+                new Event(new DateTime(2017,12,25),"Karate","John", 20),
+                new Event(new DateTime(2017,12,23),"Zumba","John", 20),
+                new Event(new DateTime(2017,12,18),"Zumba","John", 20),
+                new Event(new DateTime(2017,12,19),"Karate","John", 20),
+                new Event(new DateTime(2017,12,7),"Karate","John", 20),
+                new Event(new DateTime(2017,12,9),"Pole dance","John", 20),
+            };
+        }
     }
 }

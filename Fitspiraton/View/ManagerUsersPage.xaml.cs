@@ -18,6 +18,7 @@ using Fitspiraton.Interfaces;
 using Fitspiraton.Model;
 using Fitspiraton.Persistancy;
 using Fitspiraton.ViewModel;
+using Microsoft.Toolkit.Uwp;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -61,7 +62,6 @@ namespace Fitspiraton.View
             this.InitializeComponent();
 
             LoadMembers();
-           // MemberCatalog = new ObservableCollection<Member>();
             getMembers = new GetItem();
         }
 

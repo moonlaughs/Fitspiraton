@@ -64,7 +64,7 @@ namespace Fitspiraton.ViewModel
             if (Obj.Persons != null)
             {
 
-                foreach (Member member in MemberCatalog)
+                foreach (Member member in Obj.Persons)
                 {
                     
                     if ((member.Id == CurrentUser.Id) && (member.Password == CurrentUser.Password))
@@ -79,7 +79,7 @@ namespace Fitspiraton.ViewModel
                     else if (("game" == CurrentUser.Id) && ("ofthrones" == CurrentUser.Password))
                     {
                         LoginStatus = true;
-                        _frame.ActivateFrameNavigation(typeof(ManagerUsersPage), member);
+                        _frame.ActivateFrameNavigation(typeof(ManagerPage), member);
                         MessageDialog msg = new MessageDialog("Welcome George R.R. Martin");
                         await msg.ShowAsync();
                         break;
@@ -98,11 +98,11 @@ namespace Fitspiraton.ViewModel
         {
             try
             {
-                    MemberCatalog = await _getMembers.LoadFromJson();        //persistancy
+                Obj.Persons = await _getMembers.LoadFromJson();
             }
             catch
             {
-                MemberCatalog.Clear();
+                await _getMembers.SavetoJson(Obj.Persons);
             }
         }
     }

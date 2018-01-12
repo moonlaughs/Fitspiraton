@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,7 +39,11 @@ namespace Fitspiraton.Model
                 new Member("Jon", "stark01", "youknownothing",  "../Assets/UP/jon.jpg"),
                 new Member("Arya", "stark02", "needle", "../Assets/UP/arya.jpg"),
                 new Member("Patrik<3", "pat", "xxx", "../Assets/UP/sansa.jpg"),
-                new Member("Iza", "moon", "ooo", "../Assets/UP/arya.jpg")
+                new Member("Iza", "moon", "ooo", "../Assets/UP/arya.jpg"),
+                new Member("Daenerys", "targaryen", "motherofdragons", "../Assets/UP/daenerys.jpg"),
+                new Member("Bran", "stark03", "threeeyedraven", "../Assets/UP/bran.jpg"),
+                new Member("Ned", "stark04", "lordofwinterfell", "../Assets/UP/ned.jpg"),
+                new Member("Sansa", "stark05", "littlebird", "../Assets/UP/sansa.jpg")
             };
 
         }

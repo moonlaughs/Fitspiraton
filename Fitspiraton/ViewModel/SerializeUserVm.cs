@@ -19,8 +19,6 @@ namespace Fitspiraton.ViewModel
         //instance fields
         private Member _selectedItem;
         private readonly GetItem _getMembers;                                   //serialization
-        private ObservableCollection<Member> _members;
-        private ObservableCollection<Member> _membersCatalog;
 
         //properties
         public RelayCommand AddItemCommand { get; set; }
@@ -30,21 +28,12 @@ namespace Fitspiraton.ViewModel
         public Member Up { get; set; }
 
         //dynamic properties
-        public ObservableCollection<Member> Members
-        {
-            get { return _members; }
-            set
-            {
-                _members = value;
-                OnPropertyChanged(nameof(Members));
-            }
-        }
         public ObservableCollection<Member> MemberCatalog
         {
-            get { return _membersCatalog; }
+            get { return Up.Persons; }
             set
             {
-                _membersCatalog = value;
+                Up.Persons = value;
                 OnPropertyChanged(nameof(MemberCatalog));
             }
         }
@@ -58,6 +47,7 @@ namespace Fitspiraton.ViewModel
             }
         }
 
+        
         //constructor
         public SerializeUserVm()
         {
@@ -68,7 +58,7 @@ namespace Fitspiraton.ViewModel
             DeleteItemCommand = new RelayCommand(DoDeleteItem);
             UpdateItemCommand = new RelayCommand(DoUpdateItem);
             SelectedItem = new Member();
-            _getMembers = new GetItem();                                       //serialization
+            _getMembers = new GetItem();
 
             Task.Run(()=> LoadMembers());                                      //serialization
         }
@@ -82,7 +72,7 @@ namespace Fitspiraton.ViewModel
             }
             catch (Exception e)
             {
-                foreach (Member upPerson in Up.Persons)
+                foreach (Member upPerson in MemberCatalog)
                 {
                     var person = upPerson;
                 }
@@ -100,21 +90,9 @@ namespace Fitspiraton.ViewModel
         }
         
         //U(pdate)
-        public void DoUpdateItem()
+        public async void DoUpdateItem()
         {
-            //await LoadMembers();
-            //Up = new Member(SelectedItem.Name, SelectedItem.Id, SelectedItem.Password, SelectedItem.Photo);
-            //MemberCatalog.Add(Up);
-            //MemberCatalog.Remove(SelectedItem);
-            //await _getMembers.SavetoJson(MemberCatalog);
-            //await LoadMembers();
-
-            MemberCatalog = new ObservableCollection<Member>
-           {
-                new Member(SelectedItem.Name, SelectedItem.Id , SelectedItem.Password, SelectedItem.Photo)
-           };
-
-            //await LoadMembers();
+            await _getMembers.SavetoJson(MemberCatalog);
         }
 
         //D(elete)

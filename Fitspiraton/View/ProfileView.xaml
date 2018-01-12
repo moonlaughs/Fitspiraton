@@ -8,9 +8,15 @@
     x:Class="Fitspiraton.View.ProfileView"
     mc:Ignorable="d">
 
+    <Page.Transitions>
+        <TransitionCollection>
+            <EdgeUIThemeTransition Edge="Left" />
+        </TransitionCollection>
+    </Page.Transitions>
+    
     <Grid RenderTransformOrigin="0.5,0.5">
         <Grid.Background>
-            <ImageBrush Stretch="UniformToFill" ImageSource="bg3.jpg" Opacity="0.45">
+            <ImageBrush Stretch="UniformToFill" ImageSource="../Assets/bg3.jpg">
                 <ImageBrush.RelativeTransform>
                     <CompositeTransform/>
                 </ImageBrush.RelativeTransform>
@@ -21,48 +27,117 @@
             <ViewModel:UserMenuVm/>
         </Grid.DataContext>
 
-        <Pivot x:Name="ProfilePivot" Margin="50, 50, 50, 50">
-            <PivotItem Header="Profile ♥">
-                <!--Pivot content goes here-->
+        <Pivot x:Name="ProfilePivot" Margin="120, 120, 120, 120" BorderBrush="Transparent">
+            <Pivot.HeaderTemplate>
+                <DataTemplate>
+                    <Grid Width="170">
+                        <TextBlock Text="{Binding}" Foreground="DimGray"  FontFamily="Leelawadee"  FontSize="40" Margin="20,0,0,0" />
+                    </Grid>
+                </DataTemplate>
+            </Pivot.HeaderTemplate>
+            <PivotItem Header="profile " Width="1230" BorderBrush="Transparent" HorizontalAlignment="Stretch">
+                <PivotItem.Background>
+                    <SolidColorBrush Color="Black" Opacity="0.20"></SolidColorBrush>
+                </PivotItem.Background>
+
                 <StackPanel>
-                    <Image Source="{Binding Image, Mode=TwoWay}" Height="200" Width="200" HorizontalAlignment="Left" Margin="20" />
-                    <TextBox Text="{Binding Name, Mode=TwoWay}" Width="200" HorizontalAlignment="Left" Margin="20"/>
-                    <TextBox Text="{Binding Id, Mode=TwoWay}" Width="200" HorizontalAlignment="Left" Margin="20"/>
-                    <TextBox Text="{Binding Password, Mode=TwoWay}" Width="200" HorizontalAlignment="Left" Margin="20"/>
+                    <Ellipse Height="250" Width="250" Margin="0,60,0,0" HorizontalAlignment="Center" Stroke="White" StrokeThickness="13">
+                        <Ellipse.Fill>
+                            <ImageBrush Stretch="UniformToFill" ImageSource="{Binding Image, Mode=TwoWay}"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+
+                    <TextBlock Text="{Binding Name, Mode=TwoWay}" FontSize="72" HorizontalAlignment="Center" Foreground="White" Margin="0,20,0,20"/>
+
+                    <StackPanel Orientation="Horizontal" Height="50" HorizontalAlignment="Center" Margin="0,20,0,15">
+                        <Image Source="../Assets/ID Icon2White.png" Stretch="UniformToFill"/>
+
+                        <TextBlock Text="{Binding Id, Mode=TwoWay}" Margin="25,10,0,0"  FontSize="40" FontFamily="Leelawadee" 
+                                   FontWeight="Light" Foreground="White"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Height="50" HorizontalAlignment="Center" Margin="0,20,0,15">
+                        <Image Source="../Assets/PassWordIconWhite.png"  Stretch="UniformToFill"/>
+                        <TextBlock Text="{Binding Password, Mode=TwoWay}" Margin="25,10,0,0" FontSize="40" FontFamily="Leelawadee" 
+                                   FontWeight="Light" Foreground="White"/>
+                    </StackPanel>
+
                 </StackPanel>
             </PivotItem>
-            <PivotItem Header="BMI ♥">
+            <PivotItem Header="bmi" Width="1230" BorderBrush="Transparent" HorizontalAlignment="Stretch">
+                <PivotItem.Background>
+                    <SolidColorBrush Color="White" Opacity="0.20"></SolidColorBrush>
+                </PivotItem.Background>
                 <!--Pivot content goes here-->
                 <Grid>
                     <Grid.DataContext>
                         <ViewModel:BMIVm/>
                     </Grid.DataContext>
-                    
+
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="600"/>
-                        <ColumnDefinition Width="600"/>
+                        <ColumnDefinition Width="7*"/>
+                        <ColumnDefinition Width="12*"/>
                     </Grid.ColumnDefinitions>
-                  
-                    <StackPanel Grid.Column="0">
-                        <TextBox x:Name="HeightBox" PlaceholderText="Height in meters" Margin="20" Width="300" HorizontalAlignment="Left"/>
-                        <TextBox x:Name="WeightBox" PlaceholderText="Weight in kilograms"  Margin="20" Width="300" HorizontalAlignment="Left"/>
-                        <Button x:Name="countBtn" Content="Count" Margin="140, 0, 0, 0" HorizontalAlignment="Left" Click="countBtn_Click" />
-                        <TextBlock Text="{Binding Description}" Margin="0, 20, 0,0" FontFamily="Book Antiqua" FontSize="24" HorizontalAlignment="Left"/>
-                        <TextBlock Text="BMI Categories:" Margin="0, 10, 0,0" FontFamily="Book Antiqua" FontSize="24" HorizontalAlignment="Left"/>
-                        <TextBlock Text="Underweight less or equal to 18.5" Margin="0, 10, 0,0" FontFamily="Book Antiqua" FontSize="24" Foreground="Yellow" HorizontalAlignment="Left"/>
-                        <TextBlock Text="Normal weight = 18.5–24.9" Margin="0, 10, 0,0" FontFamily="Book Antiqua" FontSize="24" Foreground="Green" HorizontalAlignment="Left"/>
-                        <TextBlock Text="Overweight = 25–29.9" Margin="0, 10, 0,0" FontFamily="Book Antiqua" FontSize="24" Foreground="Orange" HorizontalAlignment="Left"/>
-                        <TextBlock Text="Obesity = BMI of 30 or greater" Margin="0, 10, 0,0" FontFamily="Book Antiqua" FontSize="24" Foreground="Red" HorizontalAlignment="Left"/>
+
+                    <StackPanel>
+                        <Image Source="../Assets/BMIApplePNG.png" Width="400" Height="250" Margin="0,30,0,0"></Image>
+                        <StackPanel BorderBrush="Transparent" Margin="10,0,10,0">
+                            <StackPanel.Background>
+                                <SolidColorBrush Color="Gray" Opacity="0.2"></SolidColorBrush>
+                            </StackPanel.Background>
+                            <TextBlock Text="{Binding Description}" Margin="10,10,10,10" Foreground="WhiteSmoke" FontFamily="Leelawadee" 
+                                   FontSize="18" HorizontalAlignment="Center" TextWrapping="Wrap"/>
+                        </StackPanel>
+                        <TextBlock Text="BMI Categories:" Margin="0,10,0,0" FontFamily="Leelawadee" Foreground="White" 
+                                   FontSize="24" HorizontalAlignment="Center"/>
+                        <Image Source="../Assets/BMILegend.png"  Width="470" Height="238" Margin="0,0,0,0"></Image>
+
                     </StackPanel>
-                    <StackPanel Margin="20,0,0,0" Grid.Column="1" Orientation="Vertical">
-                        <TextBlock x:Name="ResultBlock" Margin="0,10,0,0" FontFamily="Book Antiqua" FontSize="24"/>
-                        <TextBlock x:Name="CommentBlock" Margin="0,10,0,0" FontFamily="Book Antiqua" FontSize="24"/>
-                        <Frame Width="400" 
-                               Height="400" 
-                               x:Name="SmallFrame"
-                               HorizontalAlignment="Left"
-                               Margin="0,20,0,0">
-                        </Frame>
+
+                    <StackPanel Margin="20,0,20,0" Grid.Column="1" Orientation="Vertical">
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                            <StackPanel Margin="230,0,0,0">
+                                <TextBox x:Name="HeightBox" PlaceholderText="Height in meters" Margin="20,30,0,0" Width="300" 
+                                         HorizontalAlignment="Left" FontSize="20"
+                                    BorderBrush="Transparent" Background="Transparent" Foreground="White" PlaceholderForeground="White"/>
+                                <Line Fill="White" Stroke="White" Height="0.5" StrokeThickness="1" X1="280" Margin="20,0,0,0"/>
+                                <TextBox x:Name="WeightBox" PlaceholderText="Weight in kilograms" Margin="20,20,0,0"  Width="300" 
+                                         HorizontalAlignment="Left" FontSize="20"
+                                    BorderBrush="Transparent" Background="Transparent" Foreground="White" PlaceholderForeground="White"/>
+                                <Line Fill="White" Stroke="White" Height="0.5" StrokeThickness="1" X1="280" Margin="20,0,0,20"/>
+                            </StackPanel>
+
+                            <Button x:Name="countBtn" Margin="10,30,30,0" HorizontalAlignment="Left" Click="countBtn_Click" 
+                                    Height="70" Width="110" BorderBrush="White" BorderThickness="4">
+                                <Button.Background>
+                                    <SolidColorBrush Color="White" Opacity="0.25"></SolidColorBrush>
+                                </Button.Background>
+                                <Image Source="../Assets/BMIApplePNG.png" Stretch="UniformToFill" HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center" />
+                            </Button>
+
+                        </StackPanel>
+
+                        <StackPanel  Margin="40,40,40,0">
+                            <StackPanel.Background>
+                                <SolidColorBrush Color="Gray" Opacity="0.50"></SolidColorBrush>
+                            </StackPanel.Background>
+                            <TextBlock x:Name="ResultBlock" Margin="0,10,60,10" FontFamily="Leelawadee"
+                                   FontSize="54" HorizontalAlignment="Center" />
+                            <TextBlock x:Name="CommentBlock" Margin="0,5,60,10" FontFamily="Leelawadee" FontSize="22" HorizontalAlignment="Center" 
+                                   Foreground="WhiteSmoke"/>
+
+                            <Frame Width="580" 
+                                   Height="350" 
+                                   x:Name="SmallFrame"
+                                   Margin="0,10,0,10"
+                                   BorderBrush="Transparent"
+                                   BorderThickness="2">
+                            </Frame>
+
+                        </StackPanel>
+
                     </StackPanel>
                 </Grid>
             </PivotItem>

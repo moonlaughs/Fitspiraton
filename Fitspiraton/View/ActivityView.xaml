@@ -8,62 +8,120 @@
     xmlns:viewModel="using:Fitspiraton.ViewModel"
     mc:Ignorable="d">
 
-    <Grid>
+    <Page.Transitions>
+        <TransitionCollection>
+            <EdgeUIThemeTransition Edge="Left" />
+        </TransitionCollection>
+    </Page.Transitions>
+    
+    <Grid Background="Transparent">
+
         <Grid.DataContext>
             <viewModel:ActivityVm/>
         </Grid.DataContext>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.465">
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="White" Offset="0.018"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50*"/>
-            <ColumnDefinition Width="373*"/>
-            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="150*"/>
-            <RowDefinition Height="400"/>
-            <RowDefinition Height="450"/>
-            <RowDefinition Height="100*"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="0.55*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
+        <StackPanel Grid.Column="1" 
+                    Grid.Row="0" 
+                    Orientation="Horizontal" 
+                    HorizontalAlignment="Right">
             <StackPanel.DataContext>
                 <viewModel:UserMenuVm/>
             </StackPanel.DataContext>
-            <TextBlock HorizontalAlignment="Right" Margin="0,0,0,0" TextWrapping="Wrap" Text="Welcome," VerticalAlignment="Bottom" FontSize="40" Foreground="Black" FontFamily="Book Antiqua"/>
-            <TextBlock Margin="15,0,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" FontSize="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="Black" FontFamily="Book Antiqua"/>
+            <TextBlock HorizontalAlignment="Right" 
+                       Margin="0,0,0,0" 
+                       TextWrapping="Wrap" 
+                       Text="Welcome," 
+                       VerticalAlignment="Bottom" 
+                       FontSize="40" 
+                       Foreground="Black" 
+                       FontFamily="Book Antiqua"/>
+            <TextBlock Margin="15,0,0,0" 
+                       TextWrapping="Wrap"
+                       Text="{Binding Path=Name}" 
+                       FontSize="40"
+                       HorizontalAlignment="Right" 
+                       VerticalAlignment="Bottom" 
+                       Foreground="Black" 
+                       FontFamily="Book Antiqua"/>
         </StackPanel>
 
-        <StackPanel Grid.Column="1" Grid.Row="1" Height="400" VerticalAlignment="Top" Grid.RowSpan="2" Orientation="Vertical" HorizontalAlignment="Stretch">
-            
-            <ListView HorizontalAlignment="Center" VerticalAlignment="Center" ItemsSource="{Binding Activities, Mode=TwoWay}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" Height="400" Width="1000">
+        <StackPanel Grid.Column="1" 
+                    Grid.Row="1"
+                    Height="400"
+                    VerticalAlignment="Top" 
+                    Grid.RowSpan="2" 
+                    Orientation="Vertical" 
+                    HorizontalAlignment="Stretch">
+
+            <ListView x:Name="List" HorizontalAlignment="Stretch" 
+                       ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                       ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                       ScrollViewer.HorizontalScrollMode="Enabled"                  
+                       ScrollViewer.VerticalScrollMode="Disabled" 
+                       Visibility="Visible" 
+                      ItemsSource="{Binding Activities, Mode=TwoWay}" 
+                      SelectedItem="{Binding SelectedItem, Mode=TwoWay}" 
+                      IsItemClickEnabled="True"
+                      ItemClick="List_OnItemClick"
+                      >
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel>
-                            <Image Source="{Binding ImgSource, Mode=TwoWay}" Height="350" Width="200"/>
-                            <TextBlock Text="{Binding Type, Mode=TwoWay}" HorizontalAlignment="Center"/>
-                        </StackPanel>
+                        <StackPanel Margin="0,20,0,10" 
+                                    Orientation="Vertical"
+                                    HorizontalAlignment="Stretch" 
+                                    Width="200" 
+                                    VerticalAlignment="Stretch"
+                                    Height="400">
+                            <Image Source="{Binding ImgSource, Mode=TwoWay}" Height="200" Width="200" Stretch="Fill" />
+                            <StackPanel Margin="0,5,0,0" Width="200" Height="50" Background="#FF252932">
+                                <TextBlock Text="{Binding Type, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,8,0,0" FontSize="20" Foreground="#FFA8A8A8"/>
+                            </StackPanel>
+                             </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
-        
-        <StackPanel Grid.Column="1" Grid.Row="2">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                
-                <TextBlock Text="{Binding SelectedItem.Description, Mode=TwoWay}"></TextBlock>
-                
-                <TextBlock Text="{Binding SelectedItem.NameOfTeacher, Mode=TwoWay}" TextWrapping="Wrap" Grid.Column="1" Height="50"/>
-                <TextBlock x:Name="PriceBlock"  Text="{Binding SelectedItem.Price, Mode=TwoWay}"  Grid.Column="1" Height="50" Margin="0,100,0,0"/>
-                <Button Content="Book" Grid.Column="1" Height="50" Width="100" Margin="0,200,0,0" Click="Button_Click"/>
-            </Grid>
+
+        <StackPanel Margin="0,30,0,0" Grid.Column="1" Grid.Row="3" Orientation="Vertical">
+            <StackPanel.Background>
+                <ImageBrush Stretch="UniformToFill"  ImageSource="{Binding SelectedItem.ImgSource}" Opacity="0.3" AlignmentY="Top"/>
+            </StackPanel.Background>
+            <TextBlock Margin="0,40,0,0" Text="{Binding SelectedItem.Type, Mode=TwoWay}" HorizontalAlignment="Center" FontSize="50" FontFamily="Rockwell"/>
+            <TextBlock Margin="250,20,250,20" Text="{Binding SelectedItem.Description, Mode=TwoWay}" FontSize="20" FontFamily="Agency FB" TextWrapping="Wrap" HorizontalAlignment="Center" TextAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Source="../Assets/trainer.png" 
+                       Height="20" Width="20" Margin="0,0,10,0"
+                       Stretch="Fill"/>
+                <TextBlock Text="{Binding SelectedItem.NameOfTeacher, Mode=TwoWay}" FontFamily="Rockwell" />
+
+            </StackPanel>
+            <StackPanel Margin="0,20,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Source="../Assets/price.png" 
+                       Height="20" Width="20" Margin="0,0,10,0"
+                       Stretch="Fill" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="PriceBlock"  Text="{Binding SelectedItem.Price, Mode=TwoWay}" FontFamily="Rockwell"/>
+                <TextBlock Margin="5,0,0,0" Text="DKK" FontFamily="Rockwell"/>
+            </StackPanel>
+            <Button Margin="0,30,0,0" Content="Choose a date" HorizontalAlignment="Center" Height="50" Width="150" Click="Button_Click"/>
+
         </StackPanel>
 
     </Grid>

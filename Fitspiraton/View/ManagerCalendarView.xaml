@@ -1,0 +1,130 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Fitspiraton.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:viewModel="using:Fitspiraton.ViewModel"
+    x:Class="Fitspiraton.View.ManagerCalendarView"
+    mc:Ignorable="d">
+    
+    <Grid Loaded="ButtonBase_OnClick">
+
+        <Grid.Background>
+            <ImageBrush ImageSource="../Assets/BackgroundCalendarGym.jpg"></ImageBrush>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.DataContext>
+            <viewModel:ManagerEventPageVm/>
+        </Grid.DataContext>
+
+        <CalendarView x:Name="ManagerEventCalendarView" 
+                      CalendarViewDayItemChanging="CalendarView_OnCalendarViewDayItemChanging"
+                      HorizontalAlignment="Center" Margin= "10,0,10,0" VerticalAlignment="Top"
+                      Height="933" Width="940" Grid.Column="0" Grid.Row="1" CalendarItemBorderThickness="1" DayItemFontSize="20" Background="#FF2C2727" BlackoutForeground="#FFF0E1E1" BorderBrush="#FF918989" CalendarItemBackground="#FF494848" CalendarItemForeground="#FFECDBDB" FocusBorderBrush="#FF726464" FocusVisualPrimaryBrush="#FF6C6060" Foreground="#CCE6DBDB" HoverBorderBrush="#FF252020" OutOfScopeBackground="#FF383333" OutOfScopeForeground="#FFF0EAEA" PressedBorderBrush="#FF8B4F4F" PressedForeground="#FF383333" SelectedBorderBrush="#FF874848" SelectedForeground="#FFDE1919">
+            <CalendarView.SelectedPressedBorderBrush>
+                <SolidColorBrush Color="#FFD70000" Opacity="0.7"/>
+            </CalendarView.SelectedPressedBorderBrush>
+            <CalendarView.SelectedHoverBorderBrush>
+                <SolidColorBrush Color="#FFD70000" Opacity="0.6"/>
+            </CalendarView.SelectedHoverBorderBrush>
+
+            <CalendarView.HorizontalDayItemAlignment>
+                <HorizontalAlignment>Right</HorizontalAlignment>
+            </CalendarView.HorizontalDayItemAlignment>
+            <CalendarView.VerticalDayItemAlignment>
+                <VerticalAlignment>Top</VerticalAlignment>
+            </CalendarView.VerticalDayItemAlignment>
+        </CalendarView>
+
+
+        <RelativePanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center">
+            <StackPanel RelativePanel.AlignTopWithPanel="True" Name="InfoPanel" Orientation="Vertical" 
+                        Grid.Column="2" HorizontalAlignment="Center" Width="310"
+                        Margin="0,0,0,15" Grid.Row="1" Height="390" BorderBrush="DarkGray" BorderThickness="1" >
+                <StackPanel.Background>
+                    <SolidColorBrush Color="Black" Opacity="0.6"></SolidColorBrush>
+                </StackPanel.Background>
+
+                <StackPanel Orientation="Horizontal" Height="60" Background="#FFFB1D1D">
+                    <Image Source="../Assets/BookingIconWhite.png" Stretch="UniformToFill" Margin="10,10,10,10"></Image>
+                    <TextBlock HorizontalAlignment="Left" Text="Add an Activity" FontSize="23"  
+                                       VerticalAlignment="Center" Margin="10, 0, 0, 0" Foreground="White" />
+                </StackPanel>
+
+                <TextBlock Text="Pick your date" Foreground="White" Margin="10,10,0,0" FontSize="18"/>
+
+                <DatePicker Foreground="White" x:Name="ManagerDatePicker" HorizontalAlignment="Center"
+                                DateChanged="DatePicker_OnDateChanged" 
+                                Date="{Binding AddNewEvent.Date, Mode=TwoWay}" 
+                                Margin="0,10,0,0"  VerticalAlignment="Top" />
+                <TextBox  HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="297" BorderBrush="#00000000" Foreground="White"
+                                  Text="{Binding AddNewEvent.Type, Mode=TwoWay}" PlaceholderText="Activity Name" PlaceholderForeground="White" />
+                <Line Fill="White" Stroke="White" Height="20" X1="290" StrokeThickness="2" HorizontalAlignment="Center"/>
+                <TextBox HorizontalAlignment="Center" Margin="0,0,0,0" Width="297" BorderBrush="#00000000"
+                                  Text="{Binding AddNewEvent.NameOfTeacher, Mode=TwoWay}" PlaceholderText="Teacher Name" PlaceholderForeground="White" VerticalAlignment="Top" />
+                <Line Fill="White" Stroke="White"  Height="20" X1="290" StrokeThickness="2" HorizontalAlignment="Center"/>
+                <Button Content="Add Class" Command="{Binding AddCommand}" HorizontalAlignment="Center" 
+                                  Margin="0,5,0,10" Grid.Column="0" Width="230" Foreground="White" Height="30"
+                                  Background="DarkGray"/>
+                <Button Content="Delete Class" Command="{Binding DeleteCommand}" 
+                                  HorizontalAlignment="Center"  Margin="0,5,0,10" Width="230" Foreground="White" Height="30" Background="DarkGray"/>
+                <Button Content="Update Calendar" Click="ButtonBase_OnClick" 
+                                  HorizontalAlignment="Center" Margin="0,5,0,10" Width="230" Foreground="White" Height="30" Background="DarkGray" />
+            </StackPanel>
+
+            <StackPanel RelativePanel.Below="InfoPanel" RelativePanel.AlignHorizontalCenterWithPanel="True" BorderBrush="DarkGray" BorderThickness="1" >
+                <StackPanel Orientation="Horizontal" Height="60" Background="#FFFB1D1D" >
+                    <Image Source="../Assets/ListIconWhite.png"></Image>
+                    <TextBlock x:Name="ActivityList" Text="Activity List"
+                               FontSize="23" Margin="10,0,0,0" VerticalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+                <ListView x:Name="EventsListView"
+                      Grid.Column="3" HorizontalAlignment="Center" Width="310" Grid.Row="1" Margin="0, 10, 0, 0"  Height="367"
+                      ItemsSource="{Binding Events}" SelectedItem="{Binding SelectedEvent, Mode=TwoWay}"
+                       BorderThickness="0" BorderBrush="{ThemeResource AccentButtonForeground}">
+                    <ListView.Background>
+                        <SolidColorBrush Color="Black" Opacity="0.6"  />
+                    </ListView.Background>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <RelativePanel>
+                                <StackPanel  Margin="0,0,0,8"  Orientation="Vertical" Width="279" BorderBrush="LightGray" BorderThickness="1">
+                                    <RelativePanel>
+                                        <TextBlock x:Name="BlockDate" Text="Date: " Margin ="0,3,0,0" FontSize="17" Foreground="White"/>
+                                        <TextBlock x:Name="DateBlock" Text="{Binding Date.Date, Mode=TwoWay }"
+                                                       RelativePanel.AlignBottomWith="BlockDate" RelativePanel.RightOf="BlockDate"
+                                                       Margin="47,0,0,0" FontSize="15" Foreground="White"/>
+                                    </RelativePanel>
+                                    <RelativePanel>
+                                        <TextBlock x:Name="BlockName" Text="Name: " Margin ="0,3,0,0" FontSize="17" Foreground="White"  />
+                                        <TextBlock x:Name="NameBlock" Text="{Binding Type, Mode=TwoWay}"
+                                                       RelativePanel.AlignBottomWith="BlockName" RelativePanel.RightOf="BlockName"
+                                                       Margin="40,0,0,0" FontSize="15" Foreground="White"/>
+                                    </RelativePanel>
+                                    <RelativePanel>
+                                        <TextBlock x:Name="BlockTeacher" Text="Teacher: " Margin ="0,3,0,5" FontSize="17" Foreground="White" />
+                                        <TextBlock x:Name="TeacherBlock" Text="{Binding NameOfTeacher, Mode=TwoWay}"
+                                                   RelativePanel.AlignBottomWith="BlockTeacher" RelativePanel.RightOf="BlockTeacher"
+                                                   Margin="30,0,0,5" FontSize="15" Foreground="White"/>
+                                    </RelativePanel>
+                                </StackPanel>
+                            </RelativePanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </RelativePanel>
+    </Grid>
+</Page>

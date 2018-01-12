@@ -114,6 +114,9 @@
     <None Include="FitspirationUnitTest_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\24992826_1313837958722147_986259848_o.jpg" />
+    <Content Include="Assets\recentbookings.jpg" />
+    <Content Include="Assets\workout-package_1.png" />
     <Content Include="Properties\UnitTestApp.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

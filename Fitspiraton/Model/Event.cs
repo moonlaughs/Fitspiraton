@@ -26,6 +26,11 @@ namespace Fitspiraton.Model
             MaxNumOfMembers = maxNumOfMembers;
         }
 
+        public Event(DateTimeOffset addedDate)
+        {
+            _date = addedDate;
+        }
+
         public Event()
         {
             

@@ -24,40 +24,10 @@ namespace Fitspiraton.View
     /// </summary>
     public sealed partial class McDonalds : Page
     {
-    //    public static bool CheckNet()
-    //    {
-    //        try
-    //        {
-    //            using (var client = new WebClient())
-    //            {
-    //                using (client.OpenRead("http://clients3.google.com/generate_2`4"))
-    //                {
-    //                    return true;
-    //                }
-    //            }
-    //        }
-    //        catch
-    //        {
-    //            return false;
-    //        }
-    //    }
-
         public McDonalds()
         {
             this.InitializeComponent();
             Wb.Navigate(new Uri("https://www.google.dk/maps/search/nearest+Mcdonalds/@55.5893805,9.6126911,11z/data=!3m1!4b1"));
-            //Wb.Navigate(new Uri("ms-appdata:///local/nonet.html"));
-
-
-
-            //if (CheckNet())
-            //{
-            //    Wb.Navigate(new Uri("https://www.google.dk/maps/search/nearest+Mcdonalds/@55.5893805,9.6126911,11z/data=!3m1!4b1"));
-            //}
-            //else
-            //{
-            //    Wb.NavigateToString("<html><b>No internet connection</b></html>");
-            //}
         }
     }
 }

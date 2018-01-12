@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml;
+﻿using System.Threading.Tasks;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Fitspiraton.ViewModel;
@@ -33,7 +34,7 @@ namespace Fitspiraton.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             log = new LoginVm();
-            Frame.Navigate(typeof(ActivityView),log.CurrentUser);
+            UserMenuFrame.Navigate(typeof(ActivityView),log.CurrentUser);
         }
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
@@ -48,6 +49,17 @@ namespace Fitspiraton.View
             UserMenuFrame.Navigate(typeof(ProfileView), log.CurrentUser);
         }
 
-       
+        private void ItsLoading(FrameworkElement sender, object args)
+        {
+            LoadingBG.Visibility = Visibility.Visible;
+            LoadingIMG.Visibility = Visibility.Visible;
+        }
+
+        private async void ItsLoaded(object sender, RoutedEventArgs e)
+        {
+            await Task.Delay(3000);
+            LoadingBG.Visibility = Visibility.Collapsed;
+            LoadingIMG.Visibility = Visibility.Collapsed;
+        }
     }
 }

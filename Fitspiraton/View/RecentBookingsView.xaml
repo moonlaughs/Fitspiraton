@@ -1,15 +1,72 @@
 ﻿<Page
-    x:Class="Fitspiraton.View.RecentBookingsView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ViewModel="using:Fitspiraton.ViewModel"
+    x:Class="Fitspiraton.View.RecentBookingsView"
     mc:Ignorable="d">
 
+    <Page.Transitions>
+        <TransitionCollection>
+            <EdgeUIThemeTransition Edge="Left" />
+        </TransitionCollection>
+    </Page.Transitions>
+    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.DataContext>
+            <ViewModel:RecentBookingsVM/>
+        </Grid.DataContext>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="233*"/>
-            <RowDefinition Height="307*"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
+        <ParallaxView 
+           Grid.RowSpan="3" Grid.ColumnSpan="3" Source="{x:Bind Path=BookingListView}" VerticalShift="200">
+            <Image x:Name="ParallaxImage" 
+                   Source="ms-appx:///Assets/recentbookings.jpg"
+                   Stretch="UniformToFill" Opacity="0.5" Margin="0,0,5,-80"/>
+        </ParallaxView>
+        <ListView x:Name="BookingListView"
+            ItemsSource="{Binding Bookings}"
+            SelectedItem="{Binding SelectedBooking , Mode=TwoWay}"
+            ScrollViewer.VerticalScrollBarVisibility="Hidden"
+            ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+            ScrollViewer.HorizontalScrollMode="Enabled"                  
+            ScrollViewer.VerticalScrollMode="Enabled"
+            Visibility="Visible"
+            Opacity="100" Grid.Column="1" Grid.Row="1"
+            IsItemClickEnabled="True">
+            <ListView.ItemTemplate >
+                <DataTemplate>
+                    <StackPanel  BorderBrush="Black" 
+                                 Orientation="Horizontal"
+                                 Width="1000" 
+                                 Height="150">
+                        <Image Source="{Binding ImgSource, Mode=TwoWay}" Height="150" Width="150" Stretch="Fill"/>
+                        <StackPanel Orientation="Horizontal" Margin="25,0,0,0">
+                            <Image Source="../Assets/date.png" Height="50" Width="50" Stretch="Uniform" />
+                            <TextBlock Margin="10,5,0,0" FontFamily="Rockwell" FontSize="20" Height="30" Width="200" Text="{Binding Date, Mode=TwoWay}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="25,0,0,0">
+                            <Image Source="../Assets/activity.png" Height="50" Width="50" Stretch="Uniform" />
+                            <TextBlock Margin="10,5,0,0" FontFamily="Rockwell" FontSize="20" Height="30" Width="100" Text="{Binding Type, Mode=TwoWay}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="25,0,0,0">
+                            <Image Source="../Assets/trainer2.png" Height="50" Width="50" Stretch="Uniform" />
+                            <TextBlock Margin="10,5,0,0" FontFamily="Rockwell" FontSize="20" Height="30" Width="150" Text="{Binding NameOfTeacher, Mode=TwoWay}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <TextBlock Text="My bookings: " VerticalAlignment="Center" Grid.Column="1" FontFamily="Rockwell" FontSize="30" HorizontalTextAlignment="Center"/>
+        <Button Content="Delete Booking" FontFamily="Rockwell" FontSize="22" Command="{Binding DeleteBookingCommand}" Grid.Column="1" Grid.Row="1" Height="81" Width="244" Margin="50,0,0,-700" Grid.RowSpan="2"/>
     </Grid>
 </Page>

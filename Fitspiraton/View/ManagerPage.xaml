@@ -1,0 +1,73 @@
+﻿<Page
+    x:Class="Fitspiraton.View.ManagerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Fitspiraton.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Loaded="ManagerPage_OnLoaded">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <SplitView x:Name="SplitView" 
+                   DisplayMode="CompactOverlay" 
+                   IsPaneOpen="False" 
+			       CompactPaneLength="50"
+                   OpenPaneLength="150">
+            <SplitView.Pane>
+                <StackPanel Background="Silver">
+                    <StackPanel Orientation="Horizontal"
+                                Background="DarkRed">
+                        <Button x:Name="HamburgerButton" 
+                            FontFamily="Segoe MDL2 Assets" 
+                            Content="&#xE700;"
+						    Width="50" 
+                            Height="50" 
+                            Background="Transparent" 
+                            Click="Hambugerbutton_Click" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="Event_Btn" 
+							FontFamily="Segoe MDL2 Assets" 
+							Content="&#xE163;"
+							Width="50" 
+							Height="50" 
+							Background="Transparent" Click="Event_Btn_Click"
+							/>
+                        <TextBlock Text="Events" FontSize="18" VerticalAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="Customer_Btn" 
+                                FontFamily="Segoe MDL2 Assets" 
+                                Content="&#xE8D4;"
+							    Width="50" 
+                                Height="50" 
+                                Background="Transparent" Click="Customer_Btn_Click"
+                                />
+                        <TextBlock Text="Customers" FontSize="18" VerticalAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="LogOut_Btn" 
+                                FontFamily="Segoe MDL2 Assets" 
+                                Content="&#xE72B;"
+							    Width="50" 
+                                Height="50" 
+                                Background="Transparent" Click="LogOut_Btn_Click"
+                                />
+                        <TextBlock Text="Log Out" FontSize="18" VerticalAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="Bookings_Btn" 
+                                FontFamily="Segoe MDL2 Assets" 
+                                Content="&#xE8D4;"
+                                Width="50" 
+                                Height="50" 
+                                Background="Transparent" Click="Bookings_Btn_Click"
+                        />
+                        <TextBlock Text="Bookings" FontSize="18" VerticalAlignment="Center" />
+                    </StackPanel>
+                </StackPanel>
+            </SplitView.Pane>
+            <Frame x:Name="ManagerFrame"></Frame>
+          </SplitView>
+    </Grid>
+</Page>

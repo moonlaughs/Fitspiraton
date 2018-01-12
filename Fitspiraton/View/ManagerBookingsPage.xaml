@@ -1,0 +1,76 @@
+﻿<Page
+    x:Class="Fitspiraton.View.ManagerBookingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Fitspiraton.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:Fitspiraton.ViewModel"
+    xmlns:controls="using:MyToolkit.Controls"
+    mc:Ignorable="d">
+
+    <Grid RequestedTheme="Dark">
+        <Grid.Background>
+            <ImageBrush ImageSource="../Assets/weight-training-key-weight-loss.jpg"></ImageBrush>
+        </Grid.Background>
+        <Grid.DataContext>
+            <viewModel:RecentBookingsVM/>
+        </Grid.DataContext>
+
+        <StackPanel  BorderThickness="3,3,3,3" BorderBrush="WhiteSmoke" Width="600" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <controls:DataGrid ItemsSource="{Binding AllBookings}" x:Name="DataGrid" 
+                   SelectionMode="Single" SelectedItem="{Binding SelectedBooking, Mode=TwoWay}" DefaultOrderIndex="1" Height="380" Width="600" Margin="0,0,-3,0" controls:DataGridExtensions.UseSingleSelectionAndDeselection="true" Background="White">
+
+                <controls:DataGrid.Columns>
+                    <controls:DataGridTextColumn Width="200" Header="Name" 
+                  Binding="{Binding Membername}"/>
+                    <controls:DataGridTextColumn Width="200" Header="TYPE" 
+                  Binding="{Binding Type}"/>
+                </controls:DataGrid.Columns>
+
+                <controls:DataGrid.ItemDetailsTemplate>
+                    <DataTemplate>
+                        <Grid Margin="10,10,10,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel HorizontalAlignment="Left" Grid.Column="0">
+                                <TextBlock Text="Details: " FontWeight="Bold" FontSize="15"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="User:" Width="200"/>
+                                    <TextBlock Text="{Binding Membername}" Width="100" Foreground="White" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Activity:" Width="200"/>
+                                    <TextBlock Text="{Binding Type}" Width="200" Foreground="White"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Date:" Width="200"/>
+                                    <TextBlock Text="{Binding Date }" Width="200"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                        </Grid>
+                    </DataTemplate>
+                </controls:DataGrid.ItemDetailsTemplate>
+            </controls:DataGrid>
+
+
+            <StackPanel Background="White">
+                <StackPanel Height="45" Orientation="Horizontal" Margin="7,0" HorizontalAlignment="Center">
+                    <StackPanel VerticalAlignment="Center" Width="160">
+                        <TextBox Text="" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" PlaceholderText="ID" Foreground="White"/>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Center" Width="160">
+                        <TextBox Text="" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" PlaceholderText="NAME" Foreground="White"/>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Center" Width="160">
+                        <TextBox Text="" Width="150" Height="30" VerticalAlignment="Center" HorizontalAlignment="Right" PlaceholderText="PW" Margin="0,7,0,6" Foreground="White"/>
+                    </StackPanel>
+                    <Button Content="DELETE" Foreground="Black" Command="{Binding DeleteBookingCommand}"></Button>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
